@@ -1,0 +1,3 @@
+$ = jQuery
+
+humanMsg.displayMsg('ololo');

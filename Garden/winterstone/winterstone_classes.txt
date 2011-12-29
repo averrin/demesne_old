@@ -1,0 +1,98 @@
+@startuml winterstone_classes.png
+package "PyQt4"{
+	QAction: Qt Action
+	QLabel: Qt label widget
+	QMainWindow: Qt MainWindow
+}
+
+package "config.py"{
+	Config: Object-oriented configuration parser	
+}
+
+package "Base"{
+	WinterManager: Django ORM -like manager for WinterObject subclasses
+	WinterManager: +cls Class
+
+	WinterManager: +all() Get all elements
+	WinterManager: +count() Get count of elemants
+	WinterManager: +filter(**kwargs)
+	WinterManager: +get(**kwargs)
+	WinterManager: -__getitem__(key)
+
+	WinterObject: Enhanced primitive object
+	WinterObject: -__refs__
+	WinterObject: -__manager__ WinterManager object
+
+	WinterObject: -_get_all(cls) Classmethod for getting all objects
+	WinterObject: -__getitem__(key)
+	WinterObject: -__setitem__(key, value)
+	WinterObject: -__call__(*args, **kwargs) - Dummy
+
+	WinterObject <- WinterManager
+
+	Borg: Simple monostate class
+	Borg: -_shared_state
+
+	Borg <|-- WinterAPI
+
+	WinterAPI: IO API for plugins
+	WinterAPI: +info(msg) - Dummy
+	WinterAPI: +debug(msg) - Dummy
+	WinterAPI: +error(msg) - Dummy
+
+	package "Configuration"{
+		WinterConfig: Config with subscriptions
+		WinterConfig: -_subs Subscriptions list
+		WinterConfig: +add(listener)
+		WinterConfig: +delete(listener)
+		WinterConfig: #notify(key, value)
+		WinterConfig: #onChange(key, value)
+
+		WinterConfig --|> Config
+	}
+
+	package "Plugins"{
+		WinterObject <|-- WinterPlugin
+		WinterPM o-- WinterPlugin
+
+		WinterPM: Plugin manager
+		WinterPM: +plugins
+
+		WinterPM: +activate(plugin)
+		WinterPM: +deactivate(plugin)
+		WinterPM: +findModules
+		WinterPM: +loadModule(name, path="plugins/")
+		WinterPM: +processPlugin(module)
+		WinterPM: +activateAll()
+
+		WinterPlugin: Base plugin class
+		WinterPlugin: #onLoad()
+		WinterPlugin: +activate()
+		WinterPlugin: +deactivate()
+	}
+
+	WinterApp: Main non-gui application class
+	WinterApp: +getMethod(key, module="main")
+	WinterApp: -__getitem__(key)
+	WinterApp: #onSubsChange(key. value)
+
+}
+
+package "BaseQt" {
+	API --|> WinterAPI
+	WinterAction --|> WinterObject
+	WinterAction --|> QAction
+	SBAction --|> WinterAction
+
+	QLabel <|-- WinterFlag
+	QMainWindow <|-- SettingsManager
+
+	SettingsManager: +class settingsTable inherit QTableWidget 
+
+	WinterQtApp --|> QMainWindow
+	WinterQtApp --|> WinterApp
+	WinterQtApp <-- API
+
+}
+
+@enduml
