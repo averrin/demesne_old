@@ -15,13 +15,15 @@ if 'Vault' not in os.listdir(path):
         dirname = os.path.split(os.path.dirname(path))[1]
         if dirname == 'Demesne':
             path += 'Vault/'
-            if os.path.split(os.path.dirname(CWD))[1] not in ['Ravenor', 'Butler', 'darni', 'Steam']:
+            if os.path.split(os.path.dirname(CWD))[1] not in ['Ravenor', 'Butler', 'darni', 'Steam','AdomBrowser']:
                 CWD += 'Butler/'
         else:
             path = os.path.normpath(path + '../') + '/'
     VAULT = path
 else:
     VAULT = os.path.join(path, 'Vault/')
+
+print CWD, VAULT
 
 def loadIcons(icondir, ext=['.png', '.jpg']):
     """""

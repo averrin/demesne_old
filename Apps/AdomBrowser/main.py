@@ -1,32 +1,51 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
+from datetime import datetime, time
+
+starttime = datetime.now()
+
+import sys, os
+
+
 sys.path.append('Garden')
 sys.path.append('../../Garden')
-from datetime import datetime, time
+from winterstone.extraQt import WinterLine
+
 from winterstone.snowflake import *
 from winterstone.extraQt import WinterEditor, WinterDirTree
-from etherstone.base import EtherIntegration
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from winterstone.extraQt import WinterSideBar
 
-
-starttime = datetime.now()
-
-from winterstone.baseQt import WinterQtApp, API
+from winterstone.baseQt import WinterQtApp, API, WinterAction, SBAction, WinterAPI
+from etherstone.base import EtherIntegration
 
 __author__ = 'averrin'
 
 class UI(WinterQtApp):
-    '''
+    """
         Main class
-    '''
-    def __init__(self):
-        '''
-            Create your own mymainwidget inherits QWidget. For future access use self.mainWidget property
-        '''
+    """
+
+    def __init__(self, app):
+        """
+            Create your own mymainwidget inherits QWidget and set it through self.setMainWidget. For future access use self.mainWidget property
+        """
+        WinterQtApp.__init__(self, app)
+
+
+    def _afterMWInit(self):
+        """
+            Fired after MainWindow initialisation
+        """
+
+        pass
+
+    def _afterAppInit(self):
+        """
+            Fired after WinterApp initialisation
+        """
         wi=EtherIntegration(self,UI=False)
         mymainwidget=wi.getWebView(toolbar=True)
 
@@ -87,11 +106,10 @@ class UI(WinterQtApp):
 
 
         mymainwidget.view.onEmptyFind=onEmptyFind
+        mymainwidget.api=API()
 
 
         mymainwidget.dirtree=WinterDirTree(mymainwidget,CWD+'adomgb/','Guide book',mymainwidget.view, ffilter, nfilter)
-        WinterQtApp.__init__(self, mymainwidget)
-
 
         mymainwidget.view.setHomePage(CWD+'adomgb/adomgb-toc.html')
         mymainwidget.view.loadHomePage()
@@ -101,22 +119,8 @@ class UI(WinterQtApp):
 
         self.createSBAction('list','Content',mymainwidget.dirtree.getWidget(True,True),toolbar=True,keyseq='ALT+1')
 
+        self.setMainWidget(mymainwidget)
 
-
-
-
-    def _afterMWInit(self):
-        '''
-            Fired after MainWindow initialisation
-        '''
-
-        pass
-
-    def _afterAppInit(self):
-        '''
-            Fired after WinterApp initialisation
-        '''
-        pass
 
 
     def keyPressEvent(self, event):
@@ -125,18 +129,30 @@ class UI(WinterQtApp):
 
 
 
+def resolve(map1, map2, key):
+    return 'overwrite'
+
+
 def main():
     qtapp = QApplication(sys.argv)
-    ui = UI()
+    qtTranslator = QTranslator()
+    if qtTranslator.load(CWD + "lang/%s.qm" % QLocale.system().name()):
+        qtapp.installTranslator(qtTranslator)
+        print QLocale.system().name(), qtapp.tr('Translate loaded')
+    ui = UI(qtapp)
 
     ui.show()
     api = API()
 
     endtime = datetime.now()
     delta = endtime - starttime
-    api.info('Initialization time: %s' % delta)
+    ui.api.info('Initialization time: %s' % delta)
+
     qtapp.exec_()
+
 
 
 if __name__ == '__main__':
     main()
+
+
