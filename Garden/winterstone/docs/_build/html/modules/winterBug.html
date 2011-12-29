@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>WinterBug &mdash; Winterstone v0.8.6.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.8.6.6',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Winterstone v0.8.6.6 documentation" href="../index.html"/>
+    <link rel="prev" title="Snowflake" href="snowflake.html"/>
+</head>
+<body>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+               accesskey="I">index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li class="right">
+            <a href="snowflake.html" title="Snowflake"
+               accesskey="P">previous</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+    </ul>
+</div>
+
+<div class="document">
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+
+                <div class="section" id="module-winterBug">
+                    <span id="winterbug"></span>
+
+                    <h1>WinterBug<a class="headerlink" href="#module-winterBug" title="Permalink to this headline">¶</a>
+                    </h1>
+                    <dl class="class">
+                        <dt id="winterBug.WinterQtDebug">
+                            <em class="property">class </em><tt class="descclassname">winterBug.</tt><tt
+                                class="descname">WinterQtDebug</tt><big>(</big><em>app</em><big>)</big><a
+                                class="reference internal" href="../_modules/winterBug.html#WinterQtDebug"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                            href="#winterBug.WinterQtDebug"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Debug dockwidget class</p>
+                            <dl class="class">
+                                <dt id="winterBug.WinterQtDebug.WinterDebugLine">
+                                    <em class="property">class </em><tt
+                                        class="descname">WinterDebugLine</tt><big>(</big><em>parent</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/winterBug.html#WinterQtDebug.WinterDebugLine"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.WinterDebugLine"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Editline for execution methods</p>
+                                    <dl class="method">
+                                        <dt id="winterBug.WinterQtDebug.WinterDebugLine.checkLine">
+                                            <tt class="descname">checkLine</tt><big>(</big><big>)</big><a
+                                                class="reference internal"
+                                                href="../_modules/winterBug.html#WinterQtDebug.WinterDebugLine.checkLine"><span
+                                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                            href="#winterBug.WinterQtDebug.WinterDebugLine.checkLine"
+                                                                                            title="Permalink to this definition">¶</a>
+                                        </dt>
+                                        <dd><p>Check line for highlighting
+                                            by getMethod from app</p>
+                                        </dd>
+                                    </dl>
+
+                                </dd>
+                            </dl>
+
+                            <dl class="class">
+                                <dt id="winterBug.WinterQtDebug.WinterErrorList">
+                                    <em class="property">class </em><tt class="descclassname">WinterQtDebug.</tt><tt
+                                        class="descname">WinterErrorList</tt><big>(</big><em>parent</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/winterBug.html#WinterQtDebug.WinterErrorList"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.WinterErrorList"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>List of exceptions. Undone</p>
+                                    <dl class="method">
+                                        <dt id="winterBug.WinterQtDebug.WinterErrorList.addItem">
+                                            <tt class="descname">addItem</tt><big>(</big><em>item</em>, <em>*args</em>,
+                                            <em>**kwargs</em><big>)</big><a class="reference internal"
+                                                                            href="../_modules/winterBug.html#WinterQtDebug.WinterErrorList.addItem"><span
+                                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                            href="#winterBug.WinterQtDebug.WinterErrorList.addItem"
+                                                                                            title="Permalink to this definition">¶</a>
+                                        </dt>
+                                        <dd><p>Add exception item to list</p>
+                                        </dd>
+                                    </dl>
+
+                                    <dl class="method">
+                                        <dt id="winterBug.WinterQtDebug.WinterErrorList.addItemButton">
+                                            <tt class="descname">addItemButton</tt><big>(</big><em>item</em>,
+                                            <em>icon</em>, <em>method</em><big>)</big><a class="reference internal"
+                                                                                         href="../_modules/winterBug.html#WinterQtDebug.WinterErrorList.addItemButton"><span
+                                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                            href="#winterBug.WinterQtDebug.WinterErrorList.addItemButton"
+                                                                                            title="Permalink to this definition">¶</a>
+                                        </dt>
+                                        <dd><p>Add button to listitem</p>
+                                        </dd>
+                                    </dl>
+
+                                    <dl class="method">
+                                        <dt id="winterBug.WinterQtDebug.WinterErrorList.sig_map">
+                                            <tt class="descname">sig_map</tt><big>(</big><big>)</big><a
+                                                class="reference internal"
+                                                href="../_modules/winterBug.html#WinterQtDebug.WinterErrorList.sig_map"><span
+                                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                            href="#winterBug.WinterQtDebug.WinterErrorList.sig_map"
+                                                                                            title="Permalink to this definition">¶</a>
+                                        </dt>
+                                        <dd><p>I forgot, why its need</p>
+                                        </dd>
+                                    </dl>
+
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="winterBug.WinterQtDebug.debug">
+                                    <tt class="descclassname">WinterQtDebug.</tt><tt
+                                        class="descname">debug</tt><big>(</big><em>msg</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/winterBug.html#WinterQtDebug.debug"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.debug"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Add debug message to list</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="winterBug.WinterQtDebug.error">
+                                    <tt class="descclassname">WinterQtDebug.</tt><tt
+                                        class="descname">error</tt><big>(</big><em>msg</em>, <em>obj=''</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/winterBug.html#WinterQtDebug.error"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.error"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Add error message to list</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="winterBug.WinterQtDebug.info">
+                                    <tt class="descclassname">WinterQtDebug.</tt><tt
+                                        class="descname">info</tt><big>(</big><em>msg</em><big>)</big><a
+                                        class="reference internal" href="../_modules/winterBug.html#WinterQtDebug.info"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.info"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Add info message to list</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="winterBug.WinterQtDebug.inspectE">
+                                    <tt class="descclassname">WinterQtDebug.</tt><tt class="descname">inspectE</tt><big>(</big><em>*args</em>,
+                                    <em>**kwargs</em><big>)</big><a class="reference internal"
+                                                                    href="../_modules/winterBug.html#WinterQtDebug.inspectE"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.inspectE"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Exception inspection</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="winterBug.WinterQtDebug.makeMessage">
+                                    <tt class="descclassname">WinterQtDebug.</tt><tt
+                                        class="descname">makeMessage</tt><big>(</big><em>msg</em>, <em>color=''</em>,
+                                    <em>icon=''</em>, <em>bold=True</em>, <em>fgcolor=''</em>,
+                                    <em>timestamp=False</em><big>)</big><a class="reference internal"
+                                                                           href="../_modules/winterBug.html#WinterQtDebug.makeMessage"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#winterBug.WinterQtDebug.makeMessage"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Return listitem with nize attrs</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="function">
+                        <dt id="winterBug.bin">
+                            <tt class="descclassname">winterBug.</tt><tt
+                                class="descname">bin</tt><big>(</big><big>)</big><a class="headerlink"
+                                                                                    href="#winterBug.bin"
+                                                                                    title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>bin(QTextStream) -&gt; QTextStream</p>
+                        </dd>
+                    </dl>
+
+                    <dl class="function">
+                        <dt id="winterBug.hex">
+                            <tt class="descclassname">winterBug.</tt><tt
+                                class="descname">hex</tt><big>(</big><big>)</big><a class="headerlink"
+                                                                                    href="#winterBug.hex"
+                                                                                    title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>hex(QTextStream) -&gt; QTextStream</p>
+                        </dd>
+                    </dl>
+
+                    <dl class="function">
+                        <dt id="winterBug.oct">
+                            <tt class="descclassname">winterBug.</tt><tt
+                                class="descname">oct</tt><big>(</big><big>)</big><a class="headerlink"
+                                                                                    href="#winterBug.oct"
+                                                                                    title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>oct(QTextStream) -&gt; QTextStream</p>
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="winterBug.try_this">
+                            <em class="property">class </em><tt class="descclassname">winterBug.</tt><tt
+                                class="descname">try_this</tt><big>(</big><em>api</em><big>)</big><a
+                                class="reference internal" href="../_modules/winterBug.html#try_this"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                            href="#winterBug.try_this"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>decorator for wrap method in try-except and post exception to API</p>
+                        </dd>
+                    </dl>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+
+            <p class="topless"><a href="snowflake.html"
+                                  title="previous chapter">Snowflake</a></p>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+                <li><a href="../_sources/modules/winterBug.txt"
+                       rel="nofollow">Show Source</a></li>
+            </ul>
+            <div id="searchbox" style="display: none">
+                <h3>Quick search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+    </div>
+    <div class="clearer"></div>
+</div>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+                    >index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li class="right">
+            <a href="snowflake.html" title="Snowflake"
+                    >previous</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+    </ul>
+</div>
+<div class="footer">
+    &copy; Copyright 2011, Averrin.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.3.
+</div>
+</body>
+</html>

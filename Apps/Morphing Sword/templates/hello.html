@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block body %}
+<div id=content>
+        <ul>
+{% for item in items %}
+        <li>{{item.info}}</li>
+        {%endfor%}
+            </ul>
+
+
+    </div>
+<div id=bl><a href="winter://core.main_menu">Back</a></div>
+{% endblock %}

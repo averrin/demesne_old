@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Base &mdash; Winterstone v0.8.6.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.8.6.6',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Winterstone v0.8.6.6 documentation" href="../index.html"/>
+    <link rel="prev" title="Welcome to Winterstone’s documentation!" href="../index.html"/>
+</head>
+<body>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+               accesskey="I">index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li class="right">
+            <a href="../index.html" title="Welcome to Winterstone’s documentation!"
+               accesskey="P">previous</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+    </ul>
+</div>
+
+<div class="document">
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+
+                <div class="section" id="module-base">
+                    <span id="base"></span>
+
+                    <h1>Base<a class="headerlink" href="#module-base" title="Permalink to this headline">¶</a></h1>
+
+                    <p>Base of Winterstone lib.</p>
+                    <dl class="class">
+                        <dt id="base.Borg">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">Borg</tt><a
+                                class="reference internal" href="../_modules/base.html#Borg"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.Borg"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Simple monostate class</p>
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterAPI">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterAPI</tt><a
+                                class="reference internal" href="../_modules/base.html#WinterAPI"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.WinterAPI"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>IO API for plugins</p>
+                            <dl class="method">
+                                <dt id="base.WinterAPI.debug">
+                                    <tt class="descname">debug</tt><big>(</big><em>msg</em><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterAPI.debug"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterAPI.debug"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterAPI.error">
+                                    <tt class="descname">error</tt><big>(</big><em>msg</em><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterAPI.error"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterAPI.error"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterAPI.info">
+                                    <tt class="descname">info</tt><big>(</big><em>msg</em><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterAPI.info"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterAPI.info"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd></dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterApp">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterApp</tt><a
+                                class="reference internal" href="../_modules/base.html#WinterApp"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.WinterApp"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Main non-gui application class</p>
+                            <dl class="method">
+                                <dt id="base.WinterApp.getMethod">
+                                    <tt class="descname">getMethod</tt><big>(</big><em>key</em>,
+                                    <em>module='main'</em><big>)</big><a class="reference internal"
+                                                                         href="../_modules/base.html#WinterApp.getMethod"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterApp.getMethod"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterApp.loadConfigs">
+                                    <tt class="descname">loadConfigs</tt><big>(</big><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterApp.loadConfigs"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterApp.loadConfigs"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Load configuration from file</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterManager">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterManager</tt><big>(</big><em>cls</em><big>)</big><a
+                                class="reference internal" href="../_modules/base.html#WinterManager"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                            href="#base.WinterManager"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Django ORM -like manager for WinterObject subclasses</p>
+                            <dl class="method">
+                                <dt id="base.WinterManager.all">
+                                    <tt class="descname">all</tt><big>(</big><big>)</big><a class="reference internal"
+                                                                                            href="../_modules/base.html#WinterManager.all"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterManager.all"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Use native object _get_all method</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterManager.count">
+                                    <tt class="descname">count</tt><big>(</big><big>)</big><a class="reference internal"
+                                                                                              href="../_modules/base.html#WinterManager.count"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterManager.count"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>return number of items</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterManager.filter">
+                                    <tt class="descname">filter</tt><big>(</big><em>**kwargs</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterManager.filter"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterManager.filter"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Filter criteria pass like attr = value
+                                    TODO: __api</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterManager.get">
+                                    <tt class="descname">get</tt><big>(</big><em>**kwargs</em><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterManager.get"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterManager.get"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Get only first item of filter. Without Django-like exeption about not-uniq
+                                    item</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterObject">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterObject</tt><a
+                                class="reference internal" href="../_modules/base.html#WinterObject"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.WinterObject"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Enhanced primitive object</p>
+                            <dl class="method">
+                                <dt id="base.WinterObject.info">
+                                    <tt class="descname">info</tt><big>(</big><em>spacing=30</em>,
+                                    <em>collapse=1</em><big>)</big><a class="reference internal"
+                                                                      href="../_modules/base.html#WinterObject.info"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterObject.info"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Print some debug information</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterPM">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterPM</tt><big>(</big><em>config</em><big>)</big><a
+                                class="reference internal" href="../_modules/base.html#WinterPM"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.WinterPM"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Plugin manager</p>
+                            <dl class="method">
+                                <dt id="base.WinterPM.activate">
+                                    <tt class="descname">activate</tt><big>(</big><em>plugin</em><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterPM.activate"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterPM.activate"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Activate plugin</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPM.activateAll">
+                                    <tt class="descname">activateAll</tt><big>(</big><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPM.activateAll"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPM.activateAll"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPM.deactivate">
+                                    <tt class="descname">deactivate</tt><big>(</big><em>plugin</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPM.deactivate"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPM.deactivate"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Deactivate plugin</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPM.findModules">
+                                    <tt class="descname">findModules</tt><big>(</big><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPM.findModules"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPM.findModules"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Search plugin files
+                                    <a class="reference external" href="http://wiki.python.org/moin/ModulesAsPlugins">http://wiki.python.org/moin/ModulesAsPlugins</a>
+                                </p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPM.loadModule">
+                                    <tt class="descname">loadModule</tt><big>(</big><em>name</em>,
+                                    <em>path='plugins/'</em><big>)</big><a class="reference internal"
+                                                                           href="../_modules/base.html#WinterPM.loadModule"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterPM.loadModule"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Return a named module found in a given path.
+                                    <a class="reference external" href="http://wiki.python.org/moin/ModulesAsPlugins">http://wiki.python.org/moin/ModulesAsPlugins</a>
+                                </p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPM.processPlugin">
+                                    <tt class="descname">processPlugin</tt><big>(</big><em>module</em><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPM.processPlugin"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPM.processPlugin"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Create plugin instance from module</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="class">
+                        <dt id="base.WinterPlugin">
+                            <em class="property">class </em><tt class="descclassname">base.</tt><tt class="descname">WinterPlugin</tt><a
+                                class="reference internal" href="../_modules/base.html#WinterPlugin"><span
+                                class="viewcode-link">[source]</span></a><a class="headerlink" href="#base.WinterPlugin"
+                                                                            title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Base plugin class</p>
+                            <dl class="method">
+                                <dt id="base.WinterPlugin.activate">
+                                    <tt class="descname">activate</tt><big>(</big><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPlugin.activate"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPlugin.activate"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Overload...able method for activate</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPlugin.deactivate">
+                                    <tt class="descname">deactivate</tt><big>(</big><big>)</big><a
+                                        class="reference internal" href="../_modules/base.html#WinterPlugin.deactivate"><span
+                                        class="viewcode-link">[source]</span></a><a class="headerlink"
+                                                                                    href="#base.WinterPlugin.deactivate"
+                                                                                    title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Overload...able method for activate</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="method">
+                                <dt id="base.WinterPlugin.onLoad">
+                                    <tt class="descname">onLoad</tt><big>(</big><big>)</big><a
+                                        class="reference internal"
+                                        href="../_modules/base.html#WinterPlugin.onLoad"><span class="viewcode-link">[source]</span></a><a
+                                        class="headerlink" href="#base.WinterPlugin.onLoad"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Some base actions after create instance</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+
+            <p class="topless"><a href="../index.html"
+                                  title="previous chapter">Welcome to Winterstone&#8217;s documentation!</a></p>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+                <li><a href="../_sources/modules/base.txt"
+                       rel="nofollow">Show Source</a></li>
+            </ul>
+            <div id="searchbox" style="display: none">
+                <h3>Quick search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+    </div>
+    <div class="clearer"></div>
+</div>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+                    >index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li class="right">
+            <a href="../index.html" title="Welcome to Winterstone’s documentation!"
+                    >previous</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+    </ul>
+</div>
+<div class="footer">
+    &copy; Copyright 2011, Averrin.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.3.
+</div>
+</body>
+</html>

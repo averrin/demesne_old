@@ -1,0 +1,88 @@
+About
+-----
+
+Winterstone -- framework for PyQt application.
+
+Features
+--------
+
+* Template for application
+* Some pre-defined UI
+* Settings manager
+* Plugins
+* Dev tools
+
+Quick start
+-----------
+
+* Install
+* Run winter_admin.py new appname (its created appname dir with simple application)
+* Fill appname/config/main.cfg with your data
+* Run appname/main.py
+* See docs folder and source of main.py for other information
+
+Project folder structure
+------------------------
+
+::
+
+    .
+    ├── config
+    │   ├── debug.cfg   --  options of debug widget (WinterDebug)
+    │   ├── main.cfg    --  options of application. use this file for your settings
+    │   └── plugins.cfg --  list of active plugins. do not edit
+    ├── etc
+    │   └── pre-commit  --  hook for git. do winter_ver.py before commit (bump version in main.cfg)
+    ├── icons           --  some icons. place your icons here
+    ├── plugins         --  usful examples of plugins
+    │   ├── QSciConfig
+    │   │   ├── plugin.cfg
+    │   │   └── QSciConfig.py
+    │   └── UIConfig
+    │       ├── plugin.cfg
+    │       └── UIConfig.py
+    ├── ABOUT           --  information about your application
+    ├── core.py         --  main logic of your app
+    ├── __init__.py
+    ├── LICENSE
+    ├── main.py         --  main executable file. all UI logic here
+    └── TODO
+
+
+Lib structure
+-------------
+
+::
+
+    .
+    ├── base.py         --  base classes of library
+    ├── baseQt.py       --  base classes of UI
+    ├── extraQt.py      --  some extra widgets
+    ├── snowflake.py    --  small useful functions
+    └── winterBug.py    --  all about debug widget
+
+
+Dependencies
+------------
+
+* Python Config::
+
+    http://www.red-dove.com/config-doc/
+    install:
+    sudo pip install config
+    or
+    sudo easy_install config
+
+* Python KDE::
+
+    **optional**
+    requires for color comboboxes in settings manager
+    install:
+    sudo apt-get install python-kde
+
+* Python QScintilla2::
+
+    **optional**
+    requires for dev tools
+    install:
+    sudo apt-get install python-qscintilla2

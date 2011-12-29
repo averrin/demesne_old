@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="Averrin's personal site">
+	<meta name="author" content="Averrin">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="{{STATIC}}js/libs/jquery.js"></script>
+    <script type="text/javascript" src="{{STATIC}}js/libs/humanmsg.js"></script>
+
+    {% block css %}{% endblock %}
+
+</head>
+<body>
+	<div id="container">
+		<header>
+
+            {% block header %}{% endblock %}
+		</header>
+
+		<div id="main" role="main">
+
+            {% block body %}{% endblock %}
+		</div>
+
+		<footer>
+
+            {% block footer %}{% endblock %}
+		</footer>
+	</div>
+
+</body>
+</html>

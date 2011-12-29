@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{{STATIC}}css/style.css" type="text/css">
+<link rel="stylesheet" href="{{STATIC}}css/main.css" type="text/css">
+<link rel="stylesheet" href="{{STATIC}}css/colors.css" type="text/css">
+<link href="{{STATIC}}css/humanmsg.css" media="screen" type="text/css" rel="stylesheet">
+<!--<link href="{{STATIC}}css/debug.css" media="screen" type="text/css" rel="stylesheet">-->
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+<div id=title_warp>
+    <div id=title>
+        Morphing Sword
+    </div>
+    <span id='sub_text'>Game without story</span>
+</div>
+
+
+<div id='main_menu'>
+    <ul>
+        <li><a href="winter://core.load_items">Play</a></li>
+        <li><a onclick='humanMsg.displayMsg("Sorry, this function disabled")' href="#" class=dis>Load</a></li>
+        <li><a href="winter://core.show_settings">Settings</a></li>
+        <li><a href="winter://exit">Exit</a></li>
+    </ul>
+</div>
+
+        <div id=bl><a href="winter://core.credits">Credits</a></div>
+
+<script type="text/javascript">
+    $('body').addClass('main_warp')
+</script>
+{% endblock %}
