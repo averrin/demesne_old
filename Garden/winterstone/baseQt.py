@@ -241,6 +241,7 @@ class SettingsManager(QMainWindow):
             row = 0
             self.items = []
             array = self.conf_dict
+            self.setIconSize(QSize(30,30))
             for var in array:
                 if not var.endswith('_desc') and not var.endswith('_hidden') and var != 'activated' and not var.endswith('_variants') and type(
                     array[var]).__name__ != 'Mapping' and not ('%s_hidden'%var in array and array['%s_hidden'%var]):
@@ -260,6 +261,8 @@ class SettingsManager(QMainWindow):
                         desc = ''
                     if '%s_variants' % var in array:
                         vitem.variants = array['%s_variants' % var]
+                    if var.endswith('_icon'):
+                        vitem.setIcon(QIcon(API().icons[array[var]]))
                     ditem = QTableWidgetItem(desc)
                     ditem.name = 'ditem'
                     ditem.setFlags(Qt.ItemFlags(Qt.ItemIsSelectable | Qt.ItemIsUserCheckable | Qt.ItemIsEnabled))
@@ -280,6 +283,10 @@ class SettingsManager(QMainWindow):
                     except ValueError:
                         if value.startswith('[') and value.endswith(']') and type(eval(value)).__name__ == 'list':
                             value = eval(value)
+                        if item.name.endswith('_icon'):
+                            self.blockSignals(True)
+                            item.setIcon(QIcon(API().icons[value]))
+                            self.blockSignals(False)
                     self.conf_dict[item.name] = value
                 self.parent.statusBar.showMessage('%s change to %s' % (item.name, item.text()))
 
@@ -399,6 +406,8 @@ class SettingsManager(QMainWindow):
         self.applyButton.clicked.connect(self.applyOptions)
 
         self.tree.itemClicked.connect(self.ic)
+
+
 
 
     #TODO: make it right
