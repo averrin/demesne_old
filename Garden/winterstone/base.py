@@ -264,8 +264,6 @@ class WinterPM(object):
                     except Exception as e:
                         return
             except Exception as e:
-            #                print obj
-            #                raise e
                 pass
 
 
@@ -273,12 +271,8 @@ class WinterPM(object):
         for plugin in self.plugins:
             if plugin.name in self.config.plugins.active:
                 try:
-                    plugin.activate()
-                    plugin.active = True
-                    plugin.state = 'Activated'
-                except Exception as e:
-                    plugin.active = False
-                    plugin.state = e
+                    self.activate(plugin)
+                except Exception,e:
                     self.api.error(e)
             else:
                 plugin.state = 'Deactivated'

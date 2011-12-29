@@ -13,6 +13,7 @@ class Test(WinterPlugin):
         ItemPrototypes['Helm01'] = {'type': Armor, 'name': 'Helm', 'slot': 'Head', 'defense': 15,
                                     'icon': 'inv_helmet_01', 'weight': 10, 'desc': 'Helm from plugin', 'quality': 5}
 
+        self.api.script.executeFile(self.api.CWD+'plugins/test/test.ws',raw=True)
         self.active = True
         return True
 

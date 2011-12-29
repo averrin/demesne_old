@@ -277,3 +277,60 @@
 [29.12 15:03:00] INFO:		Plugins initialised
 [29.12 15:03:00] INFO:		Application initialised
 [29.12 15:03:00] INFO:		Initialization time: 0:00:02.551296
+[29.12 15:13:58] INFO:		======
+[29.12 15:14:18] ERROR:		'Test' object has no attribute 'app'
+[29.12 15:14:18] INFO:		Plugins initialised
+[29.12 15:14:20] INFO:		Application initialised
+[29.12 15:14:21] INFO:		Initialization time: 0:00:29.568629
+[29.12 15:14:33] INFO:		======
+[29.12 15:14:33] ERROR:		'Test' object has no attribute 'core'
+[29.12 15:14:33] INFO:		Plugins initialised
+[29.12 15:14:33] INFO:		Application initialised
+[29.12 15:14:34] INFO:		Initialization time: 0:00:01.124986
+[29.12 15:16:58] INFO:		======
+[29.12 15:17:00] INFO:		Plugins initialised
+[29.12 15:17:00] INFO:		Application initialised
+[29.12 15:17:01] INFO:		Initialization time: 0:00:03.548217
+[29.12 15:18:48] INFO:		======
+[29.12 15:18:50] INFO:		Plugins initialised
+[29.12 15:18:50] INFO:		Application initialised
+[29.12 15:18:50] INFO:		Initialization time: 0:00:03.784230
+[29.12 15:21:09] INFO:		======
+[29.12 15:21:11] INFO:		Plugins initialised
+[29.12 15:21:11] INFO:		Application initialised
+[29.12 15:21:11] INFO:		Initialization time: 0:00:03.408000
+[29.12 15:23:16] INFO:		======
+[29.12 15:23:19] ERROR:		u'Helm01\n'
+[29.12 15:23:19] ERROR:		'WinterScript' object has no attribute 'alisaes'
+[29.12 15:23:19] INFO:		Plugins initialised
+[29.12 15:23:19] INFO:		Application initialised
+[29.12 15:23:19] INFO:		Initialization time: 0:00:03.873313
+[29.12 15:24:09] INFO:		======
+[29.12 15:24:10] ERROR:		u'Helm01\n'
+[29.12 15:24:10] INFO:		Plugins initialised
+[29.12 15:24:10] INFO:		Application initialised
+[29.12 15:24:10] INFO:		Initialization time: 0:00:01.294124
+[29.12 15:25:11] INFO:		======
+[29.12 15:25:11] INFO:		Plugins initialised
+[29.12 15:25:11] INFO:		Application initialised
+[29.12 15:25:38] INFO:		======
+[29.12 15:25:39] INFO:		Plugins initialised
+[29.12 15:25:39] INFO:		Application initialised
+[29.12 15:25:39] INFO:		Initialization time: 0:00:00.520273
+[29.12 15:27:29] INFO:		======
+[29.12 15:27:31] INFO:		Plugins initialised
+[29.12 15:27:31] INFO:		Application initialised
+[29.12 15:27:31] INFO:		Initialization time: 0:00:03.290803
+[29.12 15:27:38] INFO:		======
+[29.12 15:27:40] INFO:		Plugins initialised
+[29.12 15:27:40] INFO:		Application initialised
+[29.12 15:27:40] INFO:		Initialization time: 0:00:03.707510
+[29.12 15:27:47] INFO:		======
+[29.12 15:27:48] ERROR:		'UI' object has no attribute ''
+[29.12 15:27:48] INFO:		Plugins initialised
+[29.12 15:27:48] INFO:		Application initialised
+[29.12 15:27:48] INFO:		Initialization time: 0:00:00.880907
+[29.12 15:28:24] INFO:		======
+[29.12 15:28:25] INFO:		Plugins initialised
+[29.12 15:28:25] INFO:		Application initialised
+[29.12 15:28:25] INFO:		Initialization time: 0:00:00.622847

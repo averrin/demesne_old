@@ -480,12 +480,17 @@ class WinterScript(object):
         self.app = app
         self.api = API()
         self.objects = {'app': self.app, 'api': self.api, 'script': self}
+        self.aliases={'set':'__setattr__'}
 
-    def executeFile(self, filename):
+    def executeFile(self, filename,raw=False):
         f = file(filename, 'r')
         for line in f:
-            if line.strip():
-                self.executeLine(line)
+            if line.strip() and not line.startswith('#'):
+                line=line.lstrip().rstrip()
+                if not raw:
+                    self.executeLine(line)
+                else:
+                    self.executeRaw(line)
 
     def executeRaw(self, line):
         words = line.split(' ')
@@ -506,9 +511,16 @@ class WinterScript(object):
 
         for i, arg in enumerate(line['args']):
             try:
+                line['args'][i]=arg.strip()
+            except:
+                pass
+            try:
                 line['args'][i] = int(arg)
             except ValueError:
                 pass
+
+        if method in self.aliases:
+            method=self.aliases[method]
 
         try:
             method = object.__getattribute__(method)
@@ -763,4 +775,5 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
 
     def beforeCore(self):
         self.script = WinterScript(self)
+        self.api.script=self.script
 
