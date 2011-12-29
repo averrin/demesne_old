@@ -242,8 +242,8 @@ class SettingsManager(QMainWindow):
             self.items = []
             array = self.conf_dict
             for var in array:
-                if not var.endswith('_desc') and var != 'activated' and not var.endswith('_variants') and type(
-                    array[var]).__name__ != 'Mapping':
+                if not var.endswith('_desc') and not var.endswith('_hidden') and var != 'activated' and not var.endswith('_variants') and type(
+                    array[var]).__name__ != 'Mapping' and not ('%s_hidden'%var in array and array['%s_hidden'%var]):
                     self.insertRow(row)
                     self.setVerticalHeaderItem(row, QTableWidgetItem(var))
                     vitem = QTableWidgetItem(str(array[var]))
@@ -479,7 +479,9 @@ class WinterScript(object):
     def __init__(self, app):
         self.app = app
         self.api = API()
-        self.objects = {'app': self.app, 'api': self.api, 'script': self}
+        self.objects = {'api': self.api, 'script': self}
+        if not self.app.config.options.script_safe:
+            self.objects['app']=self.app
         self.aliases={'set':'__setattr__'}
 
     def executeFile(self, filename,raw=False):
@@ -498,41 +500,42 @@ class WinterScript(object):
 
 
     def executeLine(self, line):
-        line = json.loads(line.replace("'", '"'), 'utf8')
-        try:
-            name, method = line['command'].split('.')
-        except ValueError:
-            name = None
-            method = line['command']
-        if name is None:
-            object = self.objects['app']
-        else:
-            object = self.objects[name]
-
-        for i, arg in enumerate(line['args']):
+        if self.app.config.options.script_engine:
+            line = json.loads(line.replace("'", '"'), 'utf8')
             try:
-                line['args'][i]=arg.strip()
-            except:
-                pass
-            try:
-                line['args'][i] = int(arg)
+                name, method = line['command'].split('.')
             except ValueError:
-                pass
+                name = None
+                method = line['command']
+            if name is None:
+                object = self.objects['app']
+            else:
+                object = self.objects[name]
 
-        if method in self.aliases:
-            method=self.aliases[method]
+            for i, arg in enumerate(line['args']):
+                try:
+                    line['args'][i]=arg.strip()
+                except:
+                    pass
+                try:
+                    line['args'][i] = int(arg)
+                except ValueError:
+                    pass
 
-        try:
-            method = object.__getattribute__(method)
+            if method in self.aliases:
+                method=self.aliases[method]
+
             try:
-                if not 'keys' in line:
-                    method(*line['args'])
-                else:
-                    self.app.createAction('', line['command'], lambda: method(*line['args']), keyseq=line['keys'])
-            except Exception, e:
+                method = object.__getattribute__(method)
+                try:
+                    if not 'keys' in line:
+                        method(*line['args'])
+                    else:
+                        self.app.createAction('', line['command'], lambda: method(*line['args']), keyseq=line['keys'])
+                except Exception, e:
+                    self.api.error(e)
+            except AttributeError, e:
                 self.api.error(e)
-        except AttributeError, e:
-            self.api.error(e)
 
 
     def addObject(self, name, object):

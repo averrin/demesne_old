@@ -334,3 +334,47 @@
 [29.12 15:28:25] INFO:		Plugins initialised
 [29.12 15:28:25] INFO:		Application initialised
 [29.12 15:28:25] INFO:		Initialization time: 0:00:00.622847
+[29.12 15:45:01] INFO:		======
+[29.12 15:45:35] INFO:		======
+[29.12 15:45:41] INFO:		Plugins initialised
+[29.12 15:45:47] INFO:		Application initialised
+[29.12 15:45:48] INFO:		Initialization time: 0:00:13.111208
+[29.12 15:46:09] INFO:		======
+[29.12 15:47:13] INFO:		======
+[29.12 15:47:13] INFO:		Plugins initialised
+[29.12 15:47:14] INFO:		Application initialised
+[29.12 15:47:14] INFO:		Initialization time: 0:00:00.871752
+[29.12 15:47:30] INFO:		======
+[29.12 15:47:32] INFO:		Plugins initialised
+[29.12 15:47:33] INFO:		Application initialised
+[29.12 15:47:33] INFO:		Initialization time: 0:00:03.428339
+[29.12 15:47:49] ERROR:		info() takes exactly 2 arguments (1 given)
+[29.12 15:47:52] INFO:		dfg
+[29.12 15:48:03] INFO:		======
+[29.12 15:48:06] INFO:		Plugins initialised
+[29.12 15:48:06] INFO:		Application initialised
+[29.12 15:48:06] INFO:		Initialization time: 0:00:04.034382
+[29.12 15:48:10] ERROR:		info() takes exactly 2 arguments (1 given)
+[29.12 15:48:14] INFO:		gdfg
+[29.12 15:48:21] ERROR:		info() takes exactly 2 arguments (1 given)
+[29.12 15:48:23] ERROR:		info() takes exactly 2 arguments (3 given)
+[29.12 15:48:39] INFO:		======
+[29.12 15:48:39] INFO:		Plugins initialised
+[29.12 15:48:39] INFO:		Application initialised
+[29.12 15:48:39] INFO:		Initialization time: 0:00:01.187357
+[29.12 15:48:55] INFO:		dfgdf
+[29.12 15:52:03] INFO:		======
+[29.12 15:52:07] INFO:		Plugins initialised
+[29.12 15:52:07] INFO:		Application initialised
+[29.12 15:53:10] INFO:		======
+[29.12 15:53:12] INFO:		Plugins initialised
+[29.12 15:54:49] INFO:		======
+[29.12 15:54:52] INFO:		Plugins initialised
+[29.12 15:55:38] INFO:		======
+[29.12 15:55:40] INFO:		Plugins initialised
+[29.12 15:56:12] INFO:		======
+[29.12 15:56:12] INFO:		Plugins initialised
+[29.12 15:56:39] INFO:		======
+[29.12 15:56:40] INFO:		Plugins initialised
+[29.12 15:56:40] INFO:		Application initialised
+[29.12 15:56:40] INFO:		Initialization time: 0:00:00.953237
