@@ -40,18 +40,10 @@
 	"buffers":
 	[
 		{
-			"file": "config/main.cfg",
+			"file": "plugins/test/test.py",
 			"settings":
 			{
-				"buffer_size": 3498,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "rpg/base.py",
-			"settings":
-			{
-				"buffer_size": 12257,
+				"buffer_size": 262,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,24 +51,8 @@
 			"file": "rpg/creatures.py",
 			"settings":
 			{
-				"buffer_size": 2486,
+				"buffer_size": 2921,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "rpg/effecttypes.py",
-			"settings":
-			{
-				"buffer_size": 600,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "rpg/rules.cfg",
-			"settings":
-			{
-				"buffer_size": 5753,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -88,10 +64,66 @@
 			}
 		},
 		{
-			"file": "rpg/itemtypes.py",
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.py",
 			"settings":
 			{
-				"buffer_size": 1749,
+				"buffer_size": 28648,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/snowflake.py",
+			"settings":
+			{
+				"buffer_size": 2085,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/extraQt.py",
+			"settings":
+			{
+				"buffer_size": 20903,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/debug.cfg",
+			"settings":
+			{
+				"buffer_size": 769,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/schema.cfg",
+			"settings":
+			{
+				"buffer_size": 329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/base.py",
+			"settings":
+			{
+				"buffer_size": 11011,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "plugins/test/plugin.cfg",
+			"settings":
+			{
+				"buffer_size": 102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 4722,
 				"line_ending": "Unix"
 			}
 		},
@@ -104,66 +136,10 @@
 			}
 		},
 		{
-			"file": "/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Global.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 136,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/snowflake.py",
-			"settings":
-			{
-				"buffer_size": 2007,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "main.py",
-			"settings":
-			{
-				"buffer_size": 4648,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/demomacros.ws",
-			"settings":
-			{
-				"buffer_size": 154,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/alexey.a.nabrodov/Dropbox/bin/Demesne/Apps/darni/lang/ru_RU.ts",
-			"settings":
-			{
-				"buffer_size": 4713,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.py",
-			"settings":
-			{
-				"buffer_size": 27821,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "core.py",
 			"settings":
 			{
-				"buffer_size": 5273,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "unittests.py",
-			"settings":
-			{
-				"buffer_size": 7869,
+				"buffer_size": 5384,
 				"line_ending": "Unix"
 			}
 		},
@@ -187,7 +163,7 @@
 			"file": "scripts/hotkeys.ws",
 			"settings":
 			{
-				"buffer_size": 133,
+				"buffer_size": 208,
 				"line_ending": "Unix"
 			}
 		},
@@ -197,6 +173,14 @@
 			{
 				"buffer_size": 707,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/winterBug.py",
+			"settings":
+			{
+				"buffer_size": 10135,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -228,6 +212,23 @@
 	},
 	"file_history":
 	[
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/rpg/base.py",
+		"/home/alexey.a.nabrodov/bin/Demesne/README.md",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/plugins/test/__init__.py",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/config/main.cfg",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/config/style.qss",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/config/debug.qss",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/winter.log",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/rpg/effecttypes.py",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Theme - Soda/Soda Dark.sublime-theme",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/ABOUT",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/rpg/itemtypes.py",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/rpg/rules.cfg",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Global.sublime-settings",
+		"/home/alexey.a.nabrodov/Dropbox/bin/Demesne/Apps/darni/lang/ru_RU.ts",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/scripts/demomacros.ws",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/unittests.py",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Monokai Soda.tmTheme",
 		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
 		"/home/alexey.a.nabrodov/.config/sublime-text-2/Pristine Packages/Python.sublime-package",
 		"/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.pyhotkeys.ws",
@@ -249,9 +250,7 @@
 		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/base.py",
 		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/rpg/__init__.py",
 		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/config/schema.cfg",
-		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Global.sublime-settings",
 		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
-		"/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/config/main.cfg",
 		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Base File.sublime-settings"
 	],
 	"find":
@@ -334,23 +333,189 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 9,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/main.cfg",
+					"file": "plugins/test/test.py",
 					"settings":
 					{
-						"buffer_size": 3498,
+						"buffer_size": 262,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1136,
-								1136
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "rpg/creatures.py",
+					"settings":
+					{
+						"buffer_size": 2921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								430,
+								430
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 48.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "rpg/items.py",
+					"settings":
+					{
+						"buffer_size": 2993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1117,
+								1117
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.py",
+					"settings":
+					{
+						"buffer_size": 28648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10164,
+								10164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 94.0,
+						"translation.y": 3493.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/snowflake.py",
+					"settings":
+					{
+						"buffer_size": 2085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								688,
+								688
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/extraQt.py",
+					"settings":
+					{
+						"buffer_size": 20903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13099,
+								13099
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4680.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "config/debug.cfg",
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								769
 							]
 						],
 						"settings":
@@ -366,11 +531,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "rpg/base.py",
+					"buffer": 7,
+					"file": "config/schema.cfg",
 					"settings":
 					{
-						"buffer_size": 12257,
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/base.py",
+					"settings":
+					{
+						"buffer_size": 11011,
 						"regions":
 						{
 						},
@@ -388,226 +581,30 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "rpg/creatures.py",
-					"settings":
-					{
-						"buffer_size": 2486,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								341,
-								341
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 144.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "rpg/effecttypes.py",
-					"settings":
-					{
-						"buffer_size": 600,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "rpg/rules.cfg",
-					"settings":
-					{
-						"buffer_size": 5753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								923,
-								923
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "rpg/items.py",
-					"settings":
-					{
-						"buffer_size": 2993,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2233,
-								2233
-							]
-						],
-						"settings":
-						{
-							"spell_check": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 432.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "rpg/itemtypes.py",
-					"settings":
-					{
-						"buffer_size": 1749,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.py",
-					"settings":
-					{
-						"buffer_size": 28085,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8957,
-								8957
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3510.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Global.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 136,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								133,
-								133
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4080.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/snowflake.py",
+					"file": "plugins/test/plugin.cfg",
 					"settings":
 					{
-						"buffer_size": 2007,
+						"buffer_size": 102,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								631,
-								631
+								96,
+								96
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -626,15 +623,15 @@
 					"file": "main.py",
 					"settings":
 					{
-						"buffer_size": 4648,
+						"buffer_size": 4722,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								352,
-								352
+								550,
+								550
 							]
 						],
 						"settings":
@@ -653,64 +650,10 @@
 				},
 				{
 					"buffer": 11,
-					"file": "scripts/demomacros.ws",
-					"settings":
-					{
-						"buffer_size": 154,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								124,
-								124
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "/home/alexey.a.nabrodov/Dropbox/bin/Demesne/Apps/darni/lang/ru_RU.ts",
-					"settings":
-					{
-						"buffer_size": 4713,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
 					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/baseQt.py",
 					"settings":
 					{
-						"buffer_size": 27821,
+						"buffer_size": 28085,
 						"regions":
 						{
 						},
@@ -734,18 +677,18 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 12,
 					"file": "core.py",
 					"settings":
 					{
-						"buffer_size": 5273,
+						"buffer_size": 5384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
+								184,
 								0
 							]
 						],
@@ -756,41 +699,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 682.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "unittests.py",
-					"settings":
-					{
-						"buffer_size": 7869,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2361,
-								2177
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 658.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
+					"buffer": 13,
 					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/winterstone_classes.txt",
 					"settings":
 					{
@@ -817,7 +732,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 14,
 					"file": "ui.py",
 					"settings":
 					{
@@ -828,8 +743,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								5279,
+								5279
 							]
 						],
 						"settings":
@@ -840,25 +755,25 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 82.0,
+						"translation.y": 1986.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 15,
 					"file": "scripts/hotkeys.ws",
 					"settings":
 					{
-						"buffer_size": 133,
+						"buffer_size": 208,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								133,
-								133
+								51,
+								0
 							]
 						],
 						"settings":
@@ -872,7 +787,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 16,
 					"file": "scripts/init.ws",
 					"settings":
 					{
@@ -893,6 +808,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/winterBug.py",
+					"settings":
+					{
+						"buffer_size": 10135,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6241,
+								6241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2644.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -928,7 +871,7 @@
 		"cols":
 		[
 			0.0,
-			0.642111368909,
+			0.480492687436,
 			1.0
 		],
 		"rows":
@@ -967,6 +910,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 196.0,
+	"side_bar_width": 220.0,
 	"status_bar_visible": true
 }

@@ -23,7 +23,6 @@ if 'Vault' not in os.listdir(path):
 else:
     VAULT = os.path.join(path, 'Vault/')
 
-print CWD, VAULT
 
 def loadIcons(icondir, ext=['.png', '.jpg']):
     """""

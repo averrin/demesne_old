@@ -10,7 +10,7 @@ from _collections import defaultdict
 import os
 import weakref
 from config import Config
-from winterstone.snowflake import CWD, VAULT
+from winterstone.snowflake import CWD, VAULT, loadIcons
 
 import imp
 
@@ -153,15 +153,19 @@ class WinterAPI(Borg):
         if not hasattr(self, 'CWD'):
             self.CWD = CWD
         icondir = self.CWD + 'icons/'
+        self.addIconsFolder(icondir)
+
+
+    def addIconsFolder(self,icondir):
         ext = ['.png', '.jpg', '.gif']
-        if not self.icons:
+        if not self.icons or icondir != self.CWD + 'icons/':
             try:
                 dirList = os.listdir(icondir)
             except OSError:
                 dirList = []
             globalDirList = os.listdir(VAULT + 'icons/')
             for fname in dirList:
-                if os.path.isdir(str(icondir + fname)):
+                if os.path.isdir(str(icondir + fname)) and not fname.startswith('_'):
                     subdirList = os.listdir(str(icondir + fname))
                     for fi in subdirList:
                         if fi[-4:] in ext:
@@ -171,6 +175,7 @@ class WinterAPI(Borg):
             for fname in globalDirList:
                 if fname[-4:] in ext:
                     self.icons[fname[:-4]] = os.path.join(VAULT, 'icons', fname)
+
 
 
     class IconDict(dict):
@@ -297,12 +302,14 @@ class WinterPlugin(WinterObject):
         WinterObject.__init__(self)
         WinterObject.__refs__[WinterPlugin].append(weakref.ref(self))
 
+
     def onLoad(self):
         """""
             Some base actions after create instance
         """""
         cfgfile = file(self.api.CWD + 'plugins/%s/plugin.cfg' % self.name)
         self.config = WinterConfig(cfgfile)
+        self.api.addIconsFolder(self.api.CWD + 'plugins/%s/icons' % self.name)
 
     def activate(self):
         """""
