@@ -58,6 +58,13 @@ class API(WinterAPI):
         else:
             self.echo(*args, **kwargs)
 
+
+    def setEmblem(self,action,emblem):
+        SBAction.objects.get(title=action).setEmblem(emblem)
+
+    def setBadge(self,action,color,text):
+            SBAction.objects.get(title=action).setBadge(color,text)
+
 #    def setTitle(self, *args, **kwargs):
 #        self.ex('title', *args, **kwargs)
 
@@ -94,6 +101,71 @@ class SBAction(WinterAction):
         if hasattr(self.widget, 'onShow'):
             self.widget.onShow()
 
+    def setEmblem(self,emblem):
+        sz=API().config.options.ui.sbicon_size
+        icon = self.icon().pixmap(QSize(sz,sz))
+        paint = QPainter()
+        paint.begin(icon)
+        h = icon.height()
+        w = icon.width()
+        light=QPixmap(self.api.icons['emblems/'+emblem])
+        paint.drawPixmap(w/2,-2,18,18,light)
+        paint.end()
+        self.setIcon(QIcon(icon))
+
+    def setAlpha(self,alpha):
+        icon=self.icon().pixmap(QSize(32,32))
+
+        alphaChannel = QPixmap(icon.width(), icon.height())
+        alphaChannel.fill(QColor(alpha, alpha, alpha))
+        icon.setAlphaChannel(alphaChannel)
+        self.setIcon(QIcon(icon))
+
+    def setBadge(self,color,text):
+        sz=API().config.options.ui.sbicon_size
+        icon = self.icon().pixmap(QSize(sz,sz))
+        paint = QPainter()
+        paint.begin(icon)
+        h = icon.height()
+        w = icon.width()
+
+        paint.setPen(QColor(color).darker(150))
+
+        linearGrad=QLinearGradient(QPointF(0, 0), QPointF(0, h))
+        linearGrad.setColorAt(0, QColor(color))
+        linearGrad.setColorAt(1, QColor(color).darker(200))
+
+        paint.setBrush(QBrush(linearGrad))
+        rect=QRect(w/2-3,2,w/2+2,h/3+2)
+        paint.drawRoundedRect(rect,2,2)
+#        paint.drawRoundedRect(QRect(0,0,w,h),2,2)
+
+        font=QFont('Sans')
+        n=0.8
+        font.setPixelSize(int(rect.height()*n))
+        fm = QFontMetrics(font)
+        wi=fm.width(text[:4])
+        hi=fm.height()
+
+        while (rect.width()-wi)/2<=0 or (rect.height()-hi)/2<=0:
+            n-=0.1
+            font.setPixelSize(int(rect.height()*n))
+            fm = QFontMetrics(font)
+            wi=fm.width(text[:4])
+            hi=fm.height()
+        paint.setFont(font)
+        paint.setPen(QColor('white'))
+        x=rect.topLeft().x()+(rect.width()-wi)/2
+        y=rect.topLeft().y()+(rect.height()-hi)/2
+        x2=rect.bottomRight().x()-(rect.width()-wi)/2
+        y2=y+hi
+
+        paint.setBrush(QBrush(QColor('white')))
+#        paint.drawRect(QRect(QPoint(x,y),QPoint(x2,y2)))
+        paint.drawText(QRect(QPoint(x,y),QPoint(x2,y2)),0,text[:4])
+
+        paint.end()
+        self.setIcon(QIcon(icon))
 
 class WinterFlag(QLabel):
     def setIcon(self, icon, tooltip=''):

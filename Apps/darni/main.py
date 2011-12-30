@@ -94,9 +94,17 @@ class UI(WinterQtApp):
         reroll.clicked.connect(self.core.reroll)
         vt.layout().addWidget(reroll)
 
-        widget.addTab(vt, icon, 'Vault')
+#        widget.addTab(vt, icon, 'Vault')
+
 
         self.core.start()
+
+        self.createSBAction('dummy', 'Vault', vt, toolbar=True, keyseq='F5')
+        self.api.setBadge('Vault','red','10')
+#        SBAction.objects.get(title='Vault').setAlpha(100)
+
+
+
 
 
     def keyPressEvent(self, event):

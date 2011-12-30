@@ -11,6 +11,7 @@ import os
 import weakref
 from config import Config
 from winterstone.snowflake import CWD, VAULT, loadIcons
+import re
 
 import imp
 
@@ -44,8 +45,23 @@ class WinterManager(object):
             n = 0
             for crit in kwargs:
                 try:
-                    if obj[crit] == kwargs[crit]:
-                        n += 1
+                    tmp=crit.split('__')
+                    action=None
+                    val=None
+                    if len(tmp)>1:
+                        crit=tmp[0]
+                        action=tmp[1]
+                        val=kwargs['%s__%s'%(crit,action)]
+                    if (action is None and obj[crit] == kwargs[crit]) or\
+                    (action=='like' and re.match(val,obj[crit])) or\
+                    (action=='gt' and obj[crit]>val) or\
+                    (action=='lt' and obj[crit]<val) or\
+                    (action=='gte' and obj[crit]>=val) or\
+                    (action=='lte' and obj[crit]<=val) or\
+                    (action=='ne' and obj[crit]!=val) or\
+                    (action=='isnone' and val and obj[crit] is None) or\
+                    (action=='isnone' and not val and obj[crit] is not None):
+                        n+=1
                 except KeyError:
                     pass
             if n == len(kwargs):
@@ -148,33 +164,31 @@ class WinterAPI(Borg):
 
     def __init__(self):
         Borg.__init__(self)
-        if not hasattr(self, 'icons'):
-            self.icons = self.IconDict()
         if not hasattr(self, 'CWD'):
             self.CWD = CWD
-        icondir = self.CWD + 'icons/'
-        self.addIconsFolder(icondir)
+        if not hasattr(self, 'icons'):
+            self.icons = self.IconDict()
+            icondir = self.CWD + 'icons/'
+            self.addIconsFolder(icondir)
+            self.addIconsFolder(VAULT + 'icons/')
 
 
-    def addIconsFolder(self,icondir):
+
+
+    def addIconsFolder(self,icondir,force=True):
         ext = ['.png', '.jpg', '.gif']
-        if not self.icons or icondir != self.CWD + 'icons/':
-            try:
-                dirList = os.listdir(icondir)
-            except OSError:
-                dirList = []
-            globalDirList = os.listdir(VAULT + 'icons/')
-            for fname in dirList:
-                if os.path.isdir(str(icondir + fname)) and not fname.startswith('_'):
-                    subdirList = os.listdir(str(icondir + fname))
-                    for fi in subdirList:
-                        if fi[-4:] in ext:
-                            self.icons[fname + '/' + fi[:-4]] = os.path.join(icondir, fname, fi)
-                elif fname[-4:] in ext:
-                    self.icons[fname[:-4]] = os.path.join(icondir, fname)
-            for fname in globalDirList:
-                if fname[-4:] in ext:
-                    self.icons[fname[:-4]] = os.path.join(VAULT, 'icons', fname)
+        try:
+            dirList = os.listdir(icondir)
+        except OSError:
+            dirList = []
+        for fname in dirList:
+            if os.path.isdir(str(icondir + fname)) and not fname.startswith('_'):
+                subdirList = os.listdir(str(icondir + fname))
+                for fi in subdirList:
+                    if fi[-4:] in ext:
+                        self.icons[fname + '/' + fi[:-4]] = os.path.join(icondir, fname, fi)
+            elif fname[-4:] in ext:
+                self.icons[fname[:-4]] = os.path.join(icondir, fname)
 
 
 
