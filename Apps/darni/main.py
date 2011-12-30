@@ -100,7 +100,9 @@ class UI(WinterQtApp):
         self.core.start()
 
         self.createSBAction('dummy', 'Vault', vt, toolbar=True, keyseq='F5')
-        self.api.setBadge('Vault','red','10')
+        self.api.setBadge('Vault','black','0')
+#        self.api.setEmblem('Vault','red')
+#        self.api.delBadge('Vault')
 #        SBAction.objects.get(title='Vault').setAlpha(100)
 
 

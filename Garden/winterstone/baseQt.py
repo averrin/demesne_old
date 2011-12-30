@@ -63,7 +63,12 @@ class API(WinterAPI):
         SBAction.objects.get(title=action).setEmblem(emblem)
 
     def setBadge(self,action,color,text):
-            SBAction.objects.get(title=action).setBadge(color,text)
+        SBAction.objects.get(title=action).setBadge(color,text)
+
+    def delBadge(self,action):
+        SBAction.objects.get(title=action).reset()
+    def delEmblem(self,action):
+        SBAction.objects.get(title=action).reset()
 
 #    def setTitle(self, *args, **kwargs):
 #        self.ex('title', *args, **kwargs)
@@ -76,13 +81,18 @@ class WinterAction(QAction, WinterObject):
         self.api = API()
         if 'icon' in kwargs:
             icon = kwargs['icon']
+            self.orig_icon=QIcon(self.api.icons[icon])
             self.setIcon(QIcon.fromTheme(icon, QIcon(self.api.icons[icon])))
+        if isinstance(args[0],QIcon):
+            icon=args[0]
+            self.orig_icon=icon
+            self.setIcon(icon)
 
 
 class SBAction(WinterAction):
-    def __init__(self, sideBarDock, *args):
+    def __init__(self, sideBarDock, *args, **kwargs):
         self.sideBarDock = sideBarDock
-        WinterAction.__init__(self, *args)
+        WinterAction.__init__(self, *args, **kwargs)
 
     def showWidget(self):
         if self.sideBarDock.isHidden():
@@ -102,6 +112,7 @@ class SBAction(WinterAction):
             self.widget.onShow()
 
     def setEmblem(self,emblem):
+        self.reset()
         sz=API().config.options.ui.sbicon_size
         icon = self.icon().pixmap(QSize(sz,sz))
         paint = QPainter()
@@ -113,6 +124,9 @@ class SBAction(WinterAction):
         paint.end()
         self.setIcon(QIcon(icon))
 
+    def reset(self):
+        self.setIcon(self.orig_icon)
+
     def setAlpha(self,alpha):
         icon=self.icon().pixmap(QSize(32,32))
 
@@ -122,6 +136,8 @@ class SBAction(WinterAction):
         self.setIcon(QIcon(icon))
 
     def setBadge(self,color,text):
+        self.reset()
+        text=str(text)
         sz=API().config.options.ui.sbicon_size
         icon = self.icon().pixmap(QSize(sz,sz))
         paint = QPainter()
