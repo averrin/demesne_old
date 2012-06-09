@@ -1,0 +1,103 @@
+[26.01 12:27:40] INFO:		======
+[26.01 12:46:52] INFO:		======
+[26.01 12:48:26] INFO:		======
+[26.01 12:48:28] INFO:		Plugins initialised
+[26.01 12:48:28] INFO:		Application initialised
+[26.01 12:48:28] INFO:		Initialization time: 0:00:02.151867
+[26.01 12:49:26] INFO:		======
+[26.01 12:49:26] INFO:		Plugins initialised
+[26.01 12:49:27] INFO:		Application initialised
+[26.01 12:49:27] INFO:		Initialization time: 0:00:00.641797
+[26.01 12:49:36] INFO:		======
+[26.01 12:49:37] INFO:		Plugins initialised
+[26.01 12:49:37] INFO:		Application initialised
+[26.01 12:49:37] INFO:		Initialization time: 0:00:01.036093
+[26.01 12:50:11] INFO:		======
+[26.01 12:50:11] INFO:		Plugins initialised
+[26.01 12:50:11] INFO:		Application initialised
+[26.01 12:50:11] INFO:		Initialization time: 0:00:00.708991
+[26.01 12:51:49] INFO:		======
+[26.01 12:52:01] INFO:		Plugins initialised
+[26.01 12:52:01] INFO:		Application initialised
+[26.01 12:52:02] INFO:		Initialization time: 0:00:13.910902
+[26.01 12:53:23] INFO:		======
+[26.01 12:53:24] INFO:		Plugins initialised
+[26.01 12:53:24] INFO:		Application initialised
+[26.01 12:53:24] INFO:		Initialization time: 0:00:00.774449
+[26.01 12:53:45] INFO:		======
+[26.01 12:53:45] INFO:		Plugins initialised
+[26.01 12:53:45] INFO:		Application initialised
+[26.01 12:53:45] INFO:		Initialization time: 0:00:00.717274
+[26.01 12:53:48] DEBUG:		#0 Connected
+[26.01 12:53:48] DEBUG:		#0 Logined
+[26.01 12:53:49] INFO:		Threads was stopped
+[26.01 12:53:49] INFO:		Thread #0 ended [sid: 39] (Total finished: 1)
+[26.01 12:53:52] INFO:		Threads was stopped
+[26.01 12:55:02] INFO:		======
+[26.01 12:55:03] INFO:		Plugins initialised
+[26.01 12:55:03] INFO:		Application initialised
+[26.01 12:55:03] INFO:		Initialization time: 0:00:00.861151
+[26.01 12:56:11] INFO:		======
+[26.01 12:56:12] INFO:		Plugins initialised
+[26.01 12:56:12] INFO:		Application initialised
+[26.01 12:56:12] INFO:		Initialization time: 0:00:00.837500
+[26.01 12:59:35] INFO:		======
+[26.01 12:59:50] INFO:		Plugins initialised
+[26.01 12:59:50] INFO:		Application initialised
+[26.01 12:59:51] INFO:		Initialization time: 0:00:18.614843
+[26.01 13:07:11] INFO:		======
+[26.01 13:07:19] INFO:		Plugins initialised
+[26.01 13:07:19] INFO:		Application initialised
+[26.01 13:07:19] INFO:		Initialization time: 0:00:08.709455
+[26.01 13:08:36] INFO:		======
+[26.01 13:08:37] INFO:		Plugins initialised
+[26.01 13:08:37] INFO:		Application initialised
+[26.01 13:08:37] INFO:		Initialization time: 0:00:00.752752
+[26.01 13:09:28] INFO:		======
+[26.01 13:09:29] INFO:		Plugins initialised
+[26.01 13:09:29] INFO:		Application initialised
+[26.01 13:09:29] INFO:		Initialization time: 0:00:00.750374
+[26.01 13:11:06] INFO:		======
+[26.01 13:11:06] INFO:		Plugins initialised
+[26.01 13:11:06] INFO:		Application initialised
+[26.01 13:11:06] INFO:		Initialization time: 0:00:00.750196
+[26.01 13:11:32] INFO:		======
+[26.01 13:11:33] INFO:		Plugins initialised
+[26.01 13:11:33] INFO:		Application initialised
+[26.01 13:11:33] INFO:		Initialization time: 0:00:00.813268
+[26.01 13:12:48] INFO:		======
+[26.01 13:12:48] INFO:		Plugins initialised
+[26.01 13:12:48] INFO:		Application initialised
+[26.01 13:12:48] INFO:		Initialization time: 0:00:00.708047
+[26.01 13:13:42] INFO:		======
+[26.01 13:13:42] INFO:		Plugins initialised
+[26.01 13:13:42] INFO:		Application initialised
+[26.01 13:13:42] INFO:		Initialization time: 0:00:00.788390
+[26.01 13:14:56] INFO:		======
+[26.01 13:14:57] INFO:		Plugins initialised
+[26.01 13:14:57] INFO:		Application initialised
+[26.01 13:14:57] INFO:		Initialization time: 0:00:00.749377
+[26.01 13:15:34] INFO:		======
+[26.01 13:15:35] INFO:		Plugins initialised
+[26.01 13:15:35] INFO:		Application initialised
+[26.01 13:15:35] INFO:		Initialization time: 0:00:00.772204
+[26.01 13:15:58] INFO:		======
+[26.01 13:16:02] INFO:		Plugins initialised
+[26.01 13:16:02] INFO:		Application initialised
+[26.01 13:16:02] INFO:		Initialization time: 0:00:05.957399
+[26.01 13:16:18] INFO:		======
+[26.01 13:16:23] INFO:		Plugins initialised
+[26.01 13:16:23] INFO:		Application initialised
+[26.01 13:16:23] INFO:		Initialization time: 0:00:05.659112
+[26.01 14:18:19] INFO:		======
+[26.01 14:18:27] INFO:		Plugins initialised
+[26.01 14:18:27] INFO:		Application initialised
+[26.01 14:18:27] INFO:		Initialization time: 0:00:08.311807
+[26.01 14:32:00] INFO:		======
+[26.01 14:32:01] INFO:		Plugins initialised
+[26.01 14:32:01] INFO:		Application initialised
+[26.01 14:32:01] INFO:		Initialization time: 0:00:01.040391
+[26.01 14:32:21] INFO:		======
+[26.01 14:32:22] INFO:		Plugins initialised
+[26.01 14:32:22] INFO:		Application initialised
+[26.01 14:32:22] INFO:		Initialization time: 0:00:01.270249

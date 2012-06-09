@@ -1,4 +1,4 @@
-from base import *
+from .base import *
 
 class Armor(Wearable):
     def __init__(self, name, slot, defense, *args, **kwargs):

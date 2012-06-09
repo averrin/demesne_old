@@ -8,7 +8,7 @@ from winterstone.base import WinterObject
 import re
 from winterstone.base import Borg
 from urllib2 import urlopen
-from winterstone.baseQt import API
+from winterstone.baseQt import API, WinterQtApp
 from winterstone.extraQt import WinterSearch
 
 try:
@@ -51,7 +51,6 @@ class EtherIntegration(Borg):
                 self.server = EtherServer(port=4801)
                 self.server.start()
 
-
     def showGreeting(self):
         self.parent.statusBar.showMessage(urlopen('http://api.averr.in/greeting').read())
 
@@ -80,28 +79,38 @@ class EtherIntegration(Borg):
 
         return frame
 
-#    @route('/static/:dir/:subdir/:sub_subdir/:file_name')
-#    @route('/static/:dir/:subdir/:file_name')
-#    @route('/static/:dir/:file_name')
-#    def server_static(dir,subdir='',sub_subdir='',file_name=''):
-#        API().debug(file_name)
-#        root='%sstatic/%s/' % (CWD,dir)
-#        if subdir:
-#            root+='%s/' % subdir
-#        if sub_subdir:
-#            root+='%s/' % sub_subdir
-#        return static_file(file_name, root=root)
-#    @route('/images/:dir/:subdir/:sub_subdir/:file_name')
-#    @route('/images/:dir/:subdir/:file_name')
-#    @route('/images/:dir/:file_name')
-#    def server_static_images(dir,subdir='',sub_subdir='',file_name=''):
-#        API().debug(file_name)
-#        root='%sstatic/images/%s/' % (CWD,dir)
-#        if subdir:
-#            root+='%s/' % subdir
-#        if sub_subdir:
-#            root+='%s/' % sub_subdir
-#        return static_file(file_name, root=root)
+    @route('/static/:dir/:subdir/:sub_subdir/:file_name')
+    @route('/static/:dir/:subdir/:file_name')
+    @route('/static/:dir/:file_name')
+    def server_static(dir,subdir='',sub_subdir='',file_name=''):
+        root='%sstatic/%s/' % (CWD,dir)
+        if subdir:
+            root+='%s/' % subdir
+        if sub_subdir:
+            root+='%s/' % sub_subdir
+        return static_file(file_name, root=root)
+
+    @route('/vault/:dir/:subdir/:sub_subdir/:file_name')
+    @route('/vault/:dir/:subdir/:file_name')
+    @route('/vault/:dir/:file_name')
+    def server_vault(dir,subdir='',sub_subdir='',file_name=''):
+        root='%s/%s/' % (VAULT,dir)
+        if subdir:
+            root+='%s/' % subdir
+        if sub_subdir:
+            root+='%s/' % sub_subdir
+        return static_file(file_name, root=root)
+
+    @route('/images/:dir/:subdir/:sub_subdir/:file_name')
+    @route('/images/:dir/:subdir/:file_name')
+    @route('/images/:dir/:file_name')
+    def server_static_images(dir,subdir='',sub_subdir='',file_name=''):
+        root='%sstatic/images/%s/' % (CWD,dir)
+        if subdir:
+            root+='%s/' % subdir
+        if sub_subdir:
+            root+='%s/' % sub_subdir
+        return static_file(file_name, root=root)
 
 
 
@@ -141,17 +150,19 @@ class EtherWebView(QWebView):
                 module = 'main'
             try:
                 if args[0]:
-                    self.wi.parent.getMethod(method, module)(*args)
+                    self.emit('exec',method, module,*args)
                 else:
-                    self.wi.parent.getMethod(method, module)()
+                    self.emit('exec',method, module)
                 self.wi.parent.debug('Execute: %s(%s) [%s]' % (method, args, module))
             except Exception, e:
                 self.api.error(e)
+#        elif link.authority() not in ['#', '','localhost:4801']:
         elif link.authority() not in ['#', '']:
             self.wi.parent.debug('GoTo: [%s] %s%s' % (link.scheme(), link.authority(), link.path()))
             self.load(link)
         else:
             pass
+
 
     def loadHomePage(self):
         self.load(self.hp)

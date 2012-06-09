@@ -9,19 +9,26 @@ except ImportError:
     pass
 
 CWD = sys.path[0] + '/'
-path = CWD
-if 'Vault' not in os.listdir(path):
-    while os.path.split(os.path.dirname(path))[1] != 'Vault':
-        dirname = os.path.split(os.path.dirname(path))[1]
-        if dirname == 'Demesne':
-            path += 'Vault/'
-            if os.path.split(os.path.dirname(CWD))[1] not in ['Ravenor', 'Butler', 'darni', 'Steam','AdomBrowser']:
-                CWD += 'Butler/'
-        else:
-            path = os.path.normpath(path + '../') + '/'
-    VAULT = path
-else:
-    VAULT = os.path.join(path, 'Vault/')
+vaults = [os.path.normpath(CWD + 'Vault/'), os.path.normpath(CWD + '../../Vault/') + '/', os.path.normpath(CWD + '../Vault/') + '/']
+VAULT = ''
+for v in vaults:
+    if os.path.isdir(v):
+        VAULT = v
+if not VAULT:
+    raise Exception('No Vault dir')
+
+#if 'Vault' not in os.listdir(path):
+#    while os.path.split(os.path.dirname(path))[1] != 'Vault':
+#        dirname = os.path.split(os.path.dirname(path))[1]
+#        if dirname == 'Demesne':
+#            path += 'Vault/'
+#            if os.path.split(os.path.dirname(CWD))[1] not in ['Ravenor', 'Butler', 'darni', 'Steam','AdomBrowser']:
+#                CWD += 'Butler/'
+#        else:
+#            path = os.path.normpath(path + '../') + '/'
+#    VAULT = path
+#else:
+#    VAULT = os.path.join(path, 'Vault/')
 
 
 def loadIcons(icondir, ext=['.png', '.jpg']):
@@ -31,7 +38,7 @@ def loadIcons(icondir, ext=['.png', '.jpg']):
     icons = {}
     dirList = os.listdir(icondir)
     for fname in dirList:
-        print str(icondir + fname), os.path.isdir(str(icondir + fname))
+        print(str(icondir + fname), os.path.isdir(str(icondir + fname)))
         if os.path.isdir(str(icondir + fname)):
             subdirList = os.listdir(str(icondir + fname))
             for fi in subdirList:
@@ -46,7 +53,7 @@ def getFileContent(filename):
     """""
         return file content
     """""
-    with file(filename) as f:
+    with open(filename) as f:
         content = f.read()
         try:
             enc = BeautifulSoup(content).originalEncoding
@@ -59,7 +66,7 @@ def getFileContent(filename):
     return content
 
 
-def replaceInFile(file, str, repl):
+def replaceInopen(file, str, repl):
     content = getFileContent(file)
     content = re.sub(str, repl, content)
     file = open(file, 'w')
@@ -72,3 +79,15 @@ def htmlColor(msg, color_str):
         return ''
     else:
         return '<span class="color_%s">%s</span>' % (color_str, msg)
+
+
+import pickle as pickle
+
+
+def save(obj, filename):
+    p = pickle.dumps(obj, 2)
+    open(filename, 'wb').write(p)
+
+
+def load(filename):
+    return pickle.load(open(filename, 'rb'))

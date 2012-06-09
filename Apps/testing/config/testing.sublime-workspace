@@ -1,0 +1,1052 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"vi",
+				"viewer"
+			],
+			[
+				"thre",
+				"threadform"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"labl",
+				"labels"
+			],
+			[
+				"f",
+				"fetchall"
+			],
+			[
+				"la",
+				"layout"
+			],
+			[
+				"use",
+				"user"
+			],
+			[
+				"Win",
+				"WinterObject"
+			],
+			[
+				"cal",
+				"calcWeight"
+			],
+			[
+				"it",
+				"items"
+			],
+			[
+				"in",
+				"inventory"
+			],
+			[
+				"cu",
+				"cursedRing"
+			],
+			[
+				"s",
+				"self"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/var/www/guiz/testing/qt.sh",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/main.py",
+			"settings":
+			{
+				"buffer_size": 4648,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/darni/Garden/winterstone/baseQt.py",
+			"settings":
+			{
+				"buffer_size": 26351,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/ui.py",
+			"settings":
+			{
+				"buffer_size": 4040,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/worker.py",
+			"settings":
+			{
+				"buffer_size": 4314,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Apps/Steam/main.py",
+			"settings":
+			{
+				"buffer_size": 4382,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/etherstone/base.py",
+			"settings":
+			{
+				"buffer_size": 6704,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/main.py",
+			"settings":
+			{
+				"buffer_size": 21243,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/templates/proc_report.html",
+			"settings":
+			{
+				"buffer_size": 1953,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/templates/total_report.html",
+			"settings":
+			{
+				"buffer_size": 2264,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/templates/style.css",
+			"settings":
+			{
+				"buffer_size": 2079,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/install.sh",
+			"settings":
+			{
+				"buffer_size": 147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/core.py",
+			"settings":
+			{
+				"buffer_size": 716,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/users.cfg",
+			"settings":
+			{
+				"buffer_size": 1311,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/Garden/winterstone/snowflake.py",
+			"settings":
+			{
+				"buffer_size": 2007,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/help.html",
+			"settings":
+			{
+				"buffer_size": 6023,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/ABOUT",
+			"settings":
+			{
+				"buffer_size": 55,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/proc.list",
+			"settings":
+			{
+				"buffer_size": 174298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.cfg",
+			"settings":
+			{
+				"buffer_size": 2705,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/guiz/testing/TODO",
+			"settings":
+			{
+				"buffer_size": 27,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 31.0,
+		"selected_items":
+		[
+			[
+				"pyt",
+				"Snippet: Try/Except"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 129.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/guiz/testing/proc_report.html",
+		"/var/www/guiz/testing/total_report.html",
+		"/var/www/guiz/testing/table.css",
+		"/var/www/guiz/testing/Garden/winterstone/extraQt.py",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Delete Line.sublime-macro",
+		"/var/www/guiz/testing/main.py",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Default.sublime-commands",
+		"/var/www/guiz/testing/Garden/winterstone/base.py",
+		"/home/alexey.a.nabrodov/bin/Demesne/Garden/winterstone/base.py",
+		"/home/alexey.a.nabrodov/bin/darni/ui.py",
+		"/var/www/guiz/testing/testing.py",
+		"/var/www/guiz/testing/install.sh",
+		"/home/alexey.a.nabrodov/bin/Demesne/Apps/Ravenor/main.py",
+		"/var/www/guiz/testing/main.cfg",
+		"/var/www/guiz/testing/config/schema.cfg",
+		"/var/www/guiz/testing/proc.list_test",
+		"/var/www/guiz/other/convertation/main.py",
+		"/var/www/guiz/web/app/controllers/components/user.php",
+		"/var/www/guiz/web/app/controllers/welcome_controller.php",
+		"/var/www/guiz/web/sql/stored_procedures/web_user_login.sql",
+		"/var/www/guiz/web/app/views/apps/show_add_form.ctp",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+		"/var/www/guiz/web/app/datamaps/appartments.php",
+		"/var/www/guiz/web/app/controllers/apps_controller.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/application/web_user_get_offers.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/application/web_user_get_applications_by_addr.sql",
+		"/var/www/guiz/web/app/datamaps/application.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/proc_list.wiki",
+		"/home/alexey.a.nabrodov/Dropbox/bin/Demesne/Apps/darni/lang/ru.po",
+		"/home/alexey.a.nabrodov/php_projects/guiz/web/billing_link.wiki",
+		"/home/alexey.a.nabrodov/php_projects/guiz/web/deploy.wiki",
+		"/var/www/guiz/web/docs.wiki",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/department/web_user_get_departments_for_filter.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/user/web_user_add_web_user.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/contract/web_user_add_usercontract.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appartments/web_user_edit_appartments.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appartments/web_user_get_contracts_by_appartment.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appartments/web_user_edit_appartment.sql",
+		"/var/www/guiz/web/app/datamaps/users.php",
+		"/var/www/guiz/web/app/views/layouts/ajax_template.ctp",
+		"/var/www/guiz/web/app/webroot/css/building_goonew.css",
+		"/var/www/guiz/web/app/config/custom.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appartments/web_user_del_appartments.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appartments/web_user_appartments_get_schema.sql",
+		"/var/www/guiz/web/app/datamaps/buildings.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/build_app_agents.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_update_appagent.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_get_appagents.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_get_appagent_id.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/application/web_user_del_application.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/application/web_user_get_application_by_id.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_get_app_agents.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_get_agents_for_filter.sql",
+		"/var/www/guiz/web/app/datamaps/appagents.php",
+		"/var/www/guiz/web/app/controllers/appagents_controller.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_add_appagent.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/appagent/web_user_del_appagent_by_id.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/job/web_user_edit_jobposition.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_update_app.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_set_builder_to_app.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_set_app_state.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_get_offers_by_app.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_get_count_apps_in_addr.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_can_change_app_state.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_add_app.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_user_get_app_info.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_get_app_states.sql",
+		"/var/www/guiz/web/app/datamaps/addresses.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/build/web_user_get_build_state.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/advert/web_user_add_advert_places.sql",
+		"/var/www/guiz/web/app/datamaps/advert.php",
+		"/var/www/guiz/web/app/controllers/advert_controller.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/app/web_get_app_states_for_filter.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/address/web_user_search_addresses.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/advert/web_user_del_advert_types.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/advert/web_user_del_advert_places.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/advert/web_user_add_advert_types.sql",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/address/web_get_search_addresses_by_org.sql",
+		"/var/www/guiz/web/app/controllers/buildings_controller.php",
+		"/var/www/guiz/web/sql/stored_procedures/building/listings/address/web_get_search_addresses_by_org.sqlactions.php",
+		"/var/www/guiz/web/app/views/workgroups/staff.ctp",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+		"/home/alexey.a.nabrodov/.config/sublime-text-2/Packages/Default/Base File.sublime-settings"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"th>",
+			"self",
+			"proccharts",
+			"#vsTable",
+			"self.stop",
+			"^[ \\t]*$",
+			"^call web_user_get_applications_list_for_builder.*$",
+			"setMinumum",
+			"print",
+			"text()",
+			"отоброжать",
+			"self.data=",
+			"self.progress",
+			"self.calls",
+			"..",
+			"self.table",
+			"self.parent.table",
+			"self.",
+			"step",
+			"^ ",
+			"timedelta",
+			"SID",
+			"cod",
+			"setRange",
+			"excep",
+			":\\n*$",
+			"call web_user_get_area_types(518, '66ae56712230616c2ec9dcbec49caa9c', '127.0.0.1', '86fb6167ba8ba911795655d1c18e08cd');",
+			"uniq",
+			"^ *$",
+			"_init_role",
+			"fore",
+			"init",
+			"javascript_everytime",
+			"print",
+			"curs",
+			"cursed",
+			"_afterInit",
+			"main",
+			"core",
+			"hero"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"td>",
+			"self.parent",
+			"detail",
+			"",
+			"setMinimum",
+			"показывать",
+			"self.parent.progress",
+			"self.parent.calls",
+			"self.parentcalls",
+			".",
+			"self.",
+			"self.parent.",
+			"\\t",
+			"",
+			"uniq"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/var/www/guiz/testing/qt.sh",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Apps/darni/main.py",
+					"settings":
+					{
+						"buffer_size": 4648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1530.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/alexey.a.nabrodov/bin/darni/Garden/winterstone/baseQt.py",
+					"settings":
+					{
+						"buffer_size": 26351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2681,
+								2681
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 938.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/var/www/guiz/testing/ui.py",
+					"settings":
+					{
+						"buffer_size": 4040,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1703,
+								1703
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/var/www/guiz/testing/worker.py",
+					"settings":
+					{
+						"buffer_size": 4314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2486,
+								2486
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 124.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Apps/Steam/main.py",
+					"settings":
+					{
+						"buffer_size": 4382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 6.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/alexey.a.nabrodov/bin/Demesne/Garden/etherstone/base.py",
+					"settings":
+					{
+						"buffer_size": 6704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								592,
+								592
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 11,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "/var/www/guiz/testing/main.py",
+					"settings":
+					{
+						"buffer_size": 21243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9265,
+								9265
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4571.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/var/www/guiz/testing/templates/proc_report.html",
+					"settings":
+					{
+						"buffer_size": 1953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								702,
+								702
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 448.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/var/www/guiz/testing/templates/total_report.html",
+					"settings":
+					{
+						"buffer_size": 2264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1521,
+								1521
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/var/www/guiz/testing/templates/style.css",
+					"settings":
+					{
+						"buffer_size": 2079,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1929,
+								1929
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1792.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/var/www/guiz/testing/install.sh",
+					"settings":
+					{
+						"buffer_size": 147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/var/www/guiz/testing/core.py",
+					"settings":
+					{
+						"buffer_size": 716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								195,
+								195
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/var/www/guiz/testing/users.cfg",
+					"settings":
+					{
+						"buffer_size": 1311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/var/www/guiz/testing/Garden/winterstone/snowflake.py",
+					"settings":
+					{
+						"buffer_size": 2007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								626,
+								626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/var/www/guiz/testing/help.html",
+					"settings":
+					{
+						"buffer_size": 6023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3729,
+								3729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 528.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/var/www/guiz/testing/ABOUT",
+					"settings":
+					{
+						"buffer_size": 55,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/var/www/guiz/testing/proc.list",
+					"settings":
+					{
+						"buffer_size": 174298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5267,
+								5398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 24.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "main.cfg",
+					"settings":
+					{
+						"buffer_size": 2705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/var/www/guiz/testing/TODO",
+					"settings":
+					{
+						"buffer_size": 27,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.453125,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 147.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 196.0,
+	"status_bar_visible": true
+}

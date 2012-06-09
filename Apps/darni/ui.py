@@ -1,6 +1,6 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from winterstone.baseQt import WinterAPI
+from winterstone.baseQt import WinterAPI, IconPainter
 from datetime import datetime, time
 from rpg.base import *
 
@@ -19,6 +19,7 @@ class API(WinterAPI):
 
     def drop(self, msg):
         self.ex('getLog')().drop(msg)
+#from winterstone.baseQt import API
 
 
 class GameLog(QDockWidget):
@@ -47,7 +48,7 @@ class GameLog(QDockWidget):
         font.setBold(bold)
         font.setPointSize(9)
         item.setFont(font)
-        item.setTextColor(QColor(fgcolor))
+        item.setForeground(QBrush(QColor(fgcolor)))
         if icon:
             item.setIcon(QIcon(self.parent.api.icons[icon]))
         return item
@@ -77,14 +78,14 @@ class GameLog(QDockWidget):
 class ContainerPanel(QTableWidget):
     def __init__(self, parent, container):
         self.container = container
-        self.api = API()
+        self.api = parent.api
         self.parent = parent
         QTableWidget.__init__(self, 0, 5)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self.horizontalHeader().setResizeMode(QHeaderView.Stretch)
-        self.headers = [self.tr(u'Item'), self.tr(u'Enchant'), self.tr(u'Def/Dmg'), self.tr(u'Weight'),
-                        self.tr(u'Value')]
+        self.headers = [self.tr('Item'), self.tr('Enchant'), self.tr('Def/Dmg'), self.tr('Weight'),
+                        self.tr('Value')]
 
         self.setIconSize(QSize(self.api.config.options.app.inv_icon_size, self.api.config.options.app.inv_icon_size))
         self.setHorizontalHeaderLabels(self.headers)
@@ -92,7 +93,7 @@ class ContainerPanel(QTableWidget):
         self.itemClicked.connect(self.giveItem)
 
     def giveItem(self, item):
-        print item.item
+        print(item.item)
         self.parent.core.hero.inventory.add(item.item)
         self.container.remove(item.item)
         self.updateItems()
@@ -134,7 +135,7 @@ class ContainerPanel(QTableWidget):
         # iconitem.setIcon(QIcon(self.api.icons[self.api.config.options.app.weight_icon]))
         # self.setVerticalHeaderItem(n,iconitem)
         # n+=1
-        self.setItem(n, 0, QTableWidgetItem(self.tr(u'Total coins:')))
+        self.setItem(n, 0, QTableWidgetItem(self.tr('Total coins:')))
         self.setItem(n, 1, QTableWidgetItem('%s' % self.container.coins))
         iconitem = QTableWidgetItem('')
         iconitem.setIcon(QIcon(self.api.icons[self.api.config.options.app.coins_icon]))
@@ -144,16 +145,17 @@ class ContainerPanel(QTableWidget):
 class InventoryPanel(QTableWidget):
     def __init__(self, parent, owner):
         self.owner = owner
-        self.api = API()
+        self.api = parent.api
         self.parent = parent
         QTableWidget.__init__(self, 0, 5)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self.horizontalHeader().setResizeMode(QHeaderView.Stretch)
-        self.headers = [self.tr(u'Item'), self.tr(u'Enchant'), self.tr(u'Def/Dmg'), self.tr(u'Weight'),
-                        self.tr(u'Value')]
+        self.headers = [self.tr('Item'), self.tr('Enchant'), self.tr('Def/Dmg'), self.tr('Weight'),
+                        self.tr('Value')]
         # for header in headers:
         # hs.append(QString(header))
+
 
         self.setIconSize(QSize(self.api.config.options.app.inv_icon_size, self.api.config.options.app.inv_icon_size))
         self.itemActivated.connect(self.itemEquip)
@@ -166,6 +168,7 @@ class InventoryPanel(QTableWidget):
         self.setSortingEnabled(False)
         self.clear()
         self.setHorizontalHeaderLabels(self.headers)
+        paint=IconPainter()
         n = 0
         for n, item in enumerate(self.owner.inventory.items):
             self.setRowCount(n + 1)
@@ -176,8 +179,11 @@ class InventoryPanel(QTableWidget):
             self.setItem(n, 0, qitem)
             iitem = QTableWidgetItem(item.enchant.name if hasattr(item, 'enchant') and item.enchant is not None else '')
             if hasattr(item, 'enchant') and item.enchant:
+                icon=qitem.icon().pixmap(QSize(64,64))
+                qitem.setIcon(QIcon(paint.drawEmblem(icon,'pvprank'+str(item.quality-7).zfill(2))))
                 iitem.setIcon(QIcon(self.api.icons[item.enchant.icon]))
                 iitem.setToolTip(item.enchant.info)
+
             self.setItem(n, 1, iitem)
             self.setItem(n, 3, QTableWidgetItem(str(item.weight)))
             if hasattr(item, 'defense'):
@@ -192,7 +198,7 @@ class InventoryPanel(QTableWidget):
                 self.setItem(n, 2, QTableWidgetItem(''))
 
             if hasattr(item, 'equipped') and item.equipped:
-                for i in xrange(5):
+                for i in range(5):
                     try:
                         self.item(n, i).setBackgroundColor(QColor(self.api.config.options.app.inv_equipped_color))
                     except:
@@ -202,7 +208,7 @@ class InventoryPanel(QTableWidget):
                         # self.setVerticalHeaderItem(n,iconitem)
         n += 1
         self.setRowCount(n + 1)
-        self.setItem(n, 0, QTableWidgetItem(self.tr(u'Total weight:')))
+        self.setItem(n, 0, QTableWidgetItem(self.tr('Total weight:')))
         self.setItem(n, 1,
             QTableWidgetItem('%s / %s' % (self.owner.inventory.calcWeight(), self.owner.inventory.capacity)))
         iconitem = QTableWidgetItem('')
@@ -210,7 +216,7 @@ class InventoryPanel(QTableWidget):
         self.setVerticalHeaderItem(n, iconitem)
         n += 1
         self.setRowCount(n + 1)
-        self.setItem(n, 0, QTableWidgetItem(self.tr(u'Total coins:')))
+        self.setItem(n, 0, QTableWidgetItem(self.tr('Total coins:')))
         self.setItem(n, 1, QTableWidgetItem('%s' % self.owner.Gold))
         iconitem = QTableWidgetItem('')
         iconitem.setIcon(QIcon(self.api.icons[self.api.config.options.app.coins_icon]))
@@ -234,16 +240,16 @@ class InventoryPanel(QTableWidget):
         menu.addAction(QAction(QIcon(self.api.icons[item.item.icon]), item.text(), self))
         menu.addSeparator()
         if issubclass(item.item.__class__, Wearable):
-            self.eq = QAction(self.tr(u'Unequip') if item.item.equipped else self.tr(u'Equip'), self)
+            self.eq = QAction(self.tr('Unequip') if item.item.equipped else self.tr('Equip'), self)
             self.eq.triggered.connect(self.equip)
             self.eq.item = item
             menu.addAction(self.eq)
         if hasattr(item.item, 'use'):
-            self.use = QAction(self.tr(u'Use'), self)
+            self.use = QAction(self.tr('Use'), self)
             self.use.triggered.connect(self.itemUse)
             self.use.item = item
             menu.addAction(self.use)
-        self.de = QAction(self.tr(u'Drop'), self)
+        self.de = QAction(self.tr('Drop'), self)
         self.de.triggered.connect(self.itemDrop)
         self.de.item = item
         menu.addAction(self.de)
@@ -272,8 +278,8 @@ class InventoryPanel(QTableWidget):
 
 
     def lock(self):
-        for i in xrange(self.rowCount() - 1):
-            for j in xrange(self.columnCount()):
+        for i in range(self.rowCount() - 1):
+            for j in range(self.columnCount()):
                 item = self.item(i, j)
                 if item:
                     item.setFlags(Qt.ItemIsSelectable)
@@ -284,7 +290,7 @@ class DollPanel(QTableWidget):
     def __init__(self, parent, owner):
         self.owner = owner
         QTableWidget.__init__(self, len(self.owner.doll.slots), 2)
-        self.setHorizontalHeaderLabels([self.tr(u'Slot'), self.tr(u'Item')])
+        self.setHorizontalHeaderLabels([self.tr('Slot'), self.tr('Item')])
         self.setIconSize(
             QSize(parent.api.config.options.app.doll_icon_size, parent.api.config.options.app.doll_icon_size))
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -297,8 +303,8 @@ class DollPanel(QTableWidget):
             self.setItem(n, 0, item)
             self.takeVerticalHeaderItem(n)
 
-        for i in xrange(self.rowCount() - 1):
-            for j in xrange(self.columnCount()):
+        for i in range(self.rowCount() - 1):
+            for j in range(self.columnCount()):
                 item = self.item(i, j)
                 if item:
                     item.setFlags(Qt.ItemIsSelectable)
@@ -308,7 +314,7 @@ class DollPanel(QTableWidget):
 class StatsPanel(QTableWidget):
     def __init__(self, parent, owner):
         self.owner = owner
-        self.api = API()
+        self.api = parent.api
         QTableWidget.__init__(self, len(self.api.config.options.app.stats), 2)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.horizontalHeader().setResizeMode(QHeaderView.Stretch)
@@ -326,8 +332,8 @@ class StatsPanel(QTableWidget):
             st.setIcon(QIcon(self.api.icons[sts[1]]))
             self.setItem(n, 1, QTableWidgetItem(str(self.owner.__getattribute__(sts[0]))))
 
-        for i in xrange(self.rowCount() - 1):
-            for j in xrange(self.columnCount()):
+        for i in range(self.rowCount() - 1):
+            for j in range(self.columnCount()):
                 item = self.item(i, j)
                 if item:
                     item.setFlags(Qt.ItemIsSelectable)
@@ -337,7 +343,7 @@ class StatsPanel(QTableWidget):
 class EffectsBar(QWidget):
     def __init__(self, parent=''):
         self.parent = parent
-        self.api = API()
+        self.api = parent.api
         QWidget.__init__(self)
         self.setLayout(QHBoxLayout())
         self.icons = []

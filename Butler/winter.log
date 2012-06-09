@@ -1,0 +1,960 @@
+[02.01 13:18:52] INFO:		======
+[02.01 13:20:15] INFO:		======
+[02.01 13:21:01] INFO:		======
+[02.01 13:23:16] INFO:		======
+[02.01 13:23:59] INFO:		======
+[02.01 13:23:59] INFO:		Plugins initialised
+[02.01 13:24:58] INFO:		======
+[02.01 13:24:58] INFO:		Plugins initialised
+[02.01 13:24:58] INFO:		Application initialised
+[02.01 13:25:02] INFO:		Initialization time: 0:00:03.598000
+[13.01 14:44:30] INFO:		======
+[13.01 14:44:41] INFO:		Plugins initialised
+[13.01 14:44:41] INFO:		Application initialised
+[13.01 14:44:43] INFO:		Initialization time: 0:00:02.577677
+[13.01 14:45:32] INFO:		======
+[13.01 14:45:33] INFO:		Plugins initialised
+[13.01 14:45:33] INFO:		Application initialised
+[13.01 14:45:33] INFO:		Initialization time: 0:00:01.435445
+[13.01 14:46:21] INFO:		======
+[13.01 14:46:22] INFO:		Plugins initialised
+[13.01 14:46:22] INFO:		Application initialised
+[13.01 14:46:22] INFO:		Initialization time: 0:00:00.664425
+[13.01 14:48:25] INFO:		======
+[13.01 14:48:25] INFO:		Plugins initialised
+[13.01 14:48:25] INFO:		Application initialised
+[13.01 14:48:26] INFO:		Initialization time: 0:00:00.538999
+[13.01 14:50:10] INFO:		======
+[13.01 14:50:10] INFO:		Plugins initialised
+[13.01 14:50:11] INFO:		Application initialised
+[13.01 14:50:11] INFO:		Initialization time: 0:00:00.681573
+[13.01 15:04:30] INFO:		======
+[13.01 15:04:37] INFO:		Plugins initialised
+[13.01 15:04:38] INFO:		Application initialised
+[13.01 15:04:39] INFO:		Initialization time: 0:00:06.845814
+[13.01 15:05:21] INFO:		======
+[13.01 15:05:22] INFO:		Plugins initialised
+[13.01 15:05:22] INFO:		Application initialised
+[13.01 15:05:22] INFO:		Initialization time: 0:00:00.527536
+[13.01 15:05:49] INFO:		======
+[13.01 15:05:51] INFO:		Plugins initialised
+[13.01 15:05:51] INFO:		Application initialised
+[13.01 15:05:51] INFO:		Initialization time: 0:00:01.499464
+[13.01 15:06:02] INFO:		======
+[13.01 15:06:02] INFO:		Plugins initialised
+[13.01 15:06:02] INFO:		Application initialised
+[13.01 15:06:02] INFO:		Initialization time: 0:00:00.506727
+[13.01 15:06:40] INFO:		======
+[13.01 15:06:40] INFO:		Plugins initialised
+[13.01 15:06:40] INFO:		Application initialised
+[13.01 15:06:41] DEBUG:		jquery.js
+[13.01 15:06:42] DEBUG:		humanmsg.js
+[13.01 15:06:42] DEBUG:		github.css
+[13.01 15:06:43] DEBUG:		github.js
+[13.01 15:06:43] DEBUG:		style.css
+[13.01 15:06:43] DEBUG:		main.css
+[13.01 15:06:43] DEBUG:		colors.css
+[13.01 15:06:43] DEBUG:		humanmsg.css
+[13.01 15:06:47] DEBUG:		logo.png
+[13.01 15:06:47] DEBUG:		butler.png
+[13.01 15:06:47] DEBUG:		nav-rule.png
+[13.01 15:06:48] DEBUG:		background-v2.png
+[13.01 15:06:48] DEBUG:		background-white.png
+[13.01 15:06:48] DEBUG:		public.png
+[13.01 15:06:48] DEBUG:		actions_fade.png
+[13.01 15:06:48] DEBUG:		minibutton_icons.png
+[13.01 15:06:48] DEBUG:		tab_background.gif
+[13.01 15:06:48] DEBUG:		context_back-plain.png
+[13.01 15:06:48] DEBUG:		subnav_background.gif
+[13.01 15:06:48] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:06:48] DEBUG:		metabox_loader.gif
+[13.01 15:06:48] DEBUG:		download.png
+[13.01 15:06:48] INFO:		Initialization time: 0:00:08.087824
+[13.01 15:07:42] INFO:		======
+[13.01 15:07:43] INFO:		Plugins initialised
+[13.01 15:07:43] INFO:		Application initialised
+[13.01 15:07:43] DEBUG:		jquery.js
+[13.01 15:07:43] DEBUG:		humanmsg.js
+[13.01 15:07:43] DEBUG:		github.css
+[13.01 15:07:43] DEBUG:		github.js
+[13.01 15:07:43] DEBUG:		style.css
+[13.01 15:07:43] DEBUG:		main.css
+[13.01 15:07:43] DEBUG:		colors.css
+[13.01 15:07:43] DEBUG:		humanmsg.css
+[13.01 15:07:43] DEBUG:		logo.png
+[13.01 15:07:43] DEBUG:		butler.png
+[13.01 15:07:43] DEBUG:		nav-rule.png
+[13.01 15:07:43] DEBUG:		background-v2.png
+[13.01 15:07:43] DEBUG:		background-white.png
+[13.01 15:07:43] DEBUG:		public.png
+[13.01 15:07:43] DEBUG:		actions_fade.png
+[13.01 15:07:43] DEBUG:		minibutton_icons.png
+[13.01 15:07:43] DEBUG:		tab_background.gif
+[13.01 15:07:43] DEBUG:		context_back-plain.png
+[13.01 15:07:43] DEBUG:		subnav_background.gif
+[13.01 15:07:43] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:07:44] DEBUG:		metabox_loader.gif
+[13.01 15:07:44] DEBUG:		download.png
+[13.01 15:07:44] INFO:		Initialization time: 0:00:01.195988
+[13.01 15:07:54] DEBUG:		GoTo: [http] localhost:4801/averrin
+[13.01 15:07:55] INFO:		Initialization time: 0:00:12.397985
+[13.01 15:09:05] INFO:		======
+[13.01 15:09:06] INFO:		Plugins initialised
+[13.01 15:09:06] INFO:		Application initialised
+[13.01 15:09:06] DEBUG:		jquery.js
+[13.01 15:09:06] DEBUG:		humanmsg.js
+[13.01 15:09:06] DEBUG:		github.css
+[13.01 15:09:06] DEBUG:		github.js
+[13.01 15:09:06] DEBUG:		style.css
+[13.01 15:09:06] DEBUG:		main.css
+[13.01 15:09:06] DEBUG:		colors.css
+[13.01 15:09:06] DEBUG:		humanmsg.css
+[13.01 15:09:06] DEBUG:		logo.png
+[13.01 15:09:06] DEBUG:		butler.png
+[13.01 15:09:06] DEBUG:		nav-rule.png
+[13.01 15:09:06] DEBUG:		background-v2.png
+[13.01 15:09:06] DEBUG:		background-white.png
+[13.01 15:09:06] DEBUG:		public.png
+[13.01 15:09:06] DEBUG:		actions_fade.png
+[13.01 15:09:06] DEBUG:		minibutton_icons.png
+[13.01 15:09:06] DEBUG:		tab_background.gif
+[13.01 15:09:06] DEBUG:		context_back-plain.png
+[13.01 15:09:06] DEBUG:		subnav_background.gif
+[13.01 15:09:07] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:09:07] DEBUG:		metabox_loader.gif
+[13.01 15:09:07] DEBUG:		download.png
+[13.01 15:09:07] INFO:		Initialization time: 0:00:01.308686
+[13.01 15:09:10] DEBUG:		GoTo: [http] localhost:4801/credits
+[13.01 15:09:10] INFO:		Initialization time: 0:00:04.766711
+[13.01 15:09:35] INFO:		======
+[13.01 15:09:36] INFO:		Plugins initialised
+[13.01 15:09:36] INFO:		Application initialised
+[13.01 15:09:36] DEBUG:		jquery.js
+[13.01 15:09:36] DEBUG:		humanmsg.js
+[13.01 15:09:36] DEBUG:		github.css
+[13.01 15:09:36] DEBUG:		github.js
+[13.01 15:09:36] DEBUG:		style.css
+[13.01 15:09:36] DEBUG:		main.css
+[13.01 15:09:36] DEBUG:		colors.css
+[13.01 15:09:36] DEBUG:		humanmsg.css
+[13.01 15:09:37] DEBUG:		logo.png
+[13.01 15:09:37] DEBUG:		butler.png
+[13.01 15:09:37] DEBUG:		nav-rule.png
+[13.01 15:09:37] DEBUG:		background-v2.png
+[13.01 15:09:37] DEBUG:		background-white.png
+[13.01 15:09:37] DEBUG:		public.png
+[13.01 15:09:37] DEBUG:		actions_fade.png
+[13.01 15:09:37] DEBUG:		minibutton_icons.png
+[13.01 15:09:37] DEBUG:		tab_background.gif
+[13.01 15:09:37] DEBUG:		context_back-plain.png
+[13.01 15:09:37] DEBUG:		subnav_background.gif
+[13.01 15:09:37] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:09:37] DEBUG:		metabox_loader.gif
+[13.01 15:09:37] DEBUG:		download.png
+[13.01 15:09:37] INFO:		Initialization time: 0:00:01.674382
+[13.01 15:09:39] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:11:56] INFO:		======
+[13.01 15:11:56] INFO:		Plugins initialised
+[13.01 15:11:56] INFO:		Application initialised
+[13.01 15:12:07] INFO:		======
+[13.01 15:12:08] INFO:		Plugins initialised
+[13.01 15:12:08] INFO:		Application initialised
+[13.01 15:12:08] DEBUG:		jquery.js
+[13.01 15:12:08] DEBUG:		humanmsg.js
+[13.01 15:12:08] DEBUG:		github.css
+[13.01 15:12:08] DEBUG:		github.js
+[13.01 15:12:08] DEBUG:		style.css
+[13.01 15:12:08] DEBUG:		main.css
+[13.01 15:12:08] DEBUG:		colors.css
+[13.01 15:12:08] DEBUG:		humanmsg.css
+[13.01 15:12:08] DEBUG:		logo.png
+[13.01 15:12:08] DEBUG:		butler.png
+[13.01 15:12:08] DEBUG:		nav-rule.png
+[13.01 15:12:08] DEBUG:		background-v2.png
+[13.01 15:12:08] DEBUG:		background-white.png
+[13.01 15:12:08] DEBUG:		public.png
+[13.01 15:12:08] DEBUG:		actions_fade.png
+[13.01 15:12:08] DEBUG:		minibutton_icons.png
+[13.01 15:12:08] DEBUG:		tab_background.gif
+[13.01 15:12:08] DEBUG:		context_back-plain.png
+[13.01 15:12:08] DEBUG:		subnav_background.gif
+[13.01 15:12:08] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:12:08] DEBUG:		metabox_loader.gif
+[13.01 15:12:08] DEBUG:		download.png
+[13.01 15:12:08] INFO:		Initialization time: 0:00:00.901979
+[13.01 15:13:12] INFO:		======
+[13.01 15:13:13] INFO:		Plugins initialised
+[13.01 15:13:13] INFO:		Application initialised
+[13.01 15:13:13] DEBUG:		jquery.js
+[13.01 15:13:13] DEBUG:		humanmsg.js
+[13.01 15:13:13] DEBUG:		github.css
+[13.01 15:13:13] DEBUG:		github.js
+[13.01 15:13:13] DEBUG:		style.css
+[13.01 15:13:13] DEBUG:		main.css
+[13.01 15:13:13] DEBUG:		colors.css
+[13.01 15:13:13] DEBUG:		humanmsg.css
+[13.01 15:13:15] DEBUG:		logo.png
+[13.01 15:13:15] DEBUG:		butler.png
+[13.01 15:13:15] DEBUG:		nav-rule.png
+[13.01 15:13:15] DEBUG:		background-v2.png
+[13.01 15:13:15] DEBUG:		background-white.png
+[13.01 15:13:15] DEBUG:		public.png
+[13.01 15:13:15] DEBUG:		actions_fade.png
+[13.01 15:13:15] DEBUG:		minibutton_icons.png
+[13.01 15:13:15] DEBUG:		tab_background.gif
+[13.01 15:13:15] DEBUG:		context_back-plain.png
+[13.01 15:13:15] DEBUG:		subnav_background.gif
+[13.01 15:13:15] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:13:15] DEBUG:		metabox_loader.gif
+[13.01 15:13:15] DEBUG:		download.png
+[13.01 15:13:15] INFO:		Initialization time: 0:00:02.537771
+[13.01 15:13:16] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:13:18] INFO:		Initialization time: 0:00:05.448995
+[13.01 15:16:42] INFO:		======
+[13.01 15:16:56] INFO:		======
+[13.01 15:17:01] INFO:		======
+[13.01 15:18:55] INFO:		======
+[13.01 15:19:45] INFO:		======
+[13.01 15:20:07] INFO:		======
+[13.01 15:20:21] INFO:		======
+[13.01 15:20:22] INFO:		Plugins initialised
+[13.01 15:20:22] INFO:		Application initialised
+[13.01 15:20:22] DEBUG:		jquery.js
+[13.01 15:20:22] DEBUG:		humanmsg.js
+[13.01 15:20:22] DEBUG:		github.css
+[13.01 15:20:22] DEBUG:		github.js
+[13.01 15:20:22] DEBUG:		style.css
+[13.01 15:20:22] DEBUG:		main.css
+[13.01 15:20:22] DEBUG:		colors.css
+[13.01 15:20:22] DEBUG:		humanmsg.css
+[13.01 15:20:23] DEBUG:		logo.png
+[13.01 15:20:23] DEBUG:		butler.png
+[13.01 15:20:23] DEBUG:		nav-rule.png
+[13.01 15:20:23] DEBUG:		background-v2.png
+[13.01 15:20:23] DEBUG:		background-white.png
+[13.01 15:20:23] DEBUG:		public.png
+[13.01 15:20:23] DEBUG:		actions_fade.png
+[13.01 15:20:23] DEBUG:		minibutton_icons.png
+[13.01 15:20:23] DEBUG:		tab_background.gif
+[13.01 15:20:23] DEBUG:		context_back-plain.png
+[13.01 15:20:23] DEBUG:		subnav_background.gif
+[13.01 15:20:23] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:20:23] DEBUG:		metabox_loader.gif
+[13.01 15:20:23] DEBUG:		download.png
+[13.01 15:20:23] INFO:		Initialization time: 0:00:01.806506
+[13.01 15:20:25] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:20:25] INFO:		Initialization time: 0:00:03.564601
+[13.01 15:20:46] INFO:		======
+[13.01 15:20:47] INFO:		Plugins initialised
+[13.01 15:20:47] INFO:		Application initialised
+[13.01 15:20:47] DEBUG:		jquery.js
+[13.01 15:20:47] DEBUG:		humanmsg.js
+[13.01 15:20:47] DEBUG:		github.css
+[13.01 15:20:47] DEBUG:		github.js
+[13.01 15:20:47] DEBUG:		style.css
+[13.01 15:20:47] DEBUG:		main.css
+[13.01 15:20:47] DEBUG:		colors.css
+[13.01 15:20:47] DEBUG:		humanmsg.css
+[13.01 15:20:48] DEBUG:		logo.png
+[13.01 15:20:48] DEBUG:		butler.png
+[13.01 15:20:48] DEBUG:		nav-rule.png
+[13.01 15:20:48] DEBUG:		background-v2.png
+[13.01 15:20:48] DEBUG:		background-white.png
+[13.01 15:20:48] DEBUG:		public.png
+[13.01 15:20:48] DEBUG:		actions_fade.png
+[13.01 15:20:48] DEBUG:		minibutton_icons.png
+[13.01 15:20:48] DEBUG:		tab_background.gif
+[13.01 15:20:48] DEBUG:		context_back-plain.png
+[13.01 15:20:48] DEBUG:		subnav_background.gif
+[13.01 15:20:48] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:20:48] DEBUG:		metabox_loader.gif
+[13.01 15:20:48] DEBUG:		download.png
+[13.01 15:20:48] INFO:		Initialization time: 0:00:01.462568
+[13.01 15:20:49] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:20:49] INFO:		Initialization time: 0:00:02.854408
+[13.01 15:21:35] INFO:		======
+[13.01 15:21:35] INFO:		Plugins initialised
+[13.01 15:21:35] INFO:		Application initialised
+[13.01 15:21:35] DEBUG:		jquery.js
+[13.01 15:21:35] DEBUG:		humanmsg.js
+[13.01 15:21:35] DEBUG:		github.css
+[13.01 15:21:35] DEBUG:		github.js
+[13.01 15:21:36] DEBUG:		style.css
+[13.01 15:21:36] DEBUG:		main.css
+[13.01 15:21:36] DEBUG:		colors.css
+[13.01 15:21:36] DEBUG:		humanmsg.css
+[13.01 15:21:36] DEBUG:		logo.png
+[13.01 15:21:36] DEBUG:		butler.png
+[13.01 15:21:36] DEBUG:		nav-rule.png
+[13.01 15:21:36] DEBUG:		background-v2.png
+[13.01 15:21:36] DEBUG:		background-white.png
+[13.01 15:21:36] DEBUG:		public.png
+[13.01 15:21:36] DEBUG:		actions_fade.png
+[13.01 15:21:36] DEBUG:		minibutton_icons.png
+[13.01 15:21:36] DEBUG:		tab_background.gif
+[13.01 15:21:36] DEBUG:		context_back-plain.png
+[13.01 15:21:36] DEBUG:		subnav_background.gif
+[13.01 15:21:36] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:21:36] DEBUG:		metabox_loader.gif
+[13.01 15:21:36] DEBUG:		download.png
+[13.01 15:21:36] INFO:		Initialization time: 0:00:01.132325
+[13.01 15:21:39] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:21:39] INFO:		Initialization time: 0:00:03.808741
+[13.01 15:21:58] INFO:		======
+[13.01 15:21:59] INFO:		Plugins initialised
+[13.01 15:21:59] INFO:		Application initialised
+[13.01 15:22:00] DEBUG:		jquery.js
+[13.01 15:22:00] DEBUG:		humanmsg.js
+[13.01 15:22:00] DEBUG:		github.css
+[13.01 15:22:00] DEBUG:		github.js
+[13.01 15:22:00] DEBUG:		style.css
+[13.01 15:22:00] DEBUG:		main.css
+[13.01 15:22:00] DEBUG:		colors.css
+[13.01 15:22:00] DEBUG:		humanmsg.css
+[13.01 15:22:00] DEBUG:		logo.png
+[13.01 15:22:00] DEBUG:		butler.png
+[13.01 15:22:00] DEBUG:		nav-rule.png
+[13.01 15:22:00] DEBUG:		background-v2.png
+[13.01 15:22:00] DEBUG:		background-white.png
+[13.01 15:22:00] DEBUG:		public.png
+[13.01 15:22:00] DEBUG:		actions_fade.png
+[13.01 15:22:00] DEBUG:		minibutton_icons.png
+[13.01 15:22:00] DEBUG:		tab_background.gif
+[13.01 15:22:00] DEBUG:		context_back-plain.png
+[13.01 15:22:00] DEBUG:		subnav_background.gif
+[13.01 15:22:00] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:22:00] DEBUG:		metabox_loader.gif
+[13.01 15:22:00] DEBUG:		download.png
+[13.01 15:22:00] INFO:		Initialization time: 0:00:01.680675
+[13.01 15:22:02] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:22:03] INFO:		Initialization time: 0:00:03.876178
+[13.01 15:22:31] INFO:		======
+[13.01 15:22:32] INFO:		Plugins initialised
+[13.01 15:22:32] INFO:		Application initialised
+[13.01 15:22:32] DEBUG:		jquery.js
+[13.01 15:22:32] DEBUG:		humanmsg.js
+[13.01 15:22:32] DEBUG:		github.css
+[13.01 15:22:32] DEBUG:		github.js
+[13.01 15:22:32] DEBUG:		style.css
+[13.01 15:22:32] DEBUG:		main.css
+[13.01 15:22:32] DEBUG:		colors.css
+[13.01 15:22:32] DEBUG:		humanmsg.css
+[13.01 15:22:32] DEBUG:		logo.png
+[13.01 15:22:32] DEBUG:		butler.png
+[13.01 15:22:32] DEBUG:		nav-rule.png
+[13.01 15:22:32] DEBUG:		background-v2.png
+[13.01 15:22:32] DEBUG:		background-white.png
+[13.01 15:22:32] DEBUG:		public.png
+[13.01 15:22:32] DEBUG:		actions_fade.png
+[13.01 15:22:32] DEBUG:		minibutton_icons.png
+[13.01 15:22:32] DEBUG:		tab_background.gif
+[13.01 15:22:32] DEBUG:		context_back-plain.png
+[13.01 15:22:32] DEBUG:		subnav_background.gif
+[13.01 15:22:32] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:22:33] DEBUG:		metabox_loader.gif
+[13.01 15:22:33] DEBUG:		download.png
+[13.01 15:22:33] INFO:		Initialization time: 0:00:01.271270
+[13.01 15:22:35] DEBUG:		GoTo: [http] localhost:4801/settings
+[13.01 15:22:35] INFO:		Initialization time: 0:00:03.481420
+[13.01 15:23:44] INFO:		======
+[13.01 15:23:44] INFO:		Plugins initialised
+[13.01 15:23:44] INFO:		Application initialised
+[13.01 15:23:45] DEBUG:		jquery.js
+[13.01 15:23:45] DEBUG:		humanmsg.js
+[13.01 15:23:45] DEBUG:		github.css
+[13.01 15:23:45] DEBUG:		github.js
+[13.01 15:23:45] DEBUG:		style.css
+[13.01 15:23:45] DEBUG:		main.css
+[13.01 15:23:45] DEBUG:		colors.css
+[13.01 15:23:45] DEBUG:		humanmsg.css
+[13.01 15:23:45] DEBUG:		logo.png
+[13.01 15:23:45] DEBUG:		butler.png
+[13.01 15:23:45] DEBUG:		nav-rule.png
+[13.01 15:23:45] DEBUG:		background-v2.png
+[13.01 15:23:45] DEBUG:		background-white.png
+[13.01 15:23:45] DEBUG:		public.png
+[13.01 15:23:45] DEBUG:		actions_fade.png
+[13.01 15:23:45] DEBUG:		minibutton_icons.png
+[13.01 15:23:45] DEBUG:		tab_background.gif
+[13.01 15:23:45] DEBUG:		context_back-plain.png
+[13.01 15:23:45] DEBUG:		subnav_background.gif
+[13.01 15:23:45] DEBUG:		subnav_dropdown_arrow.png
+[13.01 15:23:45] DEBUG:		metabox_loader.gif
+[13.01 15:23:45] DEBUG:		download.png
+[13.01 15:23:45] INFO:		Initialization time: 0:00:01.056396
+[13.01 15:28:07] INFO:		======
+[13.01 15:28:10] INFO:		Plugins initialised
+[13.01 15:28:11] INFO:		Application initialised
+[13.01 15:28:11] DEBUG:		jquery.js
+[13.01 15:28:11] DEBUG:		humanmsg.js
+[13.01 15:28:11] DEBUG:		style.css
+[13.01 15:28:11] DEBUG:		main.css
+[13.01 15:28:11] DEBUG:		colors.css
+[13.01 15:28:11] DEBUG:		humanmsg.css
+[13.01 15:28:11] INFO:		Initialization time: 0:00:02.674169
+[13.01 15:29:14] INFO:		======
+[13.01 15:29:15] INFO:		Plugins initialised
+[13.01 15:29:15] INFO:		Application initialised
+[13.01 15:29:15] DEBUG:		jquery.js
+[13.01 15:29:15] DEBUG:		humanmsg.js
+[13.01 15:29:15] DEBUG:		style.css
+[13.01 15:29:15] DEBUG:		main.css
+[13.01 15:29:15] DEBUG:		colors.css
+[13.01 15:29:15] DEBUG:		humanmsg.css
+[13.01 15:29:15] INFO:		Initialization time: 0:00:00.814474
+[13.01 15:29:17] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:34:08] INFO:		======
+[13.01 15:34:13] INFO:		Plugins initialised
+[13.01 15:34:14] INFO:		Application initialised
+[13.01 15:34:14] DEBUG:		jquery.js
+[13.01 15:34:15] DEBUG:		humanmsg.js
+[13.01 15:34:15] DEBUG:		style.css
+[13.01 15:34:15] DEBUG:		main.css
+[13.01 15:34:15] DEBUG:		colors.css
+[13.01 15:34:15] DEBUG:		humanmsg.css
+[13.01 15:34:15] INFO:		Initialization time: 0:00:04.780875
+[13.01 15:34:36] INFO:		======
+[13.01 15:34:37] INFO:		Plugins initialised
+[13.01 15:34:37] INFO:		Application initialised
+[13.01 15:34:37] DEBUG:		jquery.js
+[13.01 15:34:37] DEBUG:		humanmsg.js
+[13.01 15:34:37] DEBUG:		style.css
+[13.01 15:34:37] DEBUG:		main.css
+[13.01 15:34:37] DEBUG:		colors.css
+[13.01 15:34:37] DEBUG:		humanmsg.css
+[13.01 15:34:37] INFO:		Initialization time: 0:00:00.552782
+[13.01 15:34:53] INFO:		======
+[13.01 15:34:54] INFO:		Plugins initialised
+[13.01 15:34:54] INFO:		Application initialised
+[13.01 15:34:54] DEBUG:		jquery.js
+[13.01 15:34:54] DEBUG:		humanmsg.js
+[13.01 15:34:54] DEBUG:		style.css
+[13.01 15:34:54] DEBUG:		main.css
+[13.01 15:34:54] DEBUG:		colors.css
+[13.01 15:34:54] DEBUG:		humanmsg.css
+[13.01 15:34:54] INFO:		Initialization time: 0:00:00.695393
+[13.01 15:36:27] INFO:		======
+[13.01 15:36:28] INFO:		Plugins initialised
+[13.01 15:36:28] INFO:		Application initialised
+[13.01 15:36:28] DEBUG:		jquery.js
+[13.01 15:36:28] DEBUG:		humanmsg.js
+[13.01 15:36:28] DEBUG:		style.css
+[13.01 15:36:28] DEBUG:		main.css
+[13.01 15:36:28] DEBUG:		colors.css
+[13.01 15:36:28] DEBUG:		humanmsg.css
+[13.01 15:36:28] INFO:		Initialization time: 0:00:00.607584
+[13.01 15:36:39] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:45:04] INFO:		======
+[13.01 15:45:11] INFO:		Plugins initialised
+[13.01 15:45:12] INFO:		Application initialised
+[13.01 15:45:12] INFO:		Initialization time: 0:00:05.219075
+[13.01 15:45:26] INFO:		======
+[13.01 15:45:26] INFO:		Plugins initialised
+[13.01 15:45:26] INFO:		Application initialised
+[13.01 15:45:26] DEBUG:		jquery.js
+[13.01 15:45:26] DEBUG:		humanmsg.js
+[13.01 15:45:26] DEBUG:		style.css
+[13.01 15:45:26] DEBUG:		main.css
+[13.01 15:45:26] DEBUG:		colors.css
+[13.01 15:45:26] DEBUG:		humanmsg.css
+[13.01 15:45:27] INFO:		Initialization time: 0:00:00.785318
+[13.01 15:45:28] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:45:35] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:45:35] DEBUG:		jquery.js
+[13.01 15:45:35] DEBUG:		humanmsg.js
+[13.01 15:45:35] DEBUG:		style.css
+[13.01 15:45:35] DEBUG:		main.css
+[13.01 15:45:35] DEBUG:		colors.css
+[13.01 15:45:35] DEBUG:		humanmsg.css
+[13.01 15:45:35] INFO:		Initialization time: 0:00:09.158196
+[13.01 15:45:55] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:45:55] DEBUG:		jquery.js
+[13.01 15:45:55] DEBUG:		humanmsg.js
+[13.01 15:45:55] DEBUG:		style.css
+[13.01 15:45:55] DEBUG:		main.css
+[13.01 15:45:55] DEBUG:		colors.css
+[13.01 15:45:55] DEBUG:		humanmsg.css
+[13.01 15:45:55] INFO:		Initialization time: 0:00:29.451450
+[13.01 15:46:13] INFO:		======
+[13.01 15:46:13] INFO:		Plugins initialised
+[13.01 15:46:13] INFO:		Application initialised
+[13.01 15:46:13] DEBUG:		jquery.js
+[13.01 15:46:14] DEBUG:		humanmsg.js
+[13.01 15:46:14] DEBUG:		style.css
+[13.01 15:46:14] DEBUG:		main.css
+[13.01 15:46:14] DEBUG:		colors.css
+[13.01 15:46:14] DEBUG:		humanmsg.css
+[13.01 15:46:14] INFO:		Initialization time: 0:00:00.638208
+[13.01 15:46:16] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:47:52] INFO:		======
+[13.01 15:47:52] INFO:		Plugins initialised
+[13.01 15:47:52] INFO:		Application initialised
+[13.01 15:47:53] DEBUG:		jquery.js
+[13.01 15:47:53] DEBUG:		humanmsg.js
+[13.01 15:47:53] DEBUG:		style.css
+[13.01 15:47:53] DEBUG:		main.css
+[13.01 15:47:53] DEBUG:		colors.css
+[13.01 15:47:53] DEBUG:		humanmsg.css
+[13.01 15:47:53] INFO:		Initialization time: 0:00:00.593352
+[13.01 15:48:30] INFO:		======
+[13.01 15:48:30] INFO:		Plugins initialised
+[13.01 15:48:30] INFO:		Application initialised
+[13.01 15:48:30] DEBUG:		jquery.js
+[13.01 15:48:30] DEBUG:		humanmsg.js
+[13.01 15:48:30] DEBUG:		style.css
+[13.01 15:48:30] DEBUG:		main.css
+[13.01 15:48:30] DEBUG:		colors.css
+[13.01 15:48:30] DEBUG:		humanmsg.css
+[13.01 15:48:31] INFO:		Initialization time: 0:00:00.692049
+[13.01 15:48:34] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:48:40] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:48:40] DEBUG:		jquery.js
+[13.01 15:48:40] DEBUG:		humanmsg.js
+[13.01 15:48:40] DEBUG:		style.css
+[13.01 15:48:40] DEBUG:		main.css
+[13.01 15:48:40] DEBUG:		colors.css
+[13.01 15:48:40] DEBUG:		humanmsg.css
+[13.01 15:48:40] INFO:		Initialization time: 0:00:10.098399
+[13.01 15:49:18] INFO:		======
+[13.01 15:49:18] INFO:		Plugins initialised
+[13.01 15:49:18] INFO:		Application initialised
+[13.01 15:49:19] DEBUG:		jquery.js
+[13.01 15:49:19] DEBUG:		humanmsg.js
+[13.01 15:49:19] DEBUG:		style.css
+[13.01 15:49:19] DEBUG:		main.css
+[13.01 15:49:19] DEBUG:		colors.css
+[13.01 15:49:19] DEBUG:		humanmsg.css
+[13.01 15:49:19] INFO:		Initialization time: 0:00:00.432584
+[13.01 15:49:20] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:49:22] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:49:22] DEBUG:		jquery.js
+[13.01 15:49:22] DEBUG:		humanmsg.js
+[13.01 15:49:22] DEBUG:		style.css
+[13.01 15:49:22] DEBUG:		main.css
+[13.01 15:49:22] DEBUG:		colors.css
+[13.01 15:49:22] DEBUG:		humanmsg.css
+[13.01 15:49:22] INFO:		Initialization time: 0:00:03.796710
+[13.01 15:49:25] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 15:49:25] DEBUG:		jquery.js
+[13.01 15:49:25] DEBUG:		humanmsg.js
+[13.01 15:49:25] DEBUG:		style.css
+[13.01 15:49:25] DEBUG:		main.css
+[13.01 15:49:25] DEBUG:		colors.css
+[13.01 15:49:25] DEBUG:		humanmsg.css
+[13.01 15:49:25] INFO:		Initialization time: 0:00:06.494981
+[13.01 15:51:57] INFO:		======
+[13.01 15:51:57] INFO:		Plugins initialised
+[13.01 15:51:57] INFO:		Application initialised
+[13.01 15:52:22] INFO:		======
+[13.01 15:54:23] INFO:		======
+[13.01 15:54:23] INFO:		Plugins initialised
+[13.01 15:54:24] INFO:		Application initialised
+[13.01 15:54:24] DEBUG:		jquery.js
+[13.01 15:54:24] DEBUG:		humanmsg.js
+[13.01 15:54:24] DEBUG:		style.css
+[13.01 15:54:24] DEBUG:		main.css
+[13.01 15:54:24] DEBUG:		colors.css
+[13.01 15:54:24] DEBUG:		humanmsg.css
+[13.01 15:54:24] INFO:		Initialization time: 0:00:00.539093
+[13.01 15:56:28] INFO:		======
+[13.01 15:57:17] INFO:		======
+[13.01 15:57:25] INFO:		======
+[13.01 15:58:23] INFO:		======
+[13.01 15:58:24] INFO:		Plugins initialised
+[13.01 15:58:24] INFO:		Application initialised
+[13.01 15:58:24] DEBUG:		jquery.js
+[13.01 15:58:24] DEBUG:		humanmsg.js
+[13.01 15:58:24] DEBUG:		style.css
+[13.01 15:58:24] DEBUG:		main.css
+[13.01 15:58:24] DEBUG:		colors.css
+[13.01 15:58:24] DEBUG:		humanmsg.css
+[13.01 15:58:24] INFO:		Initialization time: 0:00:00.529529
+[13.01 15:58:33] INFO:		======
+[13.01 15:58:33] INFO:		Plugins initialised
+[13.01 15:58:34] INFO:		Application initialised
+[13.01 15:58:34] DEBUG:		jquery.js
+[13.01 15:58:34] DEBUG:		humanmsg.js
+[13.01 15:58:34] DEBUG:		style.css
+[13.01 15:58:34] DEBUG:		main.css
+[13.01 15:58:34] DEBUG:		colors.css
+[13.01 15:58:34] DEBUG:		humanmsg.css
+[13.01 15:58:34] INFO:		Initialization time: 0:00:00.830132
+[13.01 15:59:00] INFO:		======
+[13.01 15:59:36] INFO:		======
+[13.01 16:02:56] INFO:		======
+[13.01 16:02:57] INFO:		Plugins initialised
+[13.01 16:02:57] INFO:		Application initialised
+[13.01 16:02:57] DEBUG:		jquery.js
+[13.01 16:02:57] DEBUG:		humanmsg.js
+[13.01 16:02:57] DEBUG:		style.css
+[13.01 16:02:57] DEBUG:		main.css
+[13.01 16:02:57] DEBUG:		colors.css
+[13.01 16:02:57] DEBUG:		humanmsg.css
+[13.01 16:02:57] INFO:		Initialization time: 0:00:00.511241
+[13.01 16:03:43] INFO:		======
+[13.01 16:03:47] INFO:		Plugins initialised
+[13.01 16:03:48] INFO:		Application initialised
+[13.01 16:04:39] INFO:		======
+[13.01 16:04:40] INFO:		Plugins initialised
+[13.01 16:04:40] INFO:		Application initialised
+[13.01 16:04:40] INFO:		Initialization time: 0:00:00.806692
+[13.01 16:06:19] INFO:		======
+[13.01 16:06:41] INFO:		======
+[13.01 16:07:40] INFO:		======
+[13.01 16:08:25] INFO:		======
+[13.01 16:09:07] INFO:		======
+[13.01 16:10:48] INFO:		======
+[13.01 16:11:14] INFO:		======
+[13.01 16:12:04] INFO:		======
+[13.01 16:13:37] INFO:		======
+[13.01 16:15:25] INFO:		======
+[13.01 16:15:26] INFO:		Plugins initialised
+[13.01 16:15:26] INFO:		Application initialised
+[13.01 16:15:26] INFO:		Initialization time: 0:00:00.533393
+[13.01 16:15:29] DEBUG:		settings
+[13.01 16:17:14] INFO:		======
+[13.01 16:17:14] INFO:		Plugins initialised
+[13.01 16:17:15] INFO:		Application initialised
+[13.01 16:17:15] INFO:		Initialization time: 0:00:00.907479
+[13.01 16:17:17] INFO:		boom
+[13.01 16:17:18] INFO:		Initialization time: 0:00:04.540522
+[13.01 16:17:19] INFO:		Initialization time: 0:00:05.497653
+[13.01 16:17:20] INFO:		Initialization time: 0:00:06.468917
+[13.01 16:17:21] INFO:		Initialization time: 0:00:07.186819
+[13.01 16:17:22] INFO:		Initialization time: 0:00:08.051615
+[13.01 16:17:24] INFO:		Initialization time: 0:00:09.713957
+[13.01 16:17:24] INFO:		Initialization time: 0:00:10.443335
+[13.01 16:17:25] INFO:		Initialization time: 0:00:11.314398
+[13.01 16:17:26] INFO:		Initialization time: 0:00:12.176259
+[13.01 16:17:33] INFO:		Initialization time: 0:00:18.899418
+[13.01 16:17:43] INFO:		======
+[13.01 16:17:43] INFO:		Plugins initialised
+[13.01 16:17:43] INFO:		Application initialised
+[13.01 16:17:44] INFO:		Initialization time: 0:00:00.538091
+[13.01 16:18:00] INFO:		boom
+[13.01 16:18:02] INFO:		boom
+[13.01 16:18:03] INFO:		boom
+[13.01 16:18:29] INFO:		======
+[13.01 16:18:29] INFO:		Plugins initialised
+[13.01 16:18:29] INFO:		Application initialised
+[13.01 16:18:30] INFO:		Initialization time: 0:00:00.711060
+[13.01 16:18:33] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:18:33] INFO:		boom
+[13.01 16:18:59] INFO:		======
+[13.01 16:18:59] INFO:		Plugins initialised
+[13.01 16:19:00] INFO:		Application initialised
+[13.01 16:19:00] INFO:		Initialization time: 0:00:00.532875
+[13.01 16:19:05] DEBUG:		GoTo: [http] localhost:4801|/
+[13.01 16:19:05] INFO:		boom
+[13.01 16:19:40] INFO:		======
+[13.01 16:19:41] INFO:		Plugins initialised
+[13.01 16:19:41] INFO:		Application initialised
+[13.01 16:19:41] INFO:		Initialization time: 0:00:00.458220
+[13.01 16:19:44] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:19:44] INFO:		boom
+[13.01 16:19:45] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:19:46] INFO:		Initialization time: 0:00:04.870529
+[13.01 16:19:46] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:19:46] INFO:		Initialization time: 0:00:05.671779
+[13.01 16:19:48] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:19:48] INFO:		Initialization time: 0:00:07.751904
+[13.01 16:19:52] DEBUG:		GoTo: [http] localhost:4801/
+[13.01 16:19:52] INFO:		Initialization time: 0:00:11.167072
+[13.01 16:20:07] INFO:		======
+[13.01 16:20:07] INFO:		Plugins initialised
+[13.01 16:20:07] INFO:		Application initialised
+[13.01 16:20:08] INFO:		Initialization time: 0:00:00.419448
+[13.01 16:20:11] INFO:		boom
+[13.01 16:20:12] INFO:		boom
+[13.01 16:20:13] INFO:		boom
+[13.01 16:20:13] INFO:		boom
+[13.01 16:20:13] INFO:		boom
+[13.01 16:23:43] INFO:		======
+[13.01 16:23:44] INFO:		Plugins initialised
+[13.01 16:23:44] INFO:		Application initialised
+[13.01 16:23:44] INFO:		Initialization time: 0:00:00.401857
+[13.01 16:24:51] INFO:		======
+[13.01 16:24:52] INFO:		Plugins initialised
+[13.01 16:24:52] INFO:		Application initialised
+[13.01 16:24:52] INFO:		Initialization time: 0:00:00.573322
+[13.01 16:24:55] ERROR:		boom
+[13.01 16:24:56] ERROR:		boom
+[13.01 16:34:36] INFO:		======
+[13.01 16:34:36] INFO:		Plugins initialised
+[13.01 16:34:36] INFO:		Application initialised
+[13.01 16:34:36] INFO:		Initialization time: 0:00:00.373064
+[13.01 16:34:47] ERROR:		boom
+[13.01 16:34:47] ERROR:		boom
+[13.01 16:36:05] INFO:		======
+[13.01 16:36:06] INFO:		Plugins initialised
+[13.01 16:36:06] INFO:		Application initialised
+[13.01 16:36:06] INFO:		Initialization time: 0:00:00.446628
+[13.01 16:36:23] INFO:		Initialization time: 0:00:17.501572
+[13.01 16:36:25] INFO:		Initialization time: 0:00:19.552982
+[13.01 16:36:31] INFO:		Initialization time: 0:00:25.940684
+[13.01 16:36:38] INFO:		Initialization time: 0:00:32.993767
+[13.01 16:36:40] INFO:		Initialization time: 0:00:34.445780
+[13.01 16:36:41] INFO:		Initialization time: 0:00:35.622559
+[13.01 16:36:46] INFO:		Initialization time: 0:00:40.455165
+[13.01 16:37:43] INFO:		Initialization time: 0:01:37.077798
+[13.01 16:38:07] INFO:		Initialization time: 0:02:01.211774
+[13.01 16:38:08] INFO:		Initialization time: 0:02:02.727765
+[13.01 16:38:47] INFO:		Initialization time: 0:02:41.977487
+[13.01 16:39:29] INFO:		Initialization time: 0:03:23.087937
+[13.01 16:40:00] INFO:		Initialization time: 0:03:54.023746
+[13.01 16:40:24] INFO:		Initialization time: 0:04:18.112504
+[13.01 16:40:42] INFO:		Initialization time: 0:04:36.223502
+[13.01 16:40:52] INFO:		Initialization time: 0:04:46.198222
+[13.01 16:41:41] INFO:		Initialization time: 0:05:35.353813
+[13.01 16:42:35] INFO:		Initialization time: 0:06:29.794086
+[13.01 16:44:15] INFO:		======
+[13.01 16:44:16] INFO:		Plugins initialised
+[13.01 16:44:16] INFO:		Application initialised
+[13.01 16:44:16] INFO:		Initialization time: 0:00:00.636571
+[13.01 16:44:40] INFO:		======
+[13.01 16:44:40] INFO:		Plugins initialised
+[13.01 16:44:40] INFO:		Application initialised
+[13.01 16:44:41] INFO:		Initialization time: 0:00:00.530403
+[13.01 16:46:17] INFO:		======
+[13.01 16:46:17] INFO:		Plugins initialised
+[13.01 16:46:17] INFO:		Application initialised
+[13.01 16:46:18] INFO:		Initialization time: 0:00:00.560518
+[13.01 16:48:37] INFO:		======
+[13.01 16:48:48] INFO:		======
+[13.01 16:48:48] INFO:		Plugins initialised
+[13.01 16:48:48] INFO:		Application initialised
+[13.01 16:48:49] INFO:		Initialization time: 0:00:00.454333
+[13.01 16:50:01] INFO:		======
+[13.01 16:50:04] INFO:		Plugins initialised
+[13.01 16:50:04] INFO:		Application initialised
+[13.01 16:50:05] INFO:		Initialization time: 0:00:03.329725
+[13.01 16:50:37] INFO:		======
+[13.01 16:50:37] INFO:		Plugins initialised
+[13.01 16:50:37] INFO:		Application initialised
+[13.01 16:50:38] INFO:		Initialization time: 0:00:00.448120
+[13.01 16:51:00] INFO:		======
+[13.01 16:51:00] INFO:		Plugins initialised
+[13.01 16:51:00] INFO:		Application initialised
+[13.01 16:51:01] INFO:		Initialization time: 0:00:00.427890
+[13.01 16:51:48] INFO:		======
+[13.01 16:51:49] INFO:		Plugins initialised
+[13.01 16:51:49] INFO:		Application initialised
+[13.01 16:51:49] INFO:		Initialization time: 0:00:00.595391
+[13.01 16:52:02] INFO:		======
+[13.01 16:52:02] INFO:		Plugins initialised
+[13.01 16:52:02] INFO:		Application initialised
+[13.01 16:52:02] INFO:		Initialization time: 0:00:00.428654
+[13.01 16:52:46] INFO:		======
+[13.01 16:52:47] INFO:		Plugins initialised
+[13.01 16:52:47] INFO:		Application initialised
+[13.01 16:52:47] INFO:		Initialization time: 0:00:00.613195
+[13.01 16:52:58] INFO:		======
+[13.01 16:52:59] INFO:		Plugins initialised
+[13.01 16:52:59] INFO:		Application initialised
+[13.01 16:52:59] INFO:		Initialization time: 0:00:00.667971
+[13.01 16:54:54] INFO:		======
+[13.01 16:54:54] INFO:		Plugins initialised
+[13.01 16:54:54] INFO:		Application initialised
+[13.01 16:54:54] INFO:		Initialization time: 0:00:00.588233
+[13.01 16:55:13] INFO:		Initialization time: 0:00:19.483626
+[13.01 16:59:56] INFO:		Initialization time: 0:05:01.851566
+[13.01 17:02:30] INFO:		Initialization time: 0:07:35.879258
+[13.01 17:02:55] INFO:		Initialization time: 0:08:00.899237
+[13.01 17:08:32] INFO:		Initialization time: 0:13:38.306074
+[13.01 17:09:34] INFO:		Initialization time: 0:14:40.040854
+[13.01 17:10:23] INFO:		Initialization time: 0:15:28.687386
+[13.01 17:10:48] INFO:		Initialization time: 0:15:54.365993
+[13.01 17:10:58] INFO:		Initialization time: 0:16:04.025762
+[13.01 17:11:36] INFO:		Initialization time: 0:16:42.565358
+[13.01 17:11:45] INFO:		Initialization time: 0:16:51.631196
+[13.01 17:11:54] INFO:		Initialization time: 0:16:59.963500
+[13.01 17:12:18] INFO:		Initialization time: 0:17:24.256632
+[13.01 17:12:45] INFO:		Initialization time: 0:17:51.311038
+[16.01 11:44:46] INFO:		======
+[16.01 11:44:50] INFO:		Plugins initialised
+[16.01 11:44:50] INFO:		Application initialised
+[16.01 11:44:51] INFO:		Initialization time: 0:00:01.983527
+[16.01 11:46:48] INFO:		======
+[16.01 11:46:49] INFO:		Plugins initialised
+[16.01 11:46:49] INFO:		Application initialised
+[16.01 11:46:49] INFO:		Initialization time: 0:00:00.371441
+[16.01 11:48:35] INFO:		======
+[16.01 11:48:35] INFO:		Plugins initialised
+[16.01 11:48:35] INFO:		Application initialised
+[16.01 11:48:35] INFO:		Initialization time: 0:00:00.347889
+[16.01 11:49:14] INFO:		======
+[16.01 11:49:14] INFO:		Plugins initialised
+[16.01 11:49:14] INFO:		Application initialised
+[16.01 11:49:14] INFO:		Initialization time: 0:00:00.366537
+[22.01 00:27:59] INFO:		======
+[22.01 00:27:59] INFO:		Plugins initialised
+[22.01 00:27:59] INFO:		Application initialised
+[22.01 00:28:01] INFO:		Initialization time: 0:00:01.527000
+[22.01 00:30:32] INFO:		======
+[22.01 00:30:32] INFO:		Plugins initialised
+[22.01 00:30:32] INFO:		Application initialised
+[22.01 00:30:36] INFO:		Initialization time: 0:00:04.506000
+[22.01 00:30:46] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:30:47] INFO:		Initialization time: 0:00:15.254000
+[22.01 00:30:53] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 00:30:54] INFO:		Initialization time: 0:00:22.120000
+[22.01 00:32:05] INFO:		======
+[22.01 00:32:05] INFO:		Plugins initialised
+[22.01 00:32:05] INFO:		Application initialised
+[22.01 00:32:10] INFO:		Initialization time: 0:00:04.381000
+[22.01 00:32:15] INFO:		======
+[22.01 00:32:16] INFO:		Plugins initialised
+[22.01 00:32:16] INFO:		Application initialised
+[22.01 00:32:17] INFO:		Initialization time: 0:00:03.441000
+[22.01 00:32:43] INFO:		======
+[22.01 00:32:51] INFO:		======
+[22.01 00:32:51] INFO:		Plugins initialised
+[22.01 00:32:51] INFO:		Application initialised
+[22.01 00:32:51] INFO:		Initialization time: 0:00:00.457000
+[22.01 00:33:58] INFO:		======
+[22.01 00:33:58] INFO:		Plugins initialised
+[22.01 00:33:58] INFO:		Application initialised
+[22.01 00:34:02] INFO:		Initialization time: 0:00:04.401000
+[22.01 00:34:06] INFO:		======
+[22.01 00:34:07] INFO:		Plugins initialised
+[22.01 00:34:07] INFO:		Application initialised
+[22.01 00:34:07] INFO:		Initialization time: 0:00:00.357000
+[22.01 00:34:20] INFO:		======
+[22.01 00:35:35] INFO:		======
+[22.01 00:35:35] INFO:		Plugins initialised
+[22.01 00:35:35] INFO:		Application initialised
+[22.01 00:35:39] INFO:		Initialization time: 0:00:04.374000
+[22.01 00:35:41] INFO:		======
+[22.01 00:35:47] INFO:		======
+[22.01 00:35:47] INFO:		Plugins initialised
+[22.01 00:35:47] INFO:		Application initialised
+[22.01 00:35:47] INFO:		Initialization time: 0:00:00.217000
+[22.01 00:36:16] INFO:		======
+[22.01 00:36:16] INFO:		Plugins initialised
+[22.01 00:36:16] INFO:		Application initialised
+[22.01 00:36:20] INFO:		Initialization time: 0:00:04.374000
+[22.01 00:36:23] INFO:		======
+[22.01 00:36:24] INFO:		Plugins initialised
+[22.01 00:36:24] INFO:		Application initialised
+[22.01 00:36:24] INFO:		Initialization time: 0:00:00.414000
+[22.01 00:36:43] INFO:		======
+[22.01 00:36:44] INFO:		Plugins initialised
+[22.01 00:36:44] INFO:		Application initialised
+[22.01 00:36:48] INFO:		Initialization time: 0:00:04.403000
+[22.01 00:36:52] INFO:		======
+[22.01 00:36:52] INFO:		Plugins initialised
+[22.01 00:36:52] INFO:		Application initialised
+[22.01 00:36:52] INFO:		Initialization time: 0:00:00.220000
+[22.01 00:36:58] INFO:		======
+[22.01 00:38:12] INFO:		======
+[22.01 00:38:12] INFO:		Plugins initialised
+[22.01 00:38:12] INFO:		Application initialised
+[22.01 00:38:16] INFO:		Initialization time: 0:00:04.397000
+[22.01 00:38:20] INFO:		======
+[22.01 00:38:20] INFO:		Plugins initialised
+[22.01 00:38:20] INFO:		Application initialised
+[22.01 00:38:20] INFO:		Initialization time: 0:00:00.223000
+[22.01 00:39:01] INFO:		======
+[22.01 00:39:02] INFO:		Plugins initialised
+[22.01 00:39:02] INFO:		Application initialised
+[22.01 00:39:06] INFO:		Initialization time: 0:00:04.445000
+[22.01 00:39:09] INFO:		======
+[22.01 00:39:09] INFO:		Plugins initialised
+[22.01 00:39:09] INFO:		Application initialised
+[22.01 00:39:09] INFO:		Initialization time: 0:00:00.305000
+[22.01 00:44:53] INFO:		======
+[22.01 00:44:53] INFO:		Plugins initialised
+[22.01 00:44:53] INFO:		Application initialised
+[22.01 00:44:57] INFO:		Initialization time: 0:00:04.395000
+[22.01 00:45:52] INFO:		======
+[22.01 00:45:52] INFO:		Plugins initialised
+[22.01 00:45:52] INFO:		Application initialised
+[22.01 00:45:57] INFO:		Initialization time: 0:00:04.538000
+[22.01 00:45:59] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:46:00] INFO:		Initialization time: 0:00:07.593000
+[22.01 00:46:02] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 00:46:03] INFO:		Initialization time: 0:00:10.764000
+[22.01 00:47:28] INFO:		Initialization time: 0:01:36.236000
+[22.01 00:47:30] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:47:31] INFO:		Initialization time: 0:01:38.564000
+[22.01 00:47:33] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 00:47:34] INFO:		Initialization time: 0:01:41.783000
+[22.01 00:49:46] INFO:		======
+[22.01 00:49:46] INFO:		Plugins initialised
+[22.01 00:49:46] INFO:		Application initialised
+[22.01 00:49:50] INFO:		Initialization time: 0:00:04.415000
+[22.01 00:49:52] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:49:53] INFO:		Initialization time: 0:00:07.703000
+[22.01 00:50:11] INFO:		======
+[22.01 00:50:11] INFO:		Plugins initialised
+[22.01 00:50:11] INFO:		Application initialised
+[22.01 00:50:15] INFO:		Initialization time: 0:00:04.434000
+[22.01 00:50:16] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:50:17] INFO:		Initialization time: 0:00:06.671000
+[22.01 00:50:58] INFO:		Initialization time: 0:00:47.628000
+[22.01 00:51:10] INFO:		Initialization time: 0:00:59.774000
+[22.01 00:51:45] INFO:		Initialization time: 0:01:34.409000
+[22.01 00:52:10] INFO:		Initialization time: 0:01:59.688000
+[22.01 00:52:31] INFO:		Initialization time: 0:02:20.637000
+[22.01 00:52:41] INFO:		Initialization time: 0:02:30.253000
+[22.01 00:52:50] INFO:		Initialization time: 0:02:39.467000
+[22.01 00:53:42] INFO:		Initialization time: 0:03:31.240000
+[22.01 00:53:50] INFO:		Initialization time: 0:03:39.268000
+[22.01 00:53:59] INFO:		Initialization time: 0:03:48.767000
+[22.01 00:54:02] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 00:54:04] INFO:		Initialization time: 0:03:53.344000
+[22.01 00:54:50] INFO:		Initialization time: 0:04:39.650000
+[22.01 00:55:14] INFO:		Initialization time: 0:05:03.446000
+[22.01 00:55:14] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 00:55:16] INFO:		Initialization time: 0:05:05.799000
+[22.01 00:55:51] INFO:		Initialization time: 0:05:40.285000
+[22.01 00:56:47] INFO:		Initialization time: 0:06:36.830000
+[22.01 00:57:23] INFO:		Initialization time: 0:07:12.245000
+[22.01 00:58:06] INFO:		Initialization time: 0:07:55.679000
+[22.01 00:58:44] INFO:		Initialization time: 0:08:33.277000
+[22.01 00:58:53] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 00:58:55] INFO:		Initialization time: 0:08:43.938000
+[22.01 01:03:14] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 01:03:22] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 01:03:22] INFO:		Initialization time: 0:13:11.305000
+[22.01 01:03:24] INFO:		Initialization time: 0:13:13.372000
+[22.01 01:03:25] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 01:03:26] INFO:		Initialization time: 0:13:15.618000
+[22.01 01:03:27] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 01:03:28] INFO:		Initialization time: 0:13:17.747000
+[22.01 01:03:29] DEBUG:		GoTo: [http] localhost:4801/
+[22.01 01:03:30] INFO:		Initialization time: 0:13:19.839000
+[22.01 01:03:32] DEBUG:		GoTo: [http] localhost:4801/newapp
+[22.01 01:03:33] INFO:		Initialization time: 0:13:21.923000
+[22.01 01:03:52] INFO:		======
+[22.01 01:03:52] INFO:		Plugins initialised
+[22.01 01:03:52] INFO:		Application initialised
+[22.01 01:03:52] INFO:		Initialization time: 0:00:00.229000
+[22.01 12:57:19] INFO:		======
+[22.01 12:57:28] INFO:		Plugins initialised
+[22.01 12:57:28] INFO:		Application initialised
+[22.01 12:57:34] INFO:		Initialization time: 0:00:14.173000
+[22.01 13:06:16] INFO:		======
+[22.01 13:06:19] INFO:		Plugins initialised
+[22.01 13:06:19] INFO:		Application initialised
+[22.01 13:06:21] INFO:		Initialization time: 0:00:06.816000
+[22.01 13:06:26] INFO:		======
+[22.01 13:06:31] INFO:		Plugins initialised
+[22.01 13:06:31] INFO:		Application initialised
+[22.01 13:06:31] INFO:		Initialization time: 0:00:05.856000
+[23.01 11:40:16] INFO:		======
+[23.01 11:40:29] INFO:		Plugins initialised
+[23.01 11:40:30] INFO:		Application initialised
+[23.01 11:40:32] INFO:		Initialization time: 0:00:07.053847
+[23.01 11:40:47] DEBUG:		GoTo: [http] localhost:4801/newapp
+[23.01 11:40:48] INFO:		Initialization time: 0:00:22.565202
+[23.01 11:40:50] DEBUG:		GoTo: [http] localhost:4801/
+[23.01 11:40:50] INFO:		Initialization time: 0:00:25.119511
+[23.01 11:40:53] DEBUG:		GoTo: [http] localhost:4801/newapp
+[23.01 11:40:53] INFO:		Initialization time: 0:00:27.495095
+[23.01 11:40:57] DEBUG:		GoTo: [http] localhost:4801/
+[23.01 11:40:57] INFO:		Initialization time: 0:00:31.763814
+[25.01 16:52:15] INFO:		======
+[25.01 16:52:21] INFO:		Plugins initialised
+[25.01 16:52:22] INFO:		Application initialised
+[25.01 16:52:24] INFO:		Initialization time: 0:00:05.048957

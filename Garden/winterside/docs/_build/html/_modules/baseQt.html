@@ -1,0 +1,935 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>baseQt &mdash; Winterstone v0.8.6.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.8.6.6',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Winterstone v0.8.6.6 documentation" href="../index.html"/>
+    <link rel="up" title="Module code" href="index.html"/>
+</head>
+<body>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+               accesskey="I">index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+        <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li>
+    </ul>
+</div>
+
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+
+<h1>Source code for baseQt</h1>
+
+<div class="highlight">
+<pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span
+        class="o">*</span>
+<span class="kn">from</span> <span class="nn">base</span> <span class="kn">import</span> <span
+        class="n">WinterApp</span><span class="p">,</span> <span class="n">WinterAPI</span>
+<span class="kn">from</span> <span class="nn">winterBug</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">extraQt</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c">#from snowflake import *</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">PyKDE4.kdeui</span> <span class="kn">import</span> <span class="n">KColorCombo</span>
+    <span class="n">KDE_SUPPORT</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">KDE_SUPPORT</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">print</span> <span class="s">&#39;WARNING: KDE_SUPPORT disabled&#39;</span>
+
+<div class="viewcode-block" id="API"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.API">[docs]</a><span
+        class="k">class</span> <span class="nc">API</span><span class="p">(</span><span class="n">WinterAPI</span><span
+        class="p">):</span>
+
+    <div class="viewcode-block" id="API.echo"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.API.echo">[docs]</a>
+        <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span
+                class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span
+                class="s">&#39;echo&#39;</span><span class="p">)(</span><span class="o">*</span><span
+                class="n">args</span><span class="p">,</span> <span class="o">**</span><span
+                class="n">kwargs</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="API.info"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.API.info">[docs]</a>
+        <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span
+                class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="s">&#39;debugger&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span
+                class="n">info</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span
+                class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span
+                class="n">kwargs</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="API.debug"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.API.debug">[docs]</a>
+        <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="s">&#39;debugger&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span
+                class="n">debug</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span
+                class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span
+                class="n">kwargs</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="API.error"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.API.error">[docs]</a>
+        <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="s">&#39;debugger&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span
+                class="n">error</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span
+                class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span
+                class="n">kwargs</span><span class="p">)</span>
+
+    </div>
+</div>
+<div class="viewcode-block" id="SettingsManager"><a class="viewcode-back"
+                                                    href="../modules/baseQt.html#baseQt.SettingsManager">[docs]</a><span
+        class="k">class</span> <span class="nc">SettingsManager</span><span class="p">(</span><span class="n">QMainWindow</span><span
+        class="p">):</span>
+
+<div class="viewcode-block" id="SettingsManager.myDelegate"><a class="viewcode-back"
+                                                               href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate">[docs]</a>
+    <span class="k">class</span> <span class="nc">myDelegate</span><span class="p">(</span><span
+            class="n">QItemDelegate</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="n">QItemDelegate</span><span class="o">.</span><span class="n">__init__</span><span
+            class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span
+            class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span
+            class="n">parent</span>
+
+    <div class="viewcode-block" id="SettingsManager.myDelegate.paint"><a class="viewcode-back"
+                                                                         href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate.paint">[docs]</a>
+        <span class="k">def</span> <span class="nf">paint</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span>
+        <span class="n">option</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span
+                class="n">model</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span
+                class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">EditRole</span><span class="p">)</span><span class="o">.</span><span
+                class="n">toString</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">parent</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span
+                class="n">index</span><span class="o">.</span><span class="n">row</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span
+                class="n">name</span><span class="o">.</span><span class="n">endswith</span><span
+                class="p">(</span><span class="s">&#39;_color&#39;</span><span class="p">):</span>
+        <span class="n">QItemDelegate</span><span class="o">.</span><span class="n">paint</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span>
+        <span class="n">option</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span
+                class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span
+                class="n">NoPen</span><span class="p">))</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">setBrush</span><span
+                class="p">(</span><span class="n">QBrush</span><span class="p">(</span><span
+                class="n">QColor</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawRect</span><span
+                class="p">(</span><span class="n">option</span><span class="o">.</span><span class="n">rect</span><span
+                class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span
+                class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span
+                class="n">black</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">QColor</span><span class="p">(</span><span class="n">value</span><span
+                class="p">)</span><span class="o">.</span><span class="n">black</span><span class="p">()</span> <span
+                class="o">&gt;</span> <span class="mi">127</span><span class="p">:</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span
+                class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span
+                class="n">white</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span
+                class="n">data</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span
+                class="n">DisplayRole</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span
+                class="n">isValid</span><span class="p">():</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span
+                class="n">toString</span><span class="p">()</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span
+                class="n">rect</span>
+        <span class="n">rect</span><span class="o">.</span><span class="n">setLeft</span><span class="p">(</span><span
+                class="mi">3</span><span class="p">)</span>
+        <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span
+                class="n">parent</span><span class="o">.</span><span class="n">font</span><span class="p">()</span>
+        <span class="n">font</span><span class="o">.</span><span class="n">setFixedPitch</span><span
+                class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">font</span><span class="o">.</span><span class="n">setPointSize</span><span
+                class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span
+                class="o">.</span><span class="n">font</span><span class="p">()</span><span class="o">.</span><span
+                class="n">pointSize</span><span class="p">())</span>
+        <span class="n">fm</span> <span class="o">=</span> <span class="n">QFontMetrics</span><span
+                class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="n">rect</span><span class="o">.</span><span class="n">setTop</span><span class="p">(</span><span
+                class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span
+                class="o">+</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span
+                class="n">height</span><span class="p">()</span><span class="o">-</span><span class="n">fm</span><span
+                class="o">.</span><span class="n">height</span><span class="p">())</span><span class="o">/</span><span
+                class="mi">2</span><span class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawText</span><span
+                class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">AlignLeft</span><span class="p">,</span> <span
+                class="n">text</span><span class="p">)</span>
+
+        <span class="n">painter</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+
+    </div>
+    <div class="viewcode-block" id="SettingsManager.myDelegate.createEditor"><a class="viewcode-back"
+                                                                                href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate.createEditor">[docs]</a>
+        <span class="k">def</span> <span class="nf">createEditor</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span>
+        <span class="n">option</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span
+                class="n">model</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span
+                class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">EditRole</span><span class="p">)</span><span class="o">.</span><span
+                class="n">toString</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">parent</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span
+                class="n">index</span><span class="o">.</span><span class="n">row</span><span class="p">()]</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span
+                class="n">value</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span
+                class="p">)</span><span class="o">.</span><span class="n">__name__</span> <span class="o">==</span>
+        <span class="s">&#39;int&#39;</span><span class="p">:</span>
+        <span class="n">editor</span> <span class="o">=</span> <span class="n">QSpinBox</span><span
+                class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setMaximum</span><span
+                class="p">(</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span><span
+                class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;_color&#39;</span><span
+                class="p">)</span> <span class="ow">and</span> <span class="n">KDE_SUPPORT</span><span
+                class="p">:</span>
+        <span class="n">editor</span> <span class="o">=</span> <span class="n">KColorCombo</span><span
+                class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span
+                class="n">item</span><span class="p">,</span> <span class="s">&#39;variants&#39;</span><span class="p">):</span>
+        <span class="n">editor</span> <span class="o">=</span> <span class="n">QComboBox</span><span
+                class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">addItems</span><span
+                class="p">(</span><span class="n">item</span><span class="o">.</span><span
+                class="n">variants</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="n">editor</span> <span class="o">=</span> <span class="n">QLineEdit</span><span
+                class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">editor</span>
+    </div>
+    <div class="viewcode-block" id="SettingsManager.myDelegate.setEditorData"><a class="viewcode-back"
+                                                                                 href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate.setEditorData">[docs]</a>
+        <span class="k">def</span> <span class="nf">setEditorData</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">editor</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span
+                class="n">model</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span
+                class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">EditRole</span><span class="p">)</span><span class="o">.</span><span
+                class="n">toString</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">parent</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span
+                class="n">index</span><span class="o">.</span><span class="n">row</span><span class="p">()]</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span
+                class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setValue</span><span
+                class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span
+                class="p">))</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span><span
+                class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;_color&#39;</span><span
+                class="p">)</span> <span class="ow">and</span> <span class="n">KDE_SUPPORT</span><span
+                class="p">:</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setColor</span><span
+                class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="n">value</span><span
+                class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setCurrentIndex</span><span
+                class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span
+                class="o">.</span><span class="n">variants</span><span class="p">)</span><span class="o">.</span><span
+                class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    </div>
+    <div class="viewcode-block" id="SettingsManager.myDelegate.setModelData"><a class="viewcode-back"
+                                                                                href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate.setModelData">[docs]</a>
+        <span class="k">def</span> <span class="nf">setModelData</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">editor</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">editor</span><span class="o">.</span><span
+                class="n">text</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">editor</span><span class="o">.</span><span
+                class="n">color</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span
+                class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">editor</span><span class="o">.</span><span
+                class="n">currentText</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span
+                class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
+        <span class="n">Qt</span><span class="o">.</span><span class="n">EditRole</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="SettingsManager.myDelegate.updateEditorGeometry"><a class="viewcode-back"
+                                                                                        href="../modules/baseQt.html#baseQt.SettingsManager.myDelegate.updateEditorGeometry">[docs]</a>
+        <span class="k">def</span> <span class="nf">updateEditorGeometry</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="n">editor</span><span class="p">,</span> <span
+                class="n">option</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">editor</span><span class="o">.</span><span class="n">setGeometry</span><span
+                class="p">(</span><span class="n">option</span><span class="o">.</span><span class="n">rect</span><span
+                class="p">)</span>
+
+    </div>
+</div>
+<div class="viewcode-block" id="SettingsManager.settingsTable"><a class="viewcode-back"
+                                                                  href="../modules/baseQt.html#baseQt.SettingsManager.settingsTable">[docs]</a>
+    <span class="k">class</span> <span class="nc">settingsTable</span><span class="p">(</span><span class="n">QTableWidget</span><span
+            class="p">):</span>
+
+    <div class="viewcode-block" id="SettingsManager.settingsTable.fill"><a class="viewcode-back"
+                                                                           href="../modules/baseQt.html#baseQt.SettingsManager.settingsTable.fill">[docs]</a>
+        <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span
+                class="n">conf_file</span><span class="p">,</span> <span class="n">parent</span><span
+                class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span
+                class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span
+                class="n">configs</span><span class="o">.</span><span class="n">append</span><span
+                class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span
+                class="n">conf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span> <span class="o">=</span>
+        <span class="n">conf</span><span class="o">.</span><span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_file</span> <span class="o">=</span>
+        <span class="n">conf_file</span>
+        <span class="n">sizePolicy</span> <span class="o">=</span> <span class="n">QSizePolicy</span><span
+                class="p">(</span><span class="n">QSizePolicy</span><span class="o">.</span><span
+                class="n">Expanding</span><span class="p">,</span> <span class="n">QSizePolicy</span><span
+                class="o">.</span><span class="n">Expanding</span><span class="p">)</span>
+        <span class="n">sizePolicy</span><span class="o">.</span><span class="n">setHorizontalStretch</span><span
+                class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sizePolicy</span><span class="o">.</span><span class="n">setVerticalStretch</span><span
+                class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sizePolicy</span><span class="o">.</span><span class="n">setHeightForWidth</span><span
+                class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+                class="n">sizePolicy</span><span class="p">()</span><span class="o">.</span><span class="n">hasHeightForWidth</span><span
+                class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setSizePolicy</span><span class="p">(</span><span
+                class="n">sizePolicy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMaximumSize</span><span
+                class="p">(</span><span class="n">QSize</span><span class="p">(</span><span
+                class="mi">16777215</span><span class="p">,</span> <span class="mi">16777215</span><span
+                class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span
+                class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setColumnCount</span><span
+                class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setRowCount</span><span
+                class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">QTableWidgetItem</span><span
+                class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHorizontalHeaderItem</span><span
+                class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span
+                class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">QTableWidgetItem</span><span
+                class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHorizontalHeaderItem</span><span
+                class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">item</span><span
+                class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horizontalHeader</span><span
+                class="p">()</span><span class="o">.</span><span class="n">setDefaultSectionSize</span><span
+                class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horizontalHeader</span><span
+                class="p">()</span><span class="o">.</span><span class="n">setStretchLastSection</span><span
+                class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verticalHeader</span><span
+                class="p">()</span><span class="o">.</span><span class="n">setStretchLastSection</span><span
+                class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">SIGNAL</span><span
+                class="p">(</span><span class="s">&quot;itemChanged(QTableWidgetItem *)&quot;</span><span
+                class="p">),</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">changeOption</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span
+                class="n">myDelegate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setItemDelegateForColumn</span><span
+                class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span
+                class="o">.</span><span class="n">delegate</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span
+                class="p">[]</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">conf_dict</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span
+                class="n">array</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">var</span><span class="o">.</span><span
+                class="n">endswith</span><span class="p">(</span><span class="s">&#39;_desc&#39;</span><span
+                class="p">)</span> <span class="ow">and</span> <span class="n">var</span> <span class="o">!=</span>
+        <span class="s">&#39;activated&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span
+                class="n">var</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span
+                class="s">&#39;_variants&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insertRow</span><span
+                class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setVerticalHeaderItem</span><span class="p">(</span><span
+                class="n">row</span><span class="p">,</span> <span class="n">QTableWidgetItem</span><span
+                class="p">(</span><span class="n">var</span><span class="p">))</span>
+        <span class="n">vitem</span> <span class="o">=</span> <span class="n">QTableWidgetItem</span><span
+                class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">array</span><span
+                class="p">[</span><span class="n">var</span><span class="p">]))</span>
+        <span class="n">vitem</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span
+                class="n">var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span
+                class="n">append</span><span class="p">(</span><span class="n">vitem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">var</span><span
+                class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">True</span><span
+                class="p">,</span> <span class="bp">False</span><span class="p">]:</span>
+        <span class="n">vitem</span><span class="o">.</span><span class="n">setFlags</span><span class="p">(</span><span
+                class="n">Qt</span><span class="o">.</span><span class="n">ItemFlags</span><span class="p">(</span><span
+                class="n">Qt</span><span class="o">.</span><span class="n">ItemIsSelectable</span> <span
+                class="o">|</span> <span class="n">Qt</span><span class="o">.</span><span
+                class="n">ItemIsUserCheckable</span> <span class="o">|</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">ItemIsEnabled</span><span class="p">))</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">Qt</span><span class="o">.</span><span
+                class="n">Checked</span> <span class="k">if</span> <span class="n">array</span><span
+                class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="k">else</span> <span
+                class="n">Qt</span><span class="o">.</span><span class="n">Unchecked</span>
+        <span class="n">vitem</span><span class="o">.</span><span class="n">setCheckState</span><span class="p">(</span><span
+                class="n">check</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span
+                class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span
+                class="n">vitem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">&#39;</span><span class="si">%s</span><span
+                class="s">_desc&#39;</span> <span class="o">%</span> <span class="n">var</span> <span
+                class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span
+                class="s">&#39;</span><span class="si">%s</span><span class="s">_desc&#39;</span> <span
+                class="o">%</span> <span class="n">var</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="k">if</span> <span class="s">&#39;</span><span class="si">%s</span><span
+                class="s">_variants&#39;</span> <span class="o">%</span> <span class="n">var</span> <span
+                class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+        <span class="n">vitem</span><span class="o">.</span><span class="n">variants</span> <span class="o">=</span>
+        <span class="n">array</span><span class="p">[</span><span class="s">&#39;</span><span class="si">%s</span><span
+                class="s">_variants&#39;</span> <span class="o">%</span> <span class="n">var</span><span
+                class="p">]</span>
+        <span class="n">ditem</span> <span class="o">=</span> <span class="n">QTableWidgetItem</span><span
+                class="p">(</span><span class="n">desc</span><span class="p">)</span>
+        <span class="n">ditem</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span
+                class="s">&#39;ditem&#39;</span>
+        <span class="n">ditem</span><span class="o">.</span><span class="n">setFlags</span><span class="p">(</span><span
+                class="n">Qt</span><span class="o">.</span><span class="n">ItemFlags</span><span class="p">(</span><span
+                class="n">Qt</span><span class="o">.</span><span class="n">ItemIsSelectable</span> <span
+                class="o">|</span> <span class="n">Qt</span><span class="o">.</span><span
+                class="n">ItemIsUserCheckable</span> <span class="o">|</span> <span class="n">Qt</span><span
+                class="o">.</span><span class="n">ItemIsEnabled</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span
+                class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span
+                class="n">ditem</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+    </div>
+    <div class="viewcode-block" id="SettingsManager.settingsTable.changeOption"><a class="viewcode-back"
+                                                                                   href="../modules/baseQt.html#baseQt.SettingsManager.settingsTable.changeOption">[docs]</a>
+        <span class="k">def</span> <span class="nf">changeOption</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span
+                class="n">checkState</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">item</span><span
+                class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="ow">and</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span
+                class="ow">in</span> <span class="p">[</span><span class="s">&#39;False&#39;</span><span
+                class="p">,</span> <span class="s">&#39;True&#39;</span><span class="p">]):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s">&#39;True&#39;</span> <span
+                class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">checkState</span><span
+                class="p">()</span> <span class="k">else</span> <span class="s">&#39;False&#39;</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span
+                class="n">text</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span
+                class="n">text</span><span class="p">()</span><span class="o">.</span><span
+                class="n">__str__</span><span class="p">()</span><span class="o">.</span><span
+                class="n">encode</span><span class="p">(</span><span class="s">&#39;cp1251&#39;</span><span
+                class="p">)</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span> <span
+                class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">conf_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span
+                class="s">&#39;True&#39;</span><span class="p">,</span> <span class="s">&#39;False&#39;</span><span
+                class="p">]:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span
+                class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span
+                class="p">]</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span
+                class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span
+                class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_dict</span><span
+                class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span
+                class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span
+                class="n">statusBar</span><span class="o">.</span><span class="n">showMessage</span><span
+                class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span
+                class="s"> change to </span><span class="si">%s</span><span class="s">&#39;</span> <span
+                class="o">%</span> <span class="p">(</span><span class="n">item</span><span class="o">.</span><span
+                class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span
+                class="n">text</span><span class="p">()))</span>
+    </div>
+    <div class="viewcode-block" id="SettingsManager.settingsTable.save"><a class="viewcode-back"
+                                                                           href="../modules/baseQt.html#baseQt.SettingsManager.settingsTable.save">[docs]</a>
+        <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span
+                class="bp">self</span><span class="o">.</span><span class="n">conf_file</span><span class="p">,</span>
+        <span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span
+                class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    </div>
+</div>
+<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+        class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span
+        class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="n">QMainWindow</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span
+        class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span
+        class="mi">746</span><span class="p">,</span> <span class="mi">545</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">centralwidget</span> <span class="o">=</span> <span
+        class="n">QWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout_3</span> <span class="o">=</span>
+<span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">centralwidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span> <span class="o">=</span> <span
+        class="n">QTabWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">centralwidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">setTabPosition</span><span class="p">(</span><span class="n">QTabWidget</span><span class="o">.</span><span
+        class="n">West</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">setTabShape</span><span class="p">(</span><span class="n">QTabWidget</span><span
+        class="o">.</span><span class="n">Rounded</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tab_2</span> <span class="o">=</span> <span
+        class="n">QWidget</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout_2</span> <span class="o">=</span>
+<span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tab_2</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout_3</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tabWidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">horizontalLayout</span> <span class="o">=</span>
+<span class="n">QHBoxLayout</span><span class="p">()</span>
+<span class="n">spacerItem</span> <span class="o">=</span> <span class="n">QSpacerItem</span><span
+        class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span
+        class="p">,</span> <span class="n">QSizePolicy</span><span class="o">.</span><span
+        class="n">Expanding</span><span class="p">,</span> <span class="n">QSizePolicy</span><span
+        class="o">.</span><span class="n">Minimum</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">horizontalLayout</span><span class="o">.</span><span
+        class="n">addItem</span><span class="p">(</span><span class="n">spacerItem</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">cancelButton</span> <span class="o">=</span> <span
+        class="n">QPushButton</span><span class="p">(</span><span class="s">&#39;Cancel&#39;</span><span
+        class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centralwidget</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">horizontalLayout</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">cancelButton</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">restartButton</span> <span class="o">=</span> <span
+        class="n">QPushButton</span><span class="p">(</span><span class="s">&#39;Apply and Restart&#39;</span><span
+        class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centralwidget</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">horizontalLayout</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">restartButton</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">applyButton</span> <span class="o">=</span> <span
+        class="n">QPushButton</span><span class="p">(</span><span class="s">&#39;Apply&#39;</span><span
+        class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centralwidget</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">horizontalLayout</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">applyButton</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout_3</span><span class="o">.</span><span
+        class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">horizontalLayout</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">centralwidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span> <span class="o">=</span> <span
+        class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+        class="n">sm</span> <span class="o">=</span> <span class="bp">self</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">configs</span> <span class="o">=</span> <span
+        class="p">[]</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">tableWidget</span> <span class="o">=</span> <span
+        class="bp">self</span><span class="o">.</span><span class="n">settingsTable</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tableWidget</span><span class="o">.</span><span
+        class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span
+        class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;config/main.cfg&#39;</span><span
+        class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">sttab</span> <span class="o">=</span> <span
+        class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">addTab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tableWidget</span><span class="p">,</span> <span class="s">&#39;Settings&#39;</span><span
+        class="p">)</span>
+
+<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+        class="n">config</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span
+        class="n">debug</span><span class="p">:</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">dbgTable</span> <span class="o">=</span> <span
+        class="bp">self</span><span class="o">.</span><span class="n">settingsTable</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">dbgTable</span><span class="o">.</span><span
+        class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">app</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span
+        class="n">config</span><span class="p">,</span> <span class="n">CWD</span> <span class="o">+</span> <span
+        class="s">&#39;config/debug.cfg&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">dbgtab</span> <span class="o">=</span> <span
+        class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">addTab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">dbgTable</span><span class="p">,</span> <span class="s">&#39;Debug&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+        class="n">config</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span
+        class="n">plugins</span><span class="p">:</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabPlugins</span> <span class="o">=</span> <span
+        class="n">QWidget</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout</span> <span class="o">=</span> <span
+        class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tabPlugins</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">listWidget</span> <span class="o">=</span> <span
+        class="n">QListWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tabPlugins</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">listWidget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">plainTextEdit</span> <span class="o">=</span> <span
+        class="n">QPlainTextEdit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tabPlugins</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">verticalLayout</span><span class="o">.</span><span
+        class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">plainTextEdit</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">addTab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">tabPlugins</span><span class="p">,</span> <span class="s">&#39;Plugins&#39;</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">loadPlugins</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">listWidget</span><span class="p">,</span> <span
+        class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;itemClicked(QListWidgetItem *)&quot;</span><span
+        class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">echoInfo</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">listWidget</span><span class="p">,</span> <span
+        class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;itemChanged(QListWidgetItem *)&quot;</span><span
+        class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">togglePlugin</span><span
+        class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">pstab</span> <span class="o">=</span> <span
+        class="n">QTabWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tabWidget</span><span class="o">.</span><span
+        class="n">addTab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span
+        class="n">pstab</span><span class="p">,</span> <span class="s">&#39;Plugins settings&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span
+        class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">pm</span><span
+        class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">active</span><span
+        class="p">:</span>
+<span class="n">st</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsTable</span><span
+        class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pstab</span><span
+        class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">plugin</span><span
+        class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s">&#39;</span><span
+        class="si">%s</span><span class="s">plugins/</span><span class="si">%s</span><span
+        class="s">/plugin.cfg&#39;</span> <span class="o">%</span> <span class="p">(</span><span
+        class="n">CWD</span><span class="p">,</span> <span class="n">plugin</span><span class="o">.</span><span
+        class="n">name</span><span class="p">),</span> <span class="bp">self</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">pstab</span><span class="o">.</span><span class="n">addTab</span><span
+        class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">plugin</span><span
+        class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">restartButton</span><span class="p">,</span> <span
+        class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;clicked()&quot;</span><span
+        class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">cancelButton</span><span class="p">,</span> <span
+        class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;clicked()&quot;</span><span
+        class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span
+        class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span
+        class="bp">self</span><span class="o">.</span><span class="n">applyButton</span><span class="p">,</span> <span
+        class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;clicked()&quot;</span><span
+        class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">applyOptions</span><span
+        class="p">)</span>
+
+<div class="viewcode-block" id="SettingsManager.reloadPluginSettings"><a class="viewcode-back"
+                                                                         href="../modules/baseQt.html#baseQt.SettingsManager.reloadPluginSettings">[docs]</a>
+    <span class="k">def</span> <span class="nf">reloadPluginSettings</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pstab</span><span class="o">.</span><span
+            class="n">clear</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">pm</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">active</span><span
+            class="p">:</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">settingsTable</span><span class="p">(</span><span class="bp">self</span><span
+            class="o">.</span><span class="n">pstab</span><span class="p">)</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">plugin</span><span
+            class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s">&#39;</span><span
+            class="si">%s</span><span class="s">plugins/</span><span class="si">%s</span><span class="s">/plugin.cfg&#39;</span>
+    <span class="o">%</span> <span class="p">(</span><span class="n">CWD</span><span class="p">,</span> <span class="n">plugin</span><span
+            class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="bp">self</span><span
+            class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pstab</span><span class="o">.</span><span
+            class="n">addTab</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span
+            class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.loadPlugins"><a class="viewcode-back"
+                                                                href="../modules/baseQt.html#baseQt.SettingsManager.loadPlugins">[docs]</a>
+    <span class="k">def</span> <span class="nf">loadPlugins</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">pm</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">QListWidgetItem</span><span
+            class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span
+            class="p">)</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">plugin</span> <span class="o">=</span> <span
+            class="n">plugin</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">setFlags</span><span class="p">(</span><span
+            class="n">Qt</span><span class="o">.</span><span class="n">ItemIsUserCheckable</span> <span
+            class="o">|</span> <span class="n">Qt</span><span class="o">.</span><span
+            class="n">ItemIsEnabled</span><span class="p">)</span>
+
+    <span class="n">check</span> <span class="o">=</span> <span class="n">Qt</span><span class="o">.</span><span
+            class="n">Checked</span> <span class="k">if</span> <span class="n">plugin</span><span
+            class="o">.</span><span class="n">active</span> <span class="k">else</span> <span class="n">Qt</span><span
+            class="o">.</span><span class="n">Unchecked</span>
+
+    <span class="n">item</span><span class="o">.</span><span class="n">setCheckState</span><span class="p">(</span><span
+            class="n">check</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listWidget</span><span class="o">.</span><span
+            class="n">addItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.applyOptions"><a class="viewcode-back"
+                                                                 href="../modules/baseQt.html#baseQt.SettingsManager.applyOptions">[docs]</a>
+    <span class="k">def</span> <span class="nf">applyOptions</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="bp">self</span><span
+            class="o">.</span><span class="n">configs</span><span class="p">:</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span
+            class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">options</span><span
+            class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">savePlugins</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.restart"><a class="viewcode-back"
+                                                            href="../modules/baseQt.html#baseQt.SettingsManager.restart">[docs]</a>
+    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">applyOptions</span><span class="p">()</span>
+    <span class="n">python</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span
+            class="n">executable</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">execl</span><span class="p">(</span><span
+            class="n">python</span><span class="p">,</span> <span class="n">python</span><span class="p">,</span> <span
+            class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span
+            class="p">)</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.echoInfo"><a class="viewcode-back"
+                                                             href="../modules/baseQt.html#baseQt.SettingsManager.echoInfo">[docs]</a>
+    <span class="k">def</span> <span class="nf">echoInfo</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">getInfo</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span
+            class="n">plugin</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">plainTextEdit</span><span
+            class="o">.</span><span class="n">setPlainText</span><span class="p">(</span><span
+            class="n">QString</span><span class="p">(</span><span class="n">info</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.togglePlugin"><a class="viewcode-back"
+                                                                 href="../modules/baseQt.html#baseQt.SettingsManager.togglePlugin">[docs]</a>
+    <span class="k">def</span> <span class="nf">togglePlugin</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span
+            class="n">checkState</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">state</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">pm</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span
+            class="n">item</span><span class="o">.</span><span class="n">plugin</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">pm</span><span class="o">.</span><span class="n">deactivate</span><span class="p">(</span><span
+            class="n">item</span><span class="o">.</span><span class="n">plugin</span><span class="p">)</span>
+
+    <span class="n">check</span> <span class="o">=</span> <span class="n">Qt</span><span class="o">.</span><span
+            class="n">Checked</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span
+            class="n">plugin</span><span class="o">.</span><span class="n">active</span> <span class="k">else</span>
+    <span class="n">Qt</span><span class="o">.</span><span class="n">Unchecked</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">setCheckState</span><span class="p">(</span><span
+            class="n">check</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="n">Qt</span><span
+            class="o">.</span><span class="n">Checked</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="o">.</span><span
+            class="n">showMessage</span><span class="p">(</span><span class="s">&#39;</span><span
+            class="si">%s</span><span class="s"> activated&#39;</span> <span class="o">%</span> <span
+            class="n">item</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span
+            class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="o">.</span><span
+            class="n">showMessage</span><span class="p">(</span><span class="s">&#39;</span><span
+            class="si">%s</span><span class="s"> deactivated&#39;</span> <span class="o">%</span> <span
+            class="n">item</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span
+            class="n">name</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">reloadPluginSettings</span><span
+            class="p">()</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.savePlugins"><a class="viewcode-back"
+                                                                href="../modules/baseQt.html#baseQt.SettingsManager.savePlugins">[docs]</a>
+    <span class="k">def</span> <span class="nf">savePlugins</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">):</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span
+            class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">options</span><span
+            class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">pm</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span
+            class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">p_config</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span
+            class="n">active</span> <span class="o">=</span> <span class="n">names</span>
+    <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span
+            class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;config/plugins.cfg&#39;</span><span
+            class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span
+            class="n">p_config</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span
+            class="n">cfgfile</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SettingsManager.getInfo"><a class="viewcode-back"
+                                                            href="../modules/baseQt.html#baseQt.SettingsManager.getInfo">[docs]</a>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">pi</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;&#39;&#39;Name: </span><span class="si">%s</span><span
+            class="s"></span>
+    <span class="s">Description: </span><span class="si">%s</span><span class="s"></span>
+    <span class="s">Author: </span><span class="si">%s</span><span class="s"></span>
+    <span class="s">Version: </span><span class="si">%s</span><span class="s"></span>
+    <span class="s">State: </span><span class="si">%s</span><span class="s"></span>
+    <span class="s">        &#39;&#39;&#39;</span> <span class="o">%</span> <span class="p">(</span><span
+            class="n">pi</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span
+            class="n">pi</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span
+            class="n">info</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+    <span class="n">pi</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span
+            class="n">info</span><span class="o">.</span><span class="n">author</span><span class="p">,</span> <span
+            class="n">pi</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span
+            class="n">info</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span
+            class="n">pi</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+
+</div>
+</div>
+<div class="viewcode-block" id="WinterQtApp"><a class="viewcode-back" href="../modules/baseQt.html#baseQt.WinterQtApp">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterQtApp</span><span class="p">(</span><span
+        class="n">QMainWindow</span><span class="p">,</span> <span class="n">WinterApp</span><span class="p">):</span>
+    <span class="n">__apiclass__</span> <span class="o">=</span> <span class="n">API</span>
+    <span class="k">pass</span></div>
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18"/>
+                <input type="submit" value="Go"/>
+                <input type="hidden" name="check_keywords" value="yes"/>
+                <input type="hidden" name="area" value="default"/>
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+                    >index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+        <li><a href="index.html">Module code</a> &raquo;</li>
+    </ul>
+</div>
+<div class="footer">
+    &copy; Copyright 2011, Averrin.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.3.
+</div>
+</body>
+</html>

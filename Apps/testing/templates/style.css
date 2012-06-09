@@ -1,0 +1,125 @@
+/* Classic Skin */
+
+table {
+position: relative;
+z-index: 2;
+border: none;
+border-bottom: 2px solid #303030;
+border-collapse: collapse;
+margin: 0 auto;
+border-right: 1px solid #c7c7c7;
+width: 100%;
+font-size: 12px;
+}
+
+table td {
+padding: 10px 0;
+border-bottom: 1px solid #e7e7e7;
+vertical-align: middle;
+text-align: center;
+background: #f7f7f7;
+color: #707070;
+}
+
+table tr td div {
+text-align: center;
+}
+
+table tr td div.yes, table tr td div.no, table tr td div.partial {
+height: 16px;
+}
+
+table tr td.cat div, table tr td.title div {
+height: auto;
+}
+
+table td.cat div {
+text-align: left;
+padding: 0 10px;
+}
+
+table td.title {
+background: #303030;
+font-size: 16px;
+color: #f7f7f7;
+vertical-align: middle;
+text-align: center;
+}
+
+table .cat {
+text-align: left;
+background: #eee;
+border-left: 1px solid #c7c7c7;
+}
+
+table td.title.cat {
+background: none !important;
+border: none;
+border-bottom: 1px solid #c7c7c7;
+cursor: default !important;
+}
+
+table td.title.cat div {
+display: none;
+}
+
+table tr td.cat:hover {
+background: #fff;
+}
+
+table tr td.title:hover {
+background: #404040;
+}
+
+table tr td:hover {
+background: #fff;
+}
+
+table div.yes {
+background: url(images/yes.png) no-repeat center center;
+}
+
+table div.no {
+background: url(images/no.png) no-repeat center center;
+}
+
+table div.partial {
+background: url(images/partial.png) no-repeat center center;
+}
+
+table .title .editable input {
+color: #fff;
+}
+
+table .titleImage {
+padding: 0;
+margin: 0;
+border: none;   
+width: 90%;
+float: none;
+height: auto;
+}
+
+        body{
+            padding:  16px !important;
+            font-size: 11pt;
+        }
+        h1{font-size:24pt; margin-top: 16px;text-align: center;
+margin-bottom: 30px;}
+        h2{font-size:18pt; margin-top: 16px;}
+        h3{font-size:14pt; margin-top: 16px;}
+        #content{width: 900px; margin: 0px auto;}
+
+h2{
+        background: #303030;
+color: #F7F7F7;
+padding-left: 6px;
+}
+
+.pcell{
+    height: 150px; width: 222px; float: left; border: 1px solid #323232; text-align: center; overflow-x: hidden;
+
+}
+.pcell img{
+    float:center; height: 100px; margin-top: 4px;
+}

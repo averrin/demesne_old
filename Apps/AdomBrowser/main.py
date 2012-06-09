@@ -8,6 +8,7 @@ import sys, os
 
 
 sys.path.append('Garden')
+sys.path.append('../Garden')
 sys.path.append('../../Garden')
 from winterstone.extraQt import WinterLine
 
@@ -147,7 +148,7 @@ def main():
     endtime = datetime.now()
     delta = endtime - starttime
     ui.api.info('Initialization time: %s' % delta)
-
+    print 'Started'
     qtapp.exec_()
 
 

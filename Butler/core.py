@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from winterstone.baseQt import API
@@ -7,9 +8,10 @@ from etherstone.base import EtherIntegration
 from config import Config
 import os
 from bottle import *
+import subprocess
 
 
-class Core(object):
+class Core(QObject):
     '''
         Store all your app logic here
     '''
@@ -20,7 +22,7 @@ class Core(object):
         '''
         self.api = API()
         # self.view=self.app.mainWidget.view
-        self.icons = loadIcons(CWD + 'static/icons/')
+        # self.icons = loadIcons(CWD + 'static/icons/')
         global core
         core = self
 
@@ -34,18 +36,59 @@ class Core(object):
 
     @route('/')
     @view('main')
-    def main_menu(self):
+    def main_menu():
         appdir = CWD + '../Apps/'
-        apps = os.listdir(appdir)
+        apps = os.listdir(os.path.normpath(appdir))
         configs = []
         for app in apps:
-            configs.append(Config(file(appdir + app + '/config/main.cfg')).info)
-        return {'apps': configs, 'STATIC': 'http://localhost:4801/static/'}
+            if os.path.isfile(appdir + app + '/config/main.cfg'):
+                cfg=Config(file(appdir + app + '/config/main.cfg')).info
+                cfg.icon='/apps/%s/icons/app.png'%app
+                cfg.dir=app
+                vc='success'
+                if cfg.version.endswith('alpha'):
+                    vc=''
+                elif cfg.version.endswith('beta'):
+                    vc='warning'
+                cfg.ver_class=vc
+                configs.append(cfg)
+        return {'apps': configs, 'STATIC': 'http://localhost:4801/static/',
+                'VAULT':'http://localhost:4801/vault/'}
 
     def credits(self):
         self.app.mainWidget.view.loadPage('credits.tpl')
 
     @route('/settings')
-    def show_settings(self):
-        API().sm.show()
+    def show_settings():
+        core.emit(SIGNAL('exec'),'api.info boom')
+        # API().sm.show()
+
+    @route('/script/:method/:args')
+    def script(method,args):
+        args=args.split(',')
+        args=' '.join(args)
+        core.emit(SIGNAL('exec'),'%s %s' % (method,args))
+
+    @route('/apps/:app/:fdir/:file_name')
+    def server_static_images(app='',fdir='',file_name=''):
+        root='%s../Apps/%s/%s/' % (CWD,app,fdir)
+        return static_file(file_name, root=root)
+
+    @route('/launch/:app')
+    def launch(app):
+        appdir = CWD + '../Apps/'
+        path=appdir+app+'/main.py'
+        path=path.replace('\\','\\')
+        p=subprocess.Popen(['python',path], shell=False, stdout=subprocess.PIPE)
+        status=p.communicate()[0].strip()
+        if status.endswith('Started'):
+            return 'Success'
+        else:
+            return 'Fail'
+
+    @route('/newapp')
+    @view('newapp')
+    def newapp():
+        return {'STATIC': 'http://localhost:4801/static/',
+                'VAULT':'http://localhost:4801/vault/'}
 

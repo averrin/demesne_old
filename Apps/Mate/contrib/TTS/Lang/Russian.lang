@@ -1,0 +1,553 @@
+[_Common]
+Charset=1
+
+[MainForm.bOpen]
+Hint=Открыть файл с текстом||( Ctrl+O )
+
+[MainForm.bPaste]
+Hint=Вставить текст из буфера||( Ctrl+V )
+
+[MainForm.btExit]
+Hint=Выход из программы||( Alt+X )
+
+[MainForm.bClear]
+Hint=Очистить
+
+[MainForm.bFind]
+Hint=Поиск текста||( Ctrl+F )
+
+[MainForm.bEnv]
+Hint=Настройки программы..
+
+[MainForm.bgvr1]
+Caption=1
+Hint=Текст 1||(Ctrl+1)|
+
+[MainForm.bgvr2]
+Caption=2
+Hint=Текст 2||(Ctrl+2)|
+
+[MainForm.bgvr3]
+Caption=3
+Hint=Текст 3||(Ctrl+3)|
+
+[MainForm.bgvr4]
+Caption=4
+Hint=Текст 4||(Ctrl+4)|
+
+[MainForm.bgvr5]
+Caption=5
+Hint=Текст 5||(Ctrl+5)|
+
+[MainForm.bgvr6]
+Caption=6
+Hint=Текст 6||(Ctrl+6)|
+
+[MainForm.bgvr7]
+Caption=7
+Hint=Текст 7||(Ctrl+7)|
+
+[MainForm.bgvr8]
+Caption=8
+Hint=Текст 8||(Ctrl+8)|
+
+[MainForm.mFile]
+Caption=Файл
+
+[MainForm.miNew]
+Caption=Очистить
+
+[MainForm.miOpen]
+Caption=Открыть..
+
+[MainForm.miReopen]
+Caption=Открыть недавний
+
+[MainForm.miSavePageState]
+Caption=Сохранить состояние страницы
+
+[MainForm.miSaveAs]
+Caption=Сохранить как..
+
+[MainForm.mExit]
+Caption=Выход
+
+[MainForm.mEdit]
+Caption=Правка
+
+[MainForm.miCopy]
+Caption=Копировать
+
+[MainForm.miCut]
+Caption=Вырезать
+
+[MainForm.miPaste]
+Caption=Вставить
+
+[MainForm.miInsertPause500]
+Caption=Вставить паузу 5 с
+
+[MainForm.miSelectAll]
+Caption=Выделить всё
+
+[MainForm.miAddtodictionary]
+Caption=Добавить в словарь..
+
+[MainForm.miFind]
+Caption=Найти..
+
+[MainForm.miFindNext]
+Caption=Найти далее
+
+[MainForm.miSearchHomographs]
+Caption=Поиск омографов..
+
+[MainForm.mControl]
+Caption=Управление
+
+[MainForm.miStart]
+Caption=Старт
+
+[MainForm.miStop]
+Caption=Стоп
+
+[MainForm.miPause]
+Caption=Пауза/Продолжить
+
+[MainForm.miEnvironment]
+Caption=Настройки программы..
+
+[MainForm.miOptions]
+Caption=Настройки текущего текстового окна..
+
+[MainForm.miBookshelf]
+Caption=Книжная полка..
+
+[MainForm.miScheduler]
+Caption=Планировщик..
+
+[MainForm.miBatch]
+Caption=Пакетная обработка..
+
+[MainForm.mService]
+Caption=Сервис
+
+[MainForm.miCleanText]
+Caption=Доп. обработка текста..
+
+[MainForm.mPages]
+Caption=Страницы
+
+[MainForm.mHelp]
+Caption=Справка
+
+[MainForm.miHelpTopics]
+Caption=Документация
+
+[MainForm.miFAQpage]
+Caption=Вопросоответы (WWW)
+
+[MainForm.miWWWHomePage]
+Caption=Домашняя страница (WWW)
+
+[MainForm.miAbout]
+Caption=О программе..
+
+[MainForm.mView]
+Caption=Вид
+
+[MainForm.miLangEditor]
+Caption=Редактор текста оформления
+
+[MainForm.mipShowHide]
+Caption=Показать/Скрыть
+
+[MainForm.mipAbout]
+Caption=О программе..
+
+[MainForm.mipExit]
+Caption=Выход
+
+[Page.pb1]
+Hint=Предварительная обработка текста
+
+[Page.pb2]
+Hint=Воспроизведение
+
+[Page.chkHighlight]
+Caption=Подсветка
+
+[Page.chkFollow]
+Caption=Слежение
+
+[Page.btUnSelectAll]
+Hint=Отключить все словари
+
+[Page.btEditDic]
+Hint=Просмотр
+
+[Page.SpeedButton1]
+Caption=x
+
+[Page.btDicInfo]
+Caption=?
+Hint=Справка
+
+[Page.btDocSett]
+Hint=Настройки текущего текстового окна..
+
+[Page.btStart]
+Hint=Читать текст (F5)
+
+[Page.btStop]
+Hint=Стоп (F6)
+
+[Page.btPause]
+Hint=Пауза / Продолжить (F8)
+
+[Page.btStartWav]
+Hint=Начать запись в звуковой файл.. ||(звук не слышен)
+
+[Page.btWin]
+Caption=WIN
+
+[Page.btMore]
+Caption=Дополн...
+Hint=Дополнительные||настройки (F9)
+
+[Page.btDic]
+Hint=Показать/скрыть список словарей
+
+[Page.btDos]
+Caption=DOS
+
+[Page.btCustom1]
+Hint=Настройки программы
+
+[Page.miDictionary]
+Caption=Словарь..
+
+[Page.miCopy]
+Caption=Копировать
+
+[Page.miCut]
+Caption=Вырезать
+
+[Page.miPaste]
+Caption=Вставить
+
+[Page.miSelectAll]
+Caption=Выделить всё
+
+[Page.miSetAsDefaultDic]
+Caption=Сделать этот словарь интерактивным
+
+[PageExt.Label1]
+Caption=Голос:
+
+[PageExt.Label2]
+Caption=Скорость:
+
+[PageExt.Label3]
+Caption=Высота:
+
+[PageExt.Label4]
+Caption=Громкость:
+
+[PageOptions.Self]
+Caption=Настройки документа
+
+[PageOptions.tsGeneral]
+Caption=Основные
+
+[PageOptions.lSB]
+Caption=Звук.плата
+
+[PageOptions.Label5]
+Caption=Голос
+
+[PageOptions.ARLinkLabel1]
+Caption=?
+
+[PageOptions.lHz]
+Caption=Гц
+
+[PageOptions.lStages]
+Caption=Ступеньки
+
+[PageOptions.chkFollow]
+Caption=Слежение за речью (автопрокрутка)
+
+[PageOptions.chkHlt]
+Caption=Подсвечивать произносимый текст
+
+[PageOptions.GroupBox1]
+Caption=Параметры голоса
+
+[PageOptions.Label11]
+Caption=Высота
+
+[PageOptions.Label12]
+Caption=Скорость
+
+[PageOptions.Label13]
+Caption=Громкость
+
+[PageOptions.chkPitchvar]
+Caption=Переменная высота голоса:
+
+[PageOptions.tsFile]
+Caption=Запись в звуковой файл
+
+[PageOptions.lRt]
+Caption=Скорость записи
+
+[PageOptions.Label1]
+Caption=Размер части
+
+[PageOptions.Label3]
+Caption=Названия файлов
+
+[PageOptions.lFile]
+Caption=Выходной файл
+
+[PageOptions.Label7]
+Caption=(нек.движки не умеют)
+
+[PageOptions.Label6]
+Caption=КБ (несжатый WAV)
+
+[PageOptions.lNote2]
+Caption=Внимание! При записи в файл текст не подсвечивается||(экономия ресурсов)
+
+[PageOptions.gbMp3]
+Caption=MP3 Encoder
+
+[PageOptions.Label2]
+Caption=Kbps
+
+[PageOptions.lBR]
+Caption=Bitrate
+
+[PageOptions.chkVBR]
+Caption=Variable bitrate (VBR)
+
+[PageOptions.chkOnTheFly]
+Caption=Кодирование "На лету" (Не использовать!)
+
+[PageOptions.chkStereo]
+Caption=Стерео (Не доступно)
+
+[PageOptions.chkMultiFile]
+Caption=Записывать кусками
+
+[PageOptions.tsView]
+Caption=Вид
+
+[PageOptions.Label4]
+Caption=Оформление окошка
+
+[PageOptions.btFont]
+Caption=Шрифт
+
+[PageOptions.btBkColor]
+Caption=Цвет фона
+
+[PageOptions.btHltColor]
+Caption=Цвет подсветки
+
+[PageOptions.btOk]
+Caption=OK
+
+[PageOptions.btCancel]
+Caption=Отмена
+
+[PageOptions.chkDefault]
+Caption=Default
+Hint=Использовать эти настройки для новых документов
+
+[PageOptions.btHelp]
+Caption=Справка
+
+[GlobalOptions.Self]
+Caption=Настройки программы
+
+[GlobalOptions.tsGeneral]
+Caption=Основные
+
+[GlobalOptions.Label11]
+Caption=Язык надписей:
+
+[GlobalOptions.lSkin]
+Caption=Скин:
+
+[GlobalOptions.lSkinsPath]
+Caption=Путь к скинам:
+
+[GlobalOptions.chkSaveForm]
+Caption=Запоминать положение и размер окна
+
+[GlobalOptions.chkMinimizeToTray]
+Caption=Сворачивать в трей
+
+[GlobalOptions.tsKeys]
+Caption=Горячие клавиши
+
+[GlobalOptions.Label6]
+Caption=Старт
+
+[GlobalOptions.Label7]
+Caption=Стоп
+
+[GlobalOptions.Label8]
+Caption=Пауза/продолжить
+
+[GlobalOptions.Label9]
+Caption=Чтение буфера обмена
+
+[GlobalOptions.Label4]
+Caption=Гор.клавиша
+
+[GlobalOptions.Label5]
+Caption=Глобальная
+
+[GlobalOptions.ARLinkLabel1]
+Caption=Примечание
+
+[GlobalOptions.chkStart_Global]
+Caption=
+
+[GlobalOptions.chkStop_Global]
+Caption=
+
+[GlobalOptions.chkPause_Global]
+Caption=
+
+[GlobalOptions.chkClipboard_Global]
+Caption=
+
+[GlobalOptions.tsFiles]
+Caption=Пути
+
+[GlobalOptions.lTmp]
+Caption=Временная папка :
+
+[GlobalOptions.Label10]
+Caption=Папка со словарями :
+
+[GlobalOptions.Label12]
+Caption=Папка для||хранения содержимого:
+
+[GlobalOptions.deTemp]
+Hint=Временная папка
+
+[GlobalOptions.deDic]
+Hint=Папка со словарями
+
+[GlobalOptions.deTextFolder]
+Hint=Папка, где сохранять настройки страниц
+
+[GlobalOptions.tsPrograms]
+Caption=Программы
+
+[GlobalOptions.Label1]
+Caption=Аудио проигрыватель :
+
+[GlobalOptions.tsShell]
+Caption=Интеграция
+
+[GlobalOptions.GroupBox1]
+Caption=Добавить команду в контекстное меню обозревателя Windows
+
+[GlobalOptions.Label3]
+Caption=Название команды
+
+[GlobalOptions.Label2]
+Caption=Добавить команду к файлам :
+
+[GlobalOptions.chk1]
+Caption=Текстовые (*.TXT)
+
+[GlobalOptions.chk2]
+Caption=MS Word (*.DOC)
+
+[GlobalOptions.chk3]
+Caption=Web странички (*.HTML)
+
+[GlobalOptions.btOk]
+Caption=OK
+
+[GlobalOptions.btCancel]
+Caption=Отмена
+
+[GlobalOptions.btHelp]
+Caption=Справка
+
+[DictionaryEditor.Self]
+Caption=Словарь
+
+[DictionaryEditor.Label1]
+Caption=Текст
+
+[DictionaryEditor.Label2]
+Caption=Читать как
+
+[DictionaryEditor.Label3]
+Caption=Словарь
+
+[DictionaryEditor.btOpen]
+Caption=Открыть
+
+[DictionaryEditor.btSave]
+Caption=Сохранить
+
+[DictionaryEditor.btTest]
+Caption=Проба
+
+[DictionaryEditor.btAdd]
+Caption=Добавить
+
+[DictionaryEditor.btDel]
+Caption=Удалить
+
+[DictionaryEditor.btClose]
+Caption=Закрыть
+
+[DictionaryEditor.chkFilter]
+Caption=Фильтр
+
+[DictionaryEditor.chkSort]
+Caption=Сортировка
+
+[DictionaryEditor.chkSort2]
+Caption=Сортировка 2
+
+[TextCleaner.Self]
+Caption=Очистка текста
+
+[TextCleaner.btUndo]
+Caption=Отменить последнее действие
+
+[TextCleaner.btOK]
+Caption=OK
+
+[TextCleaner.btCancel]
+Caption=Отмена
+
+[TextCleaner.bt1]
+Caption=Удалить лишние обрывы строк
+Hint=Удалить все CR/LF за которыми следуют пробелы или символы табуляции
+
+[TextCleaner.bt2]
+Caption=Удалить лишние символы переноса (-)
+Hint=Удалить все [тире + CR/LF] за которыми следуют пробелы или символы табуляции
+
+[About.Self]
+Caption=О программе..
+
+[About.Button1]
+Caption=OK
+
+[About.ldescr]
+Caption=Программа для чтения текстов голосом
+

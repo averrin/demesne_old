@@ -1,0 +1,10 @@
+[Header]
+//Format=TTS dictionary
+//Title=User dictionary
+//Author=
+//Version=
+//Date=
+//Description=User dictionary
+
+[Data]
+fwd.=forward

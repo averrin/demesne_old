@@ -1,0 +1,22 @@
+Python Config
+-------------
+
+http://www.red-dove.com/config-doc/
+install:
+sudo pip install config
+or
+sudo easy_install config
+
+Python KDE
+----------
+*optional*
+requires for color comboboxes in settings manager
+install:
+sudo apt-get install python-kde
+
+Python QScintilla2
+-----------------
+*optional*
+requires for dev tools
+install:
+sudo apt-get install python-qscintilla2

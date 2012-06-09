@@ -1,0 +1,60 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<head>
+<title>{{proc}}: Отчет по нагрузочному тестированию</title>
+<link rel="stylesheet" href="../Vault/clean.css" type="text/css">
+<link rel="stylesheet" href="../templates/style.css" type="text/css">
+</head>
+
+<body style='background: #eee !important'>
+<div id='content'>
+<a href="../index.html">Отчет по нагрузочному тестированию</a> &gt;&gt; {{proc}}
+<h1>Отчет по тестированию процедуры {{proc}}</h1>
+<ul>
+<li><b>Хост</b> &mdash; {{host}}</li>
+<li><b>База</b> &mdash; {{base}}</li>
+<!-- <li><b></b> &mdash; </li> -->
+
+</ul>
+
+<h2>Информация</h2>
+<ul>
+<li><b>Количество запусков</b> &mdash; {{cycles}}</li>
+<li><b>Количество прогонов</b> &mdash; {{tts}}</li>
+<li><b>Параметры, при которых вызов выполнялся минимальное время</b> &mdash; {{args[0]}}</li>
+<li><b>Параметры, при которых вызов выполнялся максимальное время</b> &mdash; {{args[1]}}</li>
+</ul>
+<p>
+Время дано в микросекундах. 1000000 микросекунд = 1 секунда.
+</p>
+
+<h2>График</h2>
+<img src="../charts/{{proc}}.png"><br>
+<br>
+<ul>
+<li><b style="color: darkgreen;">Зеленая линия</b> — это среднее время выполнения всех запросов в прогоне (количество запросов в списке * количество действующих потоков)</li>
+<li><b style="color: darkorange;">Оранжевая</b> — среднее из максимального времени выполнения процедуры. Выбросы так же означают какие-либо проблемы с быстродействием.</li>
+<li><b style="color: blue;"> Линии уровня 0.1sec и 1sec</b> — появляются при пересечении этих значений оранжевой линией.</li>
+</ul>
+
+<h2>Таблица</h2>
+<table border=1 cellspacing=0 cellpadding=6>
+<tr>
+<td class="title">Количество потоков</td>
+<td class="title">Среднее время</td>
+<td class="title">Максимальное время</td>
+</tr>
+
+<tbody>
+{% for dot in data %}
+    <tr>
+        <td align="middle">{{loop.index}}</td>
+        <td>{{data[dot].tavg}}</td>
+        <td>{{data[dot].tmax}}</td>
+    </tr>   
+{% endfor %}
+</tbody>
+</table>
+
+
+</div>
+</body>

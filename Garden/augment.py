@@ -5,6 +5,7 @@ augmentation.
 import re, sys
 from inspect import getouterframes, currentframe
 from functools import wraps
+import collections
 
 def _get_args_and_name(fn):
     """
@@ -21,7 +22,7 @@ def _get_args_and_name(fn):
     allargs, fn_name = getattr(fn, '__allargs__', None),\
                        getattr(fn, '__fnname__', None)
     if not allargs:
-        code = fn.func_code
+        code = fn.__code__
         allargs = code.co_varnames[:code.co_argcount]
         fn_name = fn.__name__
     return allargs, fn_name
@@ -98,7 +99,7 @@ def _check_args(rules, pargs, args, kwargs):
     dicionary of `arg_name=constraint` and `arg_val` is in `kwargs` or `args`
     """
     results = []
-    for arg_name, constraint in rules.iteritems():
+    for arg_name, constraint in rules.items():
         # Get the argument value.
         arg_val = None
         if kwargs.get(arg_name):
@@ -107,7 +108,7 @@ def _check_args(rules, pargs, args, kwargs):
             arg_val = args[pargs.index(arg_name)]
             # `constraint` can either be a regex or a callable.
         validator = constraint
-        if not callable(constraint):
+        if not isinstance(constraint, collections.Callable):
             validator = lambda val: re.match(constraint, str(val))
         if arg_val:
             results.append((arg_name, arg_val, validator(arg_val)))
@@ -157,11 +158,11 @@ def ensure_one_of(exclusive=False, **rules):
             fn_info = "Errors in '%s'. " % fn_name
             if valid_count < 1:
                 error_msg = "One of '%s' must validate. Constraints: %s" %\
-                            (rules.keys(), rules)
+                            (list(rules.keys()), rules)
                 _propogate_error(fn_info + error_msg)
             elif valid_count > 1 and exclusive:
                 error_msg = "Only one of '%s' must validate. Constraints: %s" %\
-                            (rules.keys(), rules)
+                            (list(rules.keys()), rules)
                 _propogate_error(fn_info + error_msg)
             else:
                 return fn(*args, **kwargs)

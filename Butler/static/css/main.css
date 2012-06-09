@@ -4,5 +4,64 @@
 }
 
 body {
-    background: #fcfcfc;
+    background: #e2e2e2;
+    color: #5f5f5f;
+}
+
+.app{
+	height: 64px;
+    padding-right: 10px;
+	padding-left: 16px;
+	padding-top: 10px;
+	border: 1px lightgray solid;
+
+    background: #eeeeee; /* Old browsers */
+    background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+    background: linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+}
+
+.app .desc{
+    /*border: orange 1px solid;*/
+    width: 80%;
+}
+.app_icon{
+	width: 54px;
+	/*margin-bottom: -8px;*/
+	margin-right: 10px;
+	float: left;
+}
+
+.launch{
+	float:right;
+	margin-right: 8px;
+    /*border: 1px red solid;*/
+    margin-top: -36px;
+}
+
+.topbar_icon{
+    height: 18px;
+    margin-bottom: -4px;
+    margin-right: 4px;
+}
+
+.app_title{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.desc small{
+    padding-left: 20px;
+}
+
+#newform{
+    margin-top: 60px;
+}
+#content{
+    margin-top: 40px;
 }

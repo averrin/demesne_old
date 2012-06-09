@@ -1,11 +1,11 @@
-from base import *
-import copy
+from .base import *
 
 hero = Hero('Averrin')
 hero.Title = 'The Melas'
 ItemPrototypes.setOwner(hero)
 
 Effects['ModDef15'] = Modifier('Defense', 'Defense', 15)
+
 
 def act():
     Effects['Superman'].target.oldTitle = Effects['Superman'].target.Title
@@ -33,18 +33,24 @@ ItemPrototypes['Sword01'] = {'type': Weapon, 'name': 'Mithril Sword', 'damage': 
                              'weight': 5}
 ItemPrototypes['Book00'] = {'type': Book, 'name': 'Book', "icon": 'Icons/inv_misc_book_09', 'desc': 'Barbarian\'s ABC'}
 
-Effects['ModSt5'] = Modifier('Strength', 'Strength', 5, icon='Icons/spell_nature_strength')
+
+EffectPrototypes['ModSt5'] = {'type': Modifier, 'prop': 'Strength', 'name': 'Strength', 'value': 5, 'icon': 'Icons/spell_nature_strength'}
+EffectPrototypes['ModSt5p'] = {'type': ModifierPercent, 'prop': 'Strength', 'name': 'Strength%', 'value': 5, 'icon': 'Icons/spell_nature_strength'}
+Effects['ModSt5'] = EffectPrototypes['ModSt5']
+Effects['ModSt5p'] = EffectPrototypes['ModSt5p']
+
+
 Effects['ModAg5'] = Modifier('Agility', 'Agility', 5, icon='Icons/ability_rogue_sprint')
 Effects['ModSt15'] = Modifier('Strength', 'Strength', 15, icon='Icons/spell_nature_strength')
 Effects['ModAg15'] = Modifier('Agility', 'Agility', 15, icon='Icons/ability_rogue_sprint')
-Enchants['Swift'] = Enchant('Swift', [Effects['ModSt5'], Effects['ModAg5']], 'Icons/ability_rogue_sprint')
-Enchants['SSwift'] = Enchant('Cryptonian Set', [Effects['ModSt15'], Effects['ModAg15'], Effects['Superman']])
-Enchants['Defense'] = Enchant('Armor class', [Effects['ModDef15']], 'Icons/inv_chest_plate05')
+EnchantPrototypes['Swift'] = {'name': 'Swift', 'effects': [Effects['ModSt5'], Effects['ModAg5']], 'icon': 'Icons/ability_rogue_sprint'}
+EnchantPrototypes['SSwift'] = {'name': 'Cryptonian Set', 'effects': [Effects['ModSt15'], Effects['ModAg15'], Effects['Superman']], 'for_set': True}
+Enchants['Defense'] = Enchant('Armor class', [Effects['ModDef15']], 'Icons/inv_chest_plate05', except_classes=[Weapon])
 Effects['ModInt15'] = Modifier('Brain boost', 'Intelligence', 15, icon='Icons/spell_shadow_brainwash')
 Enchants['BrainBoost'] = Enchant('Brain boost', [Effects['ModInt15']], 'Icons/spell_shadow_brainwash',
-    namepostfix='Intelligence')
+    namepostfix='Intelligence', only_classes=[Armor])
 
-Items['Helm00'] = ItemPrototypes['Helm00'].setEnchant(Enchants['Swift'])
+Items['Helm00'] = ItemPrototypes['Helm00'].setEnchant(EnchantPrototypes['Swift'])
 Items['Armor00'] = ItemPrototypes['Armor00'].setEnchant(Enchants['BrainBoost'])
 
 ItemPrototypes['GoldRing0'] = {'type': Wearable, 'name': 'Cryptonian Ring', 'slot': 'Ring',
@@ -52,13 +58,12 @@ ItemPrototypes['GoldRing0'] = {'type': Wearable, 'name': 'Cryptonian Ring', 'slo
                                'rarity': 10}
 ItemPrototypes['CursedRing0'] = {'type': Wearable, 'name': 'Cursed Ring', 'slot': 'Ring', 'rarity': 10}
 
+
 def canGet(owner):
     return False
 
 Items['CursedRing0'] = ItemPrototypes['CursedRing0'].set('canGet', canGet)
 
-Sets['SSwift'] = Set('Cryptonian Set', [Items['Helm00'], 'GoldRing0'], Enchants['SSwift'])
-
-
+Sets['SSwift'] = Set('Cryptonian Set', [Items['Helm00'], 'GoldRing0'], EnchantPrototypes['SSwift'])
 
 

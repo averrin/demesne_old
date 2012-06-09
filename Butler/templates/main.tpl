@@ -1,20 +1,42 @@
 %def css():
-<link rel="stylesheet" href="{{STATIC}}css/style.css" type="text/css">
-<link rel="stylesheet" href="{{STATIC}}css/main.css" type="text/css">
-<link rel="stylesheet" href="{{STATIC}}css/colors.css" type="text/css">
-<link href="{{STATIC}}css/humanmsg.css" media="screen" type="text/css" rel="stylesheet">
 
-<!--<link href="{{STATIC}}css/debug.css" media="screen" type="text/css" rel="stylesheet">-->
 %end
 
 
 %def body():
+
+<script type="text/javascript">
+    function launch(app,name){
+        $.get(
+                '/launch/'+app,
+                '',
+                function(data){
+                    if(data=='Success'){
+                        humanMsg.displayMsg(name+' launched!');
+                    }else{
+                        humanMsg.displayMsg('Error! Application cannot be launched!');
+                    }
+                })
+    }
+</script>
+
+<!-- <a onclick="$.get('/script/api.error/boom')" href="#">Test</a> -->
 <div id=content>
-    <ul>
+<div class=app_list>
         %for app in apps:
-        <li>{{app.title}}: {{app.description}}</li>
+        <div class=app>
+            <div class=desc>
+                <img class=app_icon src="{{app.icon}}">
+                <p class=app_title>{{app.title}} <span class='label {{app.ver_class}}'>{{app.version}}</span></p>
+                <small>{{app.description}}</small>
+            </div>
+            <div class='right launch'>
+                <button class='btn primary' onclick='launch("{{app.dir}}","{{app.title}}")' href="#">Launch</button>
+            </div>
+        </div>
+
         %end
-    </ul>
+</div>
 
 
 </div>
@@ -25,4 +47,4 @@
 </script>
 %end
 
-%rebase base STATIC=STATIC, css=css, body=body
+%rebase base STATIC=STATIC, css=css, body=body, VAULT=VAULT

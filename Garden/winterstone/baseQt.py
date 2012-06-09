@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals
 import json
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
 try:
     import dbus
+    DBUS_SUPPORT = True
 except:
-    pass
+    DBUS_SUPPORT = False
 from winterstone.base import WinterApp, WinterAPI, WinterObject
 from winterstone.winterBug import *
 from winterstone.extraQt import *
@@ -14,6 +16,7 @@ from winterstone.extraQt import WinterSideBar
 #from snowflake import *
 import functools
 import logging
+import time
 
 logging.basicConfig(format='[%(asctime)s] %(levelname)s:\t\t%(message)s', filename='winter.log', level=logging.DEBUG,
     datefmt='%d.%m %H:%M:%S')
@@ -26,6 +29,7 @@ try:
 except ImportError:
     KDE_SUPPORT = False
     print('WARNING: KDE_SUPPORT disabled')
+
 
 class API(WinterAPI):
     def echo(self, *args, **kwargs):
@@ -58,20 +62,31 @@ class API(WinterAPI):
         else:
             self.echo(*args, **kwargs)
 
+    def setProgress(self, action, *args, **kwargs):
+        SBAction.objects.get(title=action).setProgress(*args, **kwargs)
 
-    def setEmblem(self,action,emblem):
-        SBAction.objects.get(title=action).setEmblem(emblem)
+    def setEmblem(self, action, *args, **kwargs):
+        SBAction.objects.get(title=action).setEmblem(*args, **kwargs)
 
-    def setBadge(self,action,color,text):
-        SBAction.objects.get(title=action).setBadge(color,text)
+    def setBadge(self, action, *args, **kwargs):
+        SBAction.objects.get(title=action).setBadge(*args, **kwargs)
 
-    def delBadge(self,action):
+    def delBadge(self, action):
         SBAction.objects.get(title=action).reset()
-    def delEmblem(self,action):
+
+    def delEmblem(self, action):
         SBAction.objects.get(title=action).reset()
+
+    def flashAction(self, action, *args, **kwargs):
+        SBAction.objects.get(title=action).flash(*args, **kwargs)
 
 #    def setTitle(self, *args, **kwargs):
 #        self.ex('title', *args, **kwargs)
+
+
+class WinterPainter(object):
+    pass
+
 
 class WinterAction(QAction, WinterObject):
     def __init__(self, *args, **kwargs):
@@ -81,11 +96,11 @@ class WinterAction(QAction, WinterObject):
         self.api = API()
         if 'icon' in kwargs:
             icon = kwargs['icon']
-            self.orig_icon=QIcon(self.api.icons[icon])
+            self.orig_icon = QIcon(self.api.icons[icon])
             self.setIcon(QIcon.fromTheme(icon, QIcon(self.api.icons[icon])))
-        if isinstance(args[0],QIcon):
-            icon=args[0]
-            self.orig_icon=icon
+        if isinstance(args[0], QIcon):
+            icon = args[0]
+            self.orig_icon = icon
             self.setIcon(icon)
 
 
@@ -111,35 +126,73 @@ class SBAction(WinterAction):
         if hasattr(self.widget, 'onShow'):
             self.widget.onShow()
 
-    def setEmblem(self,emblem):
+    def setEmblem(self, emblem):
         self.reset()
-        sz=API().config.options.ui.sbicon_size
-        icon = self.icon().pixmap(QSize(sz,sz))
-        paint = QPainter()
-        paint.begin(icon)
-        h = icon.height()
-        w = icon.width()
-        light=QPixmap(self.api.icons['emblems/'+emblem])
-        paint.drawPixmap(w/2,-2,18,18,light)
-        paint.end()
+        sz = API().config.options.ui.sbicon_size
+        icon = self.icon().pixmap(QSize(sz, sz))
+        paint = IconPainter()
+        icon = paint.drawEmblem(icon, emblem)
         self.setIcon(QIcon(icon))
 
     def reset(self):
         self.setIcon(self.orig_icon)
 
-    def setAlpha(self,alpha):
-        icon=self.icon().pixmap(QSize(32,32))
-
-        alphaChannel = QPixmap(icon.width(), icon.height())
-        alphaChannel.fill(QColor(alpha, alpha, alpha))
-        icon.setAlphaChannel(alphaChannel)
+    def setAlpha(self, alpha):
+        self.reset()
+        icon = self.icon().pixmap(QSize(32, 32))
+        paint = IconPainter()
+        icon = paint.setAlpha(icon, alpha)
         self.setIcon(QIcon(icon))
 
-    def setBadge(self,color,text):
+    def setBadge(self, color, text, fgcolor='white'):
         self.reset()
-        text=str(text)
-        sz=API().config.options.ui.sbicon_size
-        icon = self.icon().pixmap(QSize(sz,sz))
+        text = str(text)
+        sz = API().config.options.ui.sbicon_size
+        icon = self.icon().pixmap(QSize(sz, sz))
+        paint = IconPainter()
+        icon = paint.drawBadge(icon, color, text, fgcolor)
+
+        self.setIcon(QIcon(icon))
+
+    def setProgress(self, value, color='#dd1111'):
+        self.reset()
+
+        sz = API().config.options.ui.sbicon_size
+        icon = self.icon().pixmap(QSize(sz, sz))
+
+        paint = IconPainter()
+        icon = paint.drawProgress(icon, value, color)
+        self.setIcon(QIcon(icon))
+
+    def flash(self, ftime=0):
+        self.thread = Flasher(self, ftime)
+        self.connect(self.thread, SIGNAL('alpha'), self.setAlpha)
+        self.thread.start()
+
+
+class IconPainter(object):
+    def drawProgress(self, icon, value, color):
+        if value < 0:
+            value = 0
+        elif value > 100:
+            value = 100
+        paint = QPainter()
+        paint.begin(icon)
+        h = icon.height()
+        w = icon.width()
+
+        paint.setPen(QColor('black'))
+
+        paint.setBrush(QBrush(QColor('#333')))
+        paint.drawRoundedRect(QRect(QPoint(4, (3 * h) / 4), QPoint(w - 4, h - 4)), 2, 2)
+        paint.setBrush(QBrush(QColor(color)))
+        v = (w - 4) * (int(value) / 100.)
+        paint.drawRoundedRect(QRect(QPoint(4, (3 * h) / 4), QPoint(v, h - 4)), 4, 4)
+
+        paint.end()
+        return icon
+
+    def drawBadge(self, icon, color, text, fgcolor):
         paint = QPainter()
         paint.begin(icon)
         h = icon.height()
@@ -147,41 +200,80 @@ class SBAction(WinterAction):
 
         paint.setPen(QColor(color).darker(150))
 
-        linearGrad=QLinearGradient(QPointF(0, 0), QPointF(0, h))
+        linearGrad = QLinearGradient(QPointF(0, 0), QPointF(0, h))
         linearGrad.setColorAt(0, QColor(color))
         linearGrad.setColorAt(1, QColor(color).darker(200))
 
         paint.setBrush(QBrush(linearGrad))
-        rect=QRect(w/2-3,2,w/2+2,h/3+2)
-        paint.drawRoundedRect(rect,2,2)
-#        paint.drawRoundedRect(QRect(0,0,w,h),2,2)
+        rect = QRect(w / 2 - 3, 2, w / 2 + 2, h / 3 + 2)
+        paint.drawRoundedRect(rect, 2, 2)
 
-        font=QFont('Sans')
-        n=0.8
-        font.setPixelSize(int(rect.height()*n))
+        font = QFont('Sans')
+        n = 0.8
+        font.setPixelSize(int(rect.height() * n))
         fm = QFontMetrics(font)
-        wi=fm.width(text[:4])
-        hi=fm.height()
+        wi = fm.width(text[:4])
+        hi = fm.height()
 
-        while (rect.width()-wi)/2<=0 or (rect.height()-hi)/2<=0:
-            n-=0.1
-            font.setPixelSize(int(rect.height()*n))
+        while (rect.width() - wi) / 2 <= 0 or (rect.height() - hi) / 2 <= 0:
+            n -= 0.1
+            font.setPixelSize(int(rect.height() * n))
             fm = QFontMetrics(font)
-            wi=fm.width(text[:4])
-            hi=fm.height()
+            wi = fm.width(text[:4])
+            hi = fm.height()
         paint.setFont(font)
-        paint.setPen(QColor('white'))
-        x=rect.topLeft().x()+(rect.width()-wi)/2
-        y=rect.topLeft().y()+(rect.height()-hi)/2
-        x2=rect.bottomRight().x()-(rect.width()-wi)/2
-        y2=y+hi
+        paint.setPen(QColor(fgcolor))
+        x = rect.topLeft().x() + (rect.width() - wi) / 2
+        y = rect.topLeft().y() + (rect.height() - hi) / 2
+        x2 = rect.bottomRight().x() - (rect.width() - wi) / 2
+        y2 = y + hi
 
         paint.setBrush(QBrush(QColor('white')))
-#        paint.drawRect(QRect(QPoint(x,y),QPoint(x2,y2)))
-        paint.drawText(QRect(QPoint(x,y),QPoint(x2,y2)),0,text[:4])
+        paint.drawText(QRect(QPoint(x, y), QPoint(x2, y2)), 0, text[:4])
 
         paint.end()
-        self.setIcon(QIcon(icon))
+        return icon
+
+    def drawEmblem(self, icon, emblem):
+        paint = QPainter()
+        paint.begin(icon)
+        w = icon.width()
+        light = QPixmap(API().icons['emblems/' + emblem])
+        paint.drawPixmap(w / 2, -2, 18, 18, light)
+        paint.end()
+        return icon
+
+    def setAlpha(self, icon, alpha):
+        if alpha < 0:
+            alpha = 0
+        elif alpha > 255:
+            alpha = 255
+        alphaChannel = QPixmap(icon.width(), icon.height())
+        alphaChannel.fill(QColor(alpha, alpha, alpha))
+        icon.setAlphaChannel(alphaChannel)
+        return icon
+
+
+class Flasher(QThread):
+    def __init__(self, action, ftime):
+        self.ftime = ftime
+        self.action = action
+        QThread.__init__(self)
+
+    def run(self):
+        ftime = self.ftime
+        if ftime < 0:
+            ftime = 0
+        for i in range(ftime):
+            time.sleep(0.5)
+            for a in range(5, 255, 10):
+                time.sleep(0.025)
+                self.emit(SIGNAL('alpha'), 255 - a)
+            time.sleep(0.25)
+            for a in range(5, 255, 10):
+                time.sleep(0.025)
+                self.emit(SIGNAL('alpha'), a)
+
 
 class WinterFlag(QLabel):
     def setIcon(self, icon, tooltip=''):
@@ -207,11 +299,10 @@ class SettingsManager(QMainWindow):
                             'QFontComboBox': {'set': 'setFont(QFont(value))', 'get': 'currentText()'},
                             'KFontComboBox': {'set': 'setFont(QFont(value))', 'get': 'currentText()'},
                             'KKeySequenceWidget': {'set': 'setKeySequence(QKeySequence(value))', 'get': 'keySequence()'}
-                ,
                             }
 
         def paint(self, painter, option, index):
-            value = index.model().data(index, Qt.EditRole).toString()
+            value = index.model().data(index, Qt.EditRole)
             item = self.parent.items[index.row()]
             if not item.name.endswith('_color'):
                 QItemDelegate.paint(self, painter, option, index)
@@ -224,8 +315,8 @@ class SettingsManager(QMainWindow):
                 if QColor(value).black() > 127:
                     painter.setPen(QPen(Qt.white))
                 value = index.data(Qt.DisplayRole)
-                if value.isValid():
-                    text = value.toString()
+                if value:
+                    text = value
                     rect = option.rect
                     rect.setLeft(3)
                     font = self.parent.font()
@@ -233,13 +324,14 @@ class SettingsManager(QMainWindow):
                     font.setPointSize(self.parent.font().pointSize())
                     fm = QFontMetrics(font)
                     rect.setTop(rect.y() + (rect.height() - fm.height()) / 2)
+                    if type(text) != str:
+                        text = text.toString()
                     painter.drawText(rect, Qt.AlignLeft, text)
 
                 painter.restore()
 
-
         def createEditor(self, parent, option, index):
-            value = index.model().data(index, Qt.EditRole).toString()
+            value = index.model().data(index, Qt.EditRole)
             item = self.parent.items[index.row()]
 
             try:
@@ -266,37 +358,16 @@ class SettingsManager(QMainWindow):
             return editor
 
         def setEditorData(self, editor, index):
-            value = index.model().data(index, Qt.EditRole).toString()
-            item = self.parent.items[index.row()]
             wtype = type(editor).__name__
             exec('editor.%s' % self.methods[wtype]['set'])
-
-        #            try:
-        #                editor.setText(value)
-        #            except AttributeError:
-        #                try:
-        #                    editor.setValue(int(value))
-        #                except AttributeError:
-        #                    if item.name.endswith('_color') and KDE_SUPPORT:
-        #                        editor.setColor(QColor(value))
-        #                    else:
-        #                        editor.setCurrentIndex(list(item.variants).index(value))
 
         def setModelData(self, editor, model, index):
             wtype = type(editor).__name__
             exec('value = editor.%s' % self.methods[wtype]['get'])
-            #            try:
-            #                value = editor.text()
-            #            except AttributeError:
-            #                try:
-            #                    value = editor.color().name()
-            #                except AttributeError:
-            #                    value = editor.currentText()
             model.setData(index, value, Qt.EditRole)
 
         def updateEditorGeometry(self, editor, option, index):
             editor.setGeometry(option.rect)
-
 
     class settingsTable(QTableWidget):
         def fill(self, conf, conf_file, parent):
@@ -329,10 +400,11 @@ class SettingsManager(QMainWindow):
             row = 0
             self.items = []
             array = self.conf_dict
-            self.setIconSize(QSize(30,30))
+            self.setIconSize(QSize(30, 30))
             for var in array:
-                if not var.endswith('_desc') and not var.endswith('_hidden') and var != 'activated' and not var.endswith('_variants') and type(
-                    array[var]).__name__ != 'Mapping' and not ('%s_hidden'%var in array and array['%s_hidden'%var]):
+                if not var.endswith('_desc') and not var.endswith(
+                    '_hidden') and var != 'activated' and not var.endswith('_variants') and type(
+                    array[var]).__name__ != 'Mapping' and not ('%s_hidden' % var in array and array['%s_hidden' % var]):
                     self.insertRow(row)
                     self.setVerticalHeaderItem(row, QTableWidgetItem(var))
                     vitem = QTableWidgetItem(str(array[var]))
@@ -344,7 +416,7 @@ class SettingsManager(QMainWindow):
                         vitem.setCheckState(check)
                     self.setItem(row, 0, vitem)
                     if '%s_desc' % var in array:
-                        desc = array['%s_desc' % var].decode('utf8')
+                        desc = array['%s_desc' % var]
                     else:
                         desc = ''
                     if '%s_variants' % var in array:
@@ -369,7 +441,7 @@ class SettingsManager(QMainWindow):
                     try:
                         value = int(value)
                     except ValueError:
-                        if value.startswith('[') and value.endswith(']') and type(eval(value)).__name__ == 'list':
+                        if type(value) == list:
                             value = eval(value)
                         if item.name.endswith('_icon'):
                             self.blockSignals(True)
@@ -379,14 +451,14 @@ class SettingsManager(QMainWindow):
                 self.parent.statusBar.showMessage('%s change to %s' % (item.name, item.text()))
 
         def save(self):
-            f = file(self.conf_file, 'w')
-            while True:
-                try:
-                    self.conf = self.conf.parent
-                except AttributeError:
-                    break
-            self.conf.save(f)
-
+            f = open(self.conf_file, 'w')
+            # while True:
+            #     try:
+            #         self.conf = self.conf.parent
+            #     except AttributeError:
+            #         print(self.conf)
+            #         break
+            self.main_conf.save(f)  # bugged
 
     def addPage(self, widget, label, parent='', icon=''):
         self.stack.addWidget(widget)
@@ -398,13 +470,14 @@ class SettingsManager(QMainWindow):
             parent.addChild(item)
 
         if icon:
-            if type(icon).__name__ != 'QIcon':
+            if not isinstance(icon, QIcon):
                 item.setIcon(0, QIcon.fromTheme(icon, QIcon(self.app.api.icons[icon])))
             else:
                 item.setIcon(0, icon)
         item.page = widget
         widget.item = item
         item.setExpanded(True)
+        self.pages[widget] = item
         return widget
 
     def ic(self, item, column):
@@ -421,9 +494,22 @@ class SettingsManager(QMainWindow):
         self.stack = QStackedWidget()
 
         hb = QHBoxLayout(self.centralwidget)
+        w = QWidget()
+        w.setLayout(QVBoxLayout())
         self.tree = QTreeWidget(self.centralwidget)
         self.tree.setHeaderLabel('Settings')
-        hb.addWidget(self.tree)
+        toolbar = QToolBar()
+        self.search = QLineEdit()
+        toolbar.addWidget(QLabel('Search: '))
+        toolbar.addWidget(self.search)
+        self.cls = QPushButton('X')
+        toolbar.addWidget(self.cls)
+        self.cls.setFixedWidth(30)
+        self.cls.clicked.connect(self.search.clear)
+        self.search.textChanged.connect(self.searchOption)
+        w.layout().addWidget(toolbar)
+        w.layout().addWidget(self.tree)
+        hb.addWidget(w)
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         hb.addLayout(self.verticalLayout)
         self.verticalLayout.addWidget(self.stack)
@@ -436,8 +522,10 @@ class SettingsManager(QMainWindow):
         self.cancelButton = QPushButton('Cancel', self.centralwidget)
         self.horizontalLayout.addWidget(self.cancelButton)
         self.restartButton = QPushButton('Apply and Restart', self.centralwidget)
+        self.restartButton.setEnabled(False)
         self.horizontalLayout.addWidget(self.restartButton)
         self.applyButton = QPushButton('Apply', self.centralwidget)
+        self.applyButton.setEnabled(False)
         self.horizontalLayout.addWidget(self.applyButton)
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -448,17 +536,22 @@ class SettingsManager(QMainWindow):
         self.app = app
         self.app.sm = self
         self.configs = []
+        self.pages = {}
 
         self.setWindowIcon(QIcon.fromTheme('configure', QIcon(self.app.api.icons['configure'])))
 
         self.tableWidget = self.settingsTable()
+        self.tableWidget.main_conf = self.app.config
         self.tableWidget.fill(self.app.config.options, CWD + 'config/main.cfg', self)
         self.sttab = self.addPage(self.tableWidget, 'General', icon='configure')
+        self.tables = [self.tableWidget]
         for var in self.app.config.options:
             val = self.app.config.options[var]
             if type(val).__name__ == 'Mapping':
                 if not self.app.schema[var].hide:
                     st = self.settingsTable(self.tableWidget)
+                    st.main_conf = self.app.config
+                    self.tables.append(st)
                     st.fill(val, CWD + 'config/main.cfg', self)
                     self.ui = self.addPage(st, self.app.schema[var].title, icon=QIcon(self.app.schema[var].icon),
                         parent=self.sttab.item)
@@ -466,6 +559,8 @@ class SettingsManager(QMainWindow):
 
         if self.app.config.options.debug:
             self.dbgTable = self.settingsTable(self.stack)
+            self.dbgTable.main_conf = self.app.config
+            self.tables.append(self.dbgTable)
             self.dbgTable.fill(self.app.debugger.config.options, CWD + 'config/debug.cfg', self)
             self.dbgtab = self.addPage(self.dbgTable, 'Debug', icon='warning')
 
@@ -476,7 +571,7 @@ class SettingsManager(QMainWindow):
             self.verticalLayout.addWidget(self.listWidget)
             self.plainTextEdit = QPlainTextEdit(self.tabPlugins)
             self.verticalLayout.addWidget(self.plainTextEdit)
-            self.addPage(self.tabPlugins, 'Plugins', icon='plugins')
+            self.plugtab = self.addPage(self.tabPlugins, 'Plugins', icon='plugins')
             self.loadPlugins()
             self.listWidget.itemClicked.connect(self.echoInfo)
             self.listWidget.itemChanged.connect(self.togglePlugin)
@@ -484,6 +579,8 @@ class SettingsManager(QMainWindow):
             for plugin in self.app.pm.plugins:
                 if plugin.active:
                     st = self.settingsTable(self.tabPlugins)
+                    st.main_conf = self.app.config
+                    self.tables.append(st)
                     st.fill(plugin.config.options, '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
                     plugin.icon = QIcon(os.path.abspath(plugin.config.info.icon))
                     plugin.st = st
@@ -495,8 +592,20 @@ class SettingsManager(QMainWindow):
 
         self.tree.itemClicked.connect(self.ic)
 
-
-
+    def searchOption(self):
+        q = self.search.text()
+        for t in self.tables:
+            n = 0
+            for i in t.items:
+                if not re.search(str(q), i.name):
+                    t.setRowHidden(i.row(), True)
+                    n += 1
+                else:
+                    t.setRowHidden(i.row(), False)
+            if n == len(t.items) and t not in [self.sttab, self.plugtab]:
+                self.tree.setItemHidden(self.pages[t], True)
+            else:
+                self.tree.setItemHidden(self.pages[t], False)
 
     #TODO: make it right
     def reloadPluginSettings(self):
@@ -505,6 +614,7 @@ class SettingsManager(QMainWindow):
                 item = plugin.st.item
                 self.stack.removeWidget(plugin.st)
                 st = self.settingsTable(self.stack)
+                st.main_conf = self.app.config
                 plugin.st = st
                 item.page = st
                 st.fill(plugin.config, '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
@@ -560,7 +670,7 @@ class SettingsManager(QMainWindow):
             for plugin in self.app.pm.plugins:
                 names.append(plugin.name)
         self.app.p_config.plugins.active = names
-        cfgfile = file(CWD + 'config/plugins.cfg', 'w')
+        cfgfile = open(CWD + 'config/plugins.cfg', 'w')
         self.app.p_config.save(cfgfile)
 
     def getInfo(self, pi):
@@ -578,14 +688,14 @@ class WinterScript(object):
         self.api = API()
         self.objects = {'api': self.api, 'script': self}
         if not self.app.config.options.script_safe:
-            self.objects['app']=self.app
-        self.aliases={'set':'__setattr__'}
+            self.objects['app'] = self.app
+        self.aliases = {'set': '__setattr__'}
 
-    def executeFile(self, filename,raw=False):
-        f = file(filename, 'r')
+    def executeFile(self, filename, raw=False):
+        f = open(filename, 'r')
         for line in f:
             if line.strip() and not line.startswith('#'):
-                line=line.lstrip().rstrip()
+                line = line.lstrip().rstrip()
                 if not raw:
                     self.executeLine(line)
                 else:
@@ -594,7 +704,6 @@ class WinterScript(object):
     def executeRaw(self, line):
         words = line.split(' ')
         self.executeLine('{"command":"%s","args":%s}' % (words[0], str(words[1:])))
-
 
     def executeLine(self, line):
         if self.app.config.options.script_engine:
@@ -611,7 +720,7 @@ class WinterScript(object):
 
             for i, arg in enumerate(line['args']):
                 try:
-                    line['args'][i]=arg.strip()
+                    line['args'][i] = arg.strip()
                 except:
                     pass
                 try:
@@ -620,7 +729,7 @@ class WinterScript(object):
                     pass
 
             if method in self.aliases:
-                method=self.aliases[method]
+                method = self.aliases[method]
 
             try:
                 method = object.__getattribute__(method)
@@ -629,11 +738,10 @@ class WinterScript(object):
                         method(*line['args'])
                     else:
                         self.app.createAction('', line['command'], lambda: method(*line['args']), keyseq=line['keys'])
-                except Exception, e:
+                except Exception as e:
                     self.api.error(e)
-            except AttributeError, e:
+            except AttributeError as e:
                 self.api.error(e)
-
 
     def addObject(self, name, object):
         self.objects[name] = object
@@ -644,17 +752,15 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
 
     def __init__(self, app):
         QMainWindow.__init__(self)
+        self.setObjectName('MainWindow')
         try:
             for font in os.listdir(CWD + 'fonts'):
                 try:
                     QFontDatabase.addApplicationFont(CWD + 'fonts/' + font)
-                except Exception, e:
-                    print e
+                except Exception as e:
+                    print(e)
         except OSError:
             pass
-
-        if os.path.isfile(CWD + 'config/style.qss'):
-            self.setStyleSheet(file(CWD + 'config/style.qss', 'r').read())
 
         self.centralwidget = QWidget(self)
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
@@ -674,6 +780,21 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         self.api.dialog = self.dialog
         self.api.notify = self.notify
 
+        if os.path.isfile(VAULT + 'themes/%s/style.css' % self.config.options.ui.theme):
+            self.setStyleSheet(file(VAULT + 'themes/%s/style.css' % self.config.options.ui.theme, 'r').read())
+
+        if os.path.isfile(CWD + 'themes/%s/style.css' % self.config.options.ui.theme):
+            self.setStyleSheet(file(CWD + 'themes/%s/style.css' % self.config.options.ui.theme, 'r').read())
+
+        theme_variants = ['system']
+        if os.path.isdir(CWD + 'themes/'):
+            for d in os.listdir(CWD + 'themes/'):
+                theme_variants.append(d)
+        if os.path.isdir(VAULT + 'themes/'):
+            for d in os.listdir(VAULT + 'themes/'):
+                theme_variants.append(d)
+        self.config.options.ui.theme_variants = list(set(theme_variants))
+
         self.sideBar = WinterSideBar(self)
         self.statusBar.addPermanentWidget(QWidget().setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding))
 
@@ -685,7 +806,7 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
                 keyseq=QKeySequence(self.debugger.config.options.debug_shortcut), toolbar=True)
             self.flag = WinterFlag()
             self.flag.setIcon(self.api.icons['green'],
-                self.tr('Toggle debug panel: %1').arg(self.debugger.config.options.debug_shortcut))
+                self.tr('Toggle debug panel: %s' % self.debugger.config.options.debug_shortcut))
             self.connect(self.flag, SIGNAL('clicked()'), self.toggleDebug)
             self.statusBar.addPermanentWidget(self.flag)
             self.api.setFlag = self.flag.setIcon
@@ -696,13 +817,12 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         self.setWindowTitle(self.config.info['title'])
         self.setWindowIcon(QIcon(self.api.icons['app']))
 
-        for we in WinterEditor.objects.all():
-            we._afterAppInit()
+        if hasattr(WinterEditor, 'objects'):
+            for we in WinterEditor.objects.all():
+                if isinstance(we, WinterEditor):  # temp fix
+                    we._afterAppInit()
 
         # self.statusBar.showMessage('Done. Switch modes: F4')
-
-
-
         if self.config.options.plugins:
             self.pm.activateAll()
             self.api.info(self.tr('Plugins initialised'))
@@ -768,9 +888,15 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         self.resize(value, self.config.options.ui.height)
 
     def setMainWidget(self, widget):
+#        print '!!!!!!!!!!!!!!'
+        if hasattr(self, 'mainWidget'):
+            self.mainWidget.hide()
+            del self.mainWidget
         self.mainWidget = widget
         self.mainWidget.api = self.api
         self.api.mainWidget = self.mainWidget
+#        self.setLayout(QHBoxLayout())
+        self.layout().addWidget(self.mainWidget)
         self.horizontalLayout_2.addWidget(self.mainWidget)
         self.horizontalLayout_2.setStretch(0, 3)
 
@@ -789,8 +915,7 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         return action
 
     def showSideBar(self, widget):
-        print widget
-
+        print(widget)
 
     def createAction(self, icon, name, method, module='main', keyseq='', toolbar=False):
         if type(icon).__name__ != 'QIcon' and icon:
@@ -800,7 +925,7 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         action = WinterAction(icon, name, self)
         if keyseq:
             action.setShortcut(keyseq)
-        if type(method).__name__ == 'str':
+        if isinstance(method, str):
             method = self.getMethod(method, module)
         self.connect(action, SIGNAL('triggered()'), method)
         if toolbar:
@@ -862,10 +987,9 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         event.accept()
 
     def notify(self, title, body):
-        if self.config.options.notification:
+        if DBUS_SUPPORT and self.config.options.notification:
             knotify = dbus.SessionBus().get_object("org.kde.knotify", "/Notify")
             knotify.event('warning', 'inkmoth', [], title, body, [], [], 0, 0, dbus_interface="org.kde.KNotify")
-
 
     def setTitle(self, msg):
         self.setWindowTitle('%s [%s]' % (self.config.info.title, msg))
@@ -875,5 +999,23 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
 
     def beforeCore(self):
         self.script = WinterScript(self)
-        self.api.script=self.script
+        self.api.script = self.script
 
+from winterstone import snowflake
+
+
+def load():
+    filename = QFileDialog.getOpenFileName(None, "Load map", CWD, "Map files (*.svg)")
+    if len(filename):
+        obj = snowflake.load(filename)
+        return obj
+    else:
+        return False
+
+
+def save(obj):
+    filename = QFileDialog.getSaveFileName(None, "Save map", CWD, "Map files (*.svg)")
+    if len(filename):
+        return snowflake.save(obj, filename)
+    else:
+        return False

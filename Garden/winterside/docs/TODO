@@ -1,0 +1,27 @@
+Application
+-----------
+*  Plugins priority
+*  Named variants options
+*  Widgets for api
+
+
+Debugger
+--------
+* Object Inspector (objects browser if it possible)
+* Exception viewer
+* profiling system
+
+Extra components
+----------------
+* Qsci color themes and highlight
+* winter list
+* winter tree
+* winter webkit
+* winter qml
+
+Other
+-----
+* Docs
+** Features list
+* Tests
+* Manage.py

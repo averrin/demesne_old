@@ -1,0 +1,3 @@
+
+Gtk-WARNING **: Загружаемый модуль тем не найден в module_path: «qtcurve»,
+'import site' failed; use -v for traceback

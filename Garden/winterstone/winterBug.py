@@ -2,7 +2,6 @@
 from datetime import datetime
 import re
 import inspect
-from PyQt4.QtGui import QLineEdit
 from winterstone.snowflake import *
 
 from config import Config
@@ -65,7 +64,6 @@ class WinterQtDebug(QDockWidget):
             else:
                 self.lineEditCompleter.setCompletionMode(QCompleter.PopupCompletion)
 
-
         def checkLine(self):
             """""
                 Check line for highlighting
@@ -99,7 +97,6 @@ class WinterQtDebug(QDockWidget):
             except AttributeError:
                 return False
             #
-
 
         def _command(self):
             """""
@@ -142,7 +139,7 @@ class WinterQtDebug(QDockWidget):
                 Add exception item to list
             """""
             QListWidget.addItem(self, item)
-            button = self.addItemButton(item, 'help', self.parent.inspectE)
+            self.addItemButton(item, 'help', self.parent.inspectE)
 
         def addItemButton(self, item, icon, method):
             """""
@@ -173,7 +170,7 @@ class WinterQtDebug(QDockWidget):
     def __init__(self, app):
         QDockWidget.__init__(self)
         self.setObjectName('debug')
-        cfgfile = file('%sconfig/debug.cfg' % CWD)
+        cfgfile = open('%sconfig/debug.cfg' % CWD)
         self.config = Config(cfgfile)
         self.exceptions = []
         self.app = app
@@ -202,7 +199,7 @@ class WinterQtDebug(QDockWidget):
         self.hide()
 
         if os.path.isfile(CWD + 'config/debug.qss'):
-            self.setStyleSheet(file(CWD + 'config/debug.qss', 'r').read())
+            self.setStyleSheet(open(CWD + 'config/debug.qss', 'r').read())
 
     def inspectE(self, *args, **kwargs):
         """""
@@ -210,12 +207,11 @@ class WinterQtDebug(QDockWidget):
         """""
         self.app.dialog('warning', 'Error', str(self.sender().item.e))
 
-
     def makeMessage(self, msg, color='', icon='', bold=True, fgcolor='', timestamp=False):
         """""
             Return listitem with nize attrs
         """""
-        msg = str(msg).decode('utf-8')
+        msg = str(msg)
         if timestamp:
             timestamp = datetime.now().strftime('%H:%M:%S')
             item = QListWidgetItem('[%s] %s' % (timestamp, msg))
@@ -258,7 +254,7 @@ class WinterQtDebug(QDockWidget):
             item = self.makeMessage(vmsg, self.config.options.error_bg_color, 'error', timestamp=True,
                 fgcolor=self.config.options.error_fg_color)
             item2 = self.makeMessage(msg, self.config.options.error_bg_color, 'error', timestamp=True,
-                fgcolor=self.config.options.error_fg_color) #in qt you cant copy widget=((
+                fgcolor=self.config.options.error_fg_color)  # in qt you cant copy widget=((
         else:
             item = self.makeMessage('%s::%s' % (obj, vmsg), self.config.options.erorr_bg_color, 'error', timestamp=True,
                 fgcolor=self.config.options.error_fg_color)

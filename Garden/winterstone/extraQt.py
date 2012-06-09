@@ -17,6 +17,7 @@ except ImportError:
     QSCI_SUPPORT = False
     print('WARNING: QSCI_SUPPORT disabled')
 
+
 class FocusProxy(QWidget):
     def __init__(self, focused=''):
         QWidget.__init__(self)
@@ -58,9 +59,8 @@ class WinterLine(QLineEdit):
             self.correct = self.api.config.options.ui.input_correct_color
             self.error = self.api.config.options.ui.input_error_color
 
-
     def setComplete(self, array):
-        self.completerList = QStringList()
+        self.completerList = []
         for line in array:
             self.completerList.append(QString(line))
         self.lineEditCompleter = QCompleter(self.completerList)
@@ -122,7 +122,6 @@ class WinterSearch(WinterLine):
     def checkLine(self):
         return self.container.WFind(self.text())
 
-
     def _command(self):
         self.container.WFindNext()
 
@@ -140,7 +139,7 @@ class WinterEditor(FocusProxy, WinterObject):
         try:
             self.api = parent.API()
         except AttributeError:
-            from baseQt import API
+            from .baseQt import API
 
             self.api = API()
         self.filename = filename
@@ -198,10 +197,6 @@ class WinterEditor(FocusProxy, WinterObject):
                 editor.setFolding(QsciScintilla.BoxedTreeFoldStyle)
             editor.setBraceMatching(QsciScintilla.SloppyBraceMatch)
             editor.setCaretLineVisible(self.parent.config.options.qsci.caretline)
-
-
-
-
         else:
             editor = QTextEdit(self)
 
@@ -244,7 +239,6 @@ class WinterEditor(FocusProxy, WinterObject):
             self.tb.addWidget(QLabel('Search:  '))
             self.tb.addWidget(WinterSearch(self.editor))
 
-
     def save(self):
         try:
             f = open(self.filename, 'w')
@@ -277,7 +271,6 @@ class CustomStyle(WinterObject):
         self.font.setItalic(self.italic)
         self.font.setPointSize(self.font_size)
 
-
     def getColor(self):
         return self.color
 
@@ -299,7 +292,6 @@ if QSCI_SUPPORT:
                 return self.styles[style].getColor()
             except:
                 return self.styles[0].getColor()
-
 
         def defaultPaper(self, style):
             return QColor(self.parent.parent.config.options.qsci.bg_color)
@@ -329,7 +321,7 @@ if QSCI_SUPPORT:
                     editor.SendScintilla(
                         editor.SCI_GETTEXTRANGE, start, end, source)
                 else:
-                    source = unicode(editor.text()
+                    source = str(editor.text()
                     ).encode('utf-8')[start:end]
             if not source:
                 return
@@ -344,7 +336,6 @@ if QSCI_SUPPORT:
             #            state = editor.SendScintilla(editor.SCI_GETSTYLEAT, pos)
             #        else:
             #            state = self.styles[0]
-
 
             for n, style in enumerate(self.styles):
                 self.styleGroup(style.pattern, n, off=style.offset)
@@ -370,7 +361,6 @@ if QSCI_SUPPORT:
                 #            pos=rx.indexIn(QString(str(line)))
                 matches = {}
                 pos = 0
-                last = ''
                 if style:
                     while rx.indexIn(QString(str(line)), pos) != -1:
                         token = rx.cap(1)
@@ -385,8 +375,6 @@ if QSCI_SUPPORT:
                         else:
                             matches[token] = rx.indexIn(QString(str(line)), pos)
                         pos += rx.matchedLength()
-                        last = token
-
                 if matches:
                 #                pos = [match.start() for match in re.finditer(pattern, line)]
                     for token in matches:
@@ -428,7 +416,6 @@ class WinterDirTree(QTreeWidget):
         self.itemDoubleClicked.connect(self.dic)
 
         self.searchable_exts = ['.txt', '.html']
-
 
     def ic(self, item, column):
         if hasattr(self, 'viewer'):

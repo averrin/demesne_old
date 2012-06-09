@@ -1,0 +1,74 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<head>
+<title>Отчет по нагрузочному тестированию</title>
+<link rel="stylesheet" href="Vault/clean.css" type="text/css">
+<link rel="stylesheet" href="templates/style.css" type="text/css">
+</head>
+
+
+<body style='background: #eee !important'>
+<div id='content'>
+
+<h1>Отчет по нагрузочному тестированию</h1>
+<ul>
+<li><b>Хост</b> &mdash; {{host}}</li>
+<li><b>База</b> &mdash; {{base}}</li>
+<!-- <li><b></b> &mdash; </li> -->
+
+</ul>
+
+<h2>Информация</h2>
+<ul>
+<li><b>Количество запросов на поток</b> &mdash; {{cpt}}</li>
+<li><b>Количество прогонов</b> &mdash; {{cycles}}</li>
+<li><b>Количество потоков</b> &mdash; {{tts}}</li>
+<li><b>Всего вызовов</b> &mdash; {{cc}}</li>
+<li><b>Всего ошибок</b> &mdash; {{errc}}</li>
+</ul>
+<p>
+Время дано в микросекундах. 1000000 микросекунд = 1 секунда.
+</p>
+
+<h2>График</h2>
+<img src="chart.png"><br>
+<br>
+<ul>
+<li><b style="color: darkgreen;">Зеленая линия</b> — это среднее время выполнения всех запросов в прогоне (количество запросов в списке * количество действующих потоков)</li>
+<li><b style="color: red;">Красная</b> — количество ошибок * количество запросов * 100. Если она идет прямой - значит все нормально. Резкий рывок вверх - означает всплеск ошибок на сервере (превышение количества подключений, открытых файлов, падение сервера...)</li>
+<li><b style="color: darkorange;">Оранжевая</b> — среднее из максимального времени выполнения процедуры. Выбросы так же означают какие-либо проблемы с быстродействием.</li>
+<li><b style="color: blue;"> Линии уровня 0.1sec и 1sec</b> — появляются при пересечении этих значений оранжевой линией.</li>
+</ul>
+
+
+<h2>Таблица</h2>
+<table border=1 cellspacing=0 cellpadding=6>
+<tr>
+<td class="title">Количество потоков</td>
+<td class="title">Среднее время</td>
+<td class="title">Максимальное время</td>
+</tr>
+
+<tbody>
+{% for dot in data %}
+    <tr>
+        <td align="middle">{{dot.threads}}</td>
+        <td>{{dot.tavg}}</td>
+        <td>{{dot.tmax}}</td>
+    </tr>   
+{% endfor %}
+</tbody>
+</table>
+
+{%if detail%}
+<h2>Процедуры</h2>
+<div>
+{% for proc in procs %}
+    <div class=pcell> <a href="reports/{{proc}}.html">{{proc}}</a> 
+    <img src="charts/{{proc}}.png">
+    </div>
+{%endfor%}
+</div>
+{%endif%}
+
+</div>
+</body>

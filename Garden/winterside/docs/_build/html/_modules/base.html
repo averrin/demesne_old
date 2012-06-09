@@ -1,0 +1,705 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>base &mdash; Winterstone v0.8.6.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.8.6.6',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Winterstone v0.8.6.6 documentation" href="../index.html"/>
+    <link rel="up" title="Module code" href="index.html"/>
+</head>
+<body>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+               accesskey="I">index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+        <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li>
+    </ul>
+</div>
+
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+
+<h1>Source code for base</h1>
+
+<div class="highlight">
+<pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Base of Winterstone lib.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s">&#39;0.8.6&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;averrin&#39;</span>
+
+<span class="kn">from</span> <span class="nn">_collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">weakref</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">snowflake</span> <span class="kn">import</span> <span class="n">CWD</span>
+
+<span class="c">#from PySide import QtGui, QtCore, QtUiTools</span>
+<span class="c">#from PySide.QtGui import QMainWindow, QPushButton, QApplication</span>
+<span class="kn">import</span> <span class="nn">imp</span>
+
+<div class="viewcode-block" id="WinterManager"><a class="viewcode-back" href="../modules/base.html#base.WinterManager">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterManager</span><span class="p">(</span><span
+        class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Django ORM -like manager for WinterObject subclasses</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">cls</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">cls</span> <span class="o">=</span> <span
+            class="n">cls</span>
+
+    <div class="viewcode-block" id="WinterManager.all"><a class="viewcode-back"
+                                                          href="../modules/base.html#base.WinterManager.all">[docs]</a>
+        <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Use native object _get_all method</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">cls</span><span class="o">.</span><span class="n">_get_all</span><span class="p">()</span>
+    </div>
+    <div class="viewcode-block" id="WinterManager.count"><a class="viewcode-back"
+                                                            href="../modules/base.html#base.WinterManager.count">[docs]</a>
+        <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            return number of items</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span
+                class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+    </div>
+    <div class="viewcode-block" id="WinterManager.filter"><a class="viewcode-back"
+                                                             href="../modules/base.html#base.WinterManager.filter">[docs]</a>
+        <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="o">**</span><span
+                class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Filter criteria pass like attr = value</span>
+        <span class="sd">            TODO: __api</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span
+                class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">crit</span> <span class="ow">in</span> <span
+                class="n">kwargs</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="n">crit</span><span
+                class="p">]</span> <span class="o">==</span> <span class="n">kwargs</span><span class="p">[</span><span
+                class="n">crit</span><span class="p">]:</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">pass</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="nb">len</span><span
+                class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span
+                class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    </div>
+    <div class="viewcode-block" id="WinterManager.get"><a class="viewcode-back"
+                                                          href="../modules/base.html#base.WinterManager.get">[docs]</a>
+        <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Get only first item of filter. Without Django-like exeption about not-uniq item</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">filter</span><span class="p">(</span><span class="o">**</span><span
+                class="n">kwargs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    </div>
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span
+            class="o">.</span><span class="n">_get_all</span><span class="p">()[</span><span class="n">key</span><span
+            class="p">]</span>
+
+</div>
+<div class="viewcode-block" id="WinterObject"><a class="viewcode-back" href="../modules/base.html#base.WinterObject">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterObject</span><span class="p">(</span><span
+        class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Enhanced primitive object</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">__refs__</span> <span class="o">=</span> <span class="n">defaultdict</span><span
+            class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">__manager__</span> <span class="o">=</span> <span class="n">WinterManager</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">            Some preparations for objectmanager</span>
+    <span class="sd">        &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__refs__</span><span class="p">[</span><span
+            class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">]</span><span
+            class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weakref</span><span
+            class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span
+            class="n">objects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">__class__</span><span class="o">.</span><span class="n">__manager__</span><span class="p">(</span><span
+            class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_get_all</span><span class="p">(</span><span class="n">cls</span><span
+            class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">            Get all objects of this class</span>
+    <span class="sd">        &#39;&#39;&#39;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">inst_ref</span> <span class="ow">in</span> <span
+            class="n">cls</span><span class="o">.</span><span class="n">__refs__</span><span class="p">[</span><span
+            class="n">cls</span><span class="p">]:</span>
+    <span class="n">inst</span> <span class="o">=</span> <span class="n">inst_ref</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span
+            class="bp">None</span><span class="p">:</span>
+    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span
+            class="n">inst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>
+
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span
+            class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span
+            class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span
+            class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+    <div class="viewcode-block" id="WinterObject.info"><a class="viewcode-back"
+                                                          href="../modules/base.html#base.WinterObject.info">[docs]</a>
+        <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">30</span><span
+                class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="mi">1</span><span
+                class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Print some debug information</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">methodList</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">dir</span><span
+                class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">if</span> <span
+                class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span
+                class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span
+                class="p">))]</span>
+        <span class="n">processFunc</span> <span class="o">=</span> <span class="n">collapse</span> <span
+                class="ow">and</span> <span class="p">(</span><span class="k">lambda</span> <span
+                class="n">s</span><span class="p">:</span> <span class="s">&quot; &quot;</span><span
+                class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span
+                class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="ow">or</span>
+        <span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span
+                class="n">s</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span
+                class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="p">[</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> </span><span
+                class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span
+                class="n">method</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span
+                class="n">spacing</span><span class="p">),</span> <span class="n">processFunc</span><span
+                class="p">(</span><span class="nb">str</span><span class="p">(</span><span
+                class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">)</span><span class="o">.</span><span class="n">__doc__</span><span
+                class="p">)))</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span>
+        <span class="n">methodList</span><span class="p">])</span>
+        <span class="k">print</span> <span class="s">&#39;__dict__ =&#39;</span><span class="p">,</span> <span
+                class="bp">self</span><span class="o">.</span><span class="n">__dict__</span>
+
+    </div>
+</div>
+<div class="viewcode-block" id="Borg"><a class="viewcode-back" href="../modules/base.html#base.Borg">[docs]</a><span
+        class="k">class</span> <span class="nc">Borg</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Simple monostate class</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">_shared_state</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span> <span class="o">=</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">_shared_state</span>
+
+</div>
+<div class="viewcode-block" id="WinterAPI"><a class="viewcode-back"
+                                              href="../modules/base.html#base.WinterAPI">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterAPI</span><span class="p">(</span><span class="n">Borg</span><span
+        class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        IO API for plugins</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="n">Borg</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">icons</span> <span class="o">=</span> <span
+            class="p">{}</span>
+    <span class="n">icondir</span> <span class="o">=</span> <span class="n">CWD</span> <span class="o">+</span> <span
+            class="s">&#39;icons/&#39;</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="s">&#39;.png&#39;</span>
+    <span class="n">dirList</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span
+            class="n">listdir</span><span class="p">(</span><span class="n">icondir</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span
+            class="n">dirList</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">endswith</span><span
+            class="p">(</span><span class="n">ext</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">icons</span><span class="p">[</span><span
+            class="n">fname</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span
+            class="p">]]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span
+            class="n">icondir</span> <span class="o">+</span> <span class="n">fname</span><span class="p">)</span>
+
+    <div class="viewcode-block" id="WinterAPI.info"><a class="viewcode-back"
+                                                       href="../modules/base.html#base.WinterAPI.info">[docs]</a> <span
+            class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">msg</span><span class="p">):</span> <span class="k">pass</span>
+    </div>
+    <div class="viewcode-block" id="WinterAPI.debug"><a class="viewcode-back"
+                                                        href="../modules/base.html#base.WinterAPI.debug">[docs]</a>
+        <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span> <span
+                class="k">pass</span>
+    </div>
+    <div class="viewcode-block" id="WinterAPI.error"><a class="viewcode-back"
+                                                        href="../modules/base.html#base.WinterAPI.error">[docs]</a>
+        <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span> <span
+                class="k">pass</span>
+
+    </div>
+</div>
+<div class="viewcode-block" id="WinterPM"><a class="viewcode-back"
+                                             href="../modules/base.html#base.WinterPM">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterPM</span><span class="p">(</span><span
+        class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Plugin manager</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+
+    <div class="viewcode-block" id="WinterPM.activate"><a class="viewcode-back"
+                                                          href="../modules/base.html#base.WinterPM.activate">[docs]</a>
+        <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Activate plugin</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span
+                class="n">activate</span><span class="p">():</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="s">&#39;Activated&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">plugin</span> <span class="ow">in</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span
+                class="n">append</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span
+                class="n">e</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span>
+        <span class="bp">False</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="n">e</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span
+                class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="WinterPM.deactivate"><a class="viewcode-back"
+                                                            href="../modules/base.html#base.WinterPM.deactivate">[docs]</a>
+        <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Deactivate plugin</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">state</span>
+        <span class="o">==</span> <span class="s">&#39;Activated&#39;</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span
+                class="n">remove</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="s">&#39;Deactivated&#39;</span>
+
+    </div>
+    <div class="viewcode-block" id="WinterPM.findModules"><a class="viewcode-back"
+                                                             href="../modules/base.html#base.WinterPM.findModules">[docs]</a>
+        <span class="k">def</span> <span class="nf">findModules</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Search plugin files</span>
+        <span class="sd">            http://wiki.python.org/moin/ModulesAsPlugins</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">modules</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span
+                class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span
+                class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;plugins&#39;</span><span
+                class="p">):</span>
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span
+                class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span
+                class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;plugins/&#39;</span> <span class="o">+</span>
+        <span class="n">folder</span><span class="p">):</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span
+                class="p">(</span><span class="s">&quot;.py&quot;</span><span class="p">):</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">filename</span><span
+                class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">filename</span><span class="o">.</span><span
+                class="n">endswith</span><span class="p">(</span><span class="s">&quot;.pyc&quot;</span><span class="p">):</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">filename</span><span
+                class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">module</span> <span class="ow">is</span> <span class="ow">not</span>
+        <span class="bp">None</span><span class="p">:</span>
+        <span class="n">modules</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span
+                class="n">module</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">modules</span><span
+                class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="WinterPM.loadModule"><a class="viewcode-back"
+                                                            href="../modules/base.html#base.WinterPM.loadModule">[docs]</a>
+        <span class="k">def</span> <span class="nf">loadModule</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span
+                class="n">path</span><span class="o">=</span><span class="s">&quot;plugins/&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+        <span class="sd">            Return a named module found in a given path.</span>
+        <span class="sd">            http://wiki.python.org/moin/ModulesAsPlugins</span>
+        <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span
+                class="n">pathname</span><span class="p">,</span> <span class="n">description</span><span
+                class="p">)</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span
+                class="n">find_module</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">CWD</span> <span class="o">+</span> <span class="n">path</span> <span
+                class="o">+</span> <span class="n">name</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">imp</span><span class="o">.</span><span
+                class="n">load_module</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+        <span class="nb">file</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span>
+        <span class="n">description</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="WinterPM.processPlugin"><a class="viewcode-back"
+                                                               href="../modules/base.html#base.WinterPM.processPlugin">[docs]</a>
+        <span class="k">def</span> <span class="nf">processPlugin</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Create plugin instance from module</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span
+                class="n">module</span><span class="o">.</span><span class="n">__dict__</span><span
+                class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span
+                class="n">obj</span><span class="p">,</span> <span class="n">WinterPlugin</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span>
+        <span class="n">WinterPlugin</span><span class="p">:</span>
+        <span class="n">plugin</span> <span class="o">=</span> <span class="n">obj</span><span class="p">()</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span
+                class="n">module</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">onLoad</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">plugin</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span
+                class="p">:</span>
+        <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span
+                class="p">:</span>
+        <span class="c">#                print obj</span>
+        <span class="c">#                raise e</span>
+        <span class="k">pass</span>
+
+    </div>
+    <div class="viewcode-block" id="WinterPM.activateAll"><a class="viewcode-back"
+                                                             href="../modules/base.html#base.WinterPM.activateAll">[docs]</a>
+        <span class="k">def</span> <span class="nf">activateAll</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span
+                class="o">.</span><span class="n">plugins</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">name</span> <span
+                class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span
+                class="n">config</span><span class="o">.</span><span class="n">plugins</span><span
+                class="o">.</span><span class="n">active</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span>
+        <span class="bp">True</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="s">&#39;Activated&#39;</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span
+                class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span>
+        <span class="bp">False</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="n">e</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span
+                class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span
+                class="s">&#39;Deactivated&#39;</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span>
+        <span class="bp">False</span>
+
+    </div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span
+            class="n">config</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span
+            class="n">API</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">modules</span> <span class="o">=</span> <span
+            class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">loadModule</span><span
+            class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span
+            class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">findModules</span><span class="p">()]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span> <span class="o">=</span> <span
+            class="p">[</span><span class="bp">self</span><span class="o">.</span><span
+            class="n">processPlugin</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">]</span>
+
+</div>
+<div class="viewcode-block" id="WinterPlugin"><a class="viewcode-back" href="../modules/base.html#base.WinterPlugin">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterPlugin</span><span class="p">(</span><span
+        class="n">WinterObject</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Base plugin class</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span
+            class="n">API</span><span class="p">()</span>
+    <span class="n">WinterObject</span><span class="o">.</span><span class="n">__init__</span><span
+            class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">WinterObject</span><span class="o">.</span><span class="n">__refs__</span><span
+            class="p">[</span><span class="n">WinterPlugin</span><span class="p">]</span><span class="o">.</span><span
+            class="n">append</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span
+            class="n">ref</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <div class="viewcode-block" id="WinterPlugin.onLoad"><a class="viewcode-back"
+                                                            href="../modules/base.html#base.WinterPlugin.onLoad">[docs]</a>
+        <span class="k">def</span> <span class="nf">onLoad</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Some base actions after create instance</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">file</span><span
+                class="p">(</span><span class="n">CWD</span> <span class="o">+</span> <span
+                class="s">&#39;plugins/</span><span class="si">%s</span><span class="s">/plugin.cfg&#39;</span> <span
+                class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span
+                class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span
+                class="n">Config</span><span class="p">(</span><span class="n">cfgfile</span><span class="p">)</span>
+    </div>
+    <div class="viewcode-block" id="WinterPlugin.activate"><a class="viewcode-back"
+                                                              href="../modules/base.html#base.WinterPlugin.activate">[docs]</a>
+        <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Overload...able method for activate</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span
+                class="bp">True</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    </div>
+    <div class="viewcode-block" id="WinterPlugin.deactivate"><a class="viewcode-back"
+                                                                href="../modules/base.html#base.WinterPlugin.deactivate">[docs]</a>
+        <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Overload...able method for activate</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span
+                class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    </div>
+</div>
+<div class="viewcode-block" id="WinterApp"><a class="viewcode-back"
+                                              href="../modules/base.html#base.WinterApp">[docs]</a><span
+        class="k">class</span> <span class="nc">WinterApp</span><span class="p">(</span><span
+        class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">        Main non-gui application class</span>
+    <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">__apiclass__</span> <span class="o">=</span> <span class="n">WinterAPI</span>
+    <span class="n">__pmclass__</span> <span class="o">=</span> <span class="n">WinterPM</span>
+
+    <div class="viewcode-block" id="WinterApp.getMethod"><a class="viewcode-back"
+                                                            href="../modules/base.html#base.WinterApp.getMethod">[docs]</a>
+        <span class="k">def</span> <span class="nf">getMethod</span><span class="p">(</span><span class="bp">self</span><span
+                class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">module</span><span
+                class="o">=</span><span class="s">&#39;main&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span
+                class="n">startswith</span><span class="p">(</span><span class="s">&#39;_&#39;</span><span
+                class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">module</span> <span class="o">==</span> <span
+                class="s">&#39;core&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span
+                class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">,</span> <span
+                class="n">key</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">module</span> <span class="o">==</span> <span class="s">&#39;main&#39;</span><span
+                class="p">:</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">WinterPlugin</span><span
+                class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span
+                class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">module</span><span
+                class="p">),</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span
+                class="p">:</span>
+        <span class="k">pass</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    </div>
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span
+            class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">getMethod</span><span class="p">(</span><span class="s">&#39;main&#39;</span><span
+            class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <div class="viewcode-block" id="WinterApp.loadConfigs"><a class="viewcode-back"
+                                                              href="../modules/base.html#base.WinterApp.loadConfigs">[docs]</a>
+        <span class="k">def</span> <span class="nf">loadConfigs</span><span class="p">(</span><span
+                class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">            Load configuration from file</span>
+        <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">file</span><span
+                class="p">(</span><span class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;config/main.cfg&#39;</span><span
+                class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span
+                class="n">Config</span><span class="p">(</span><span class="n">cfgfile</span><span class="p">)</span>
+        <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">file</span><span
+                class="p">(</span><span class="n">CWD</span> <span class="o">+</span> <span class="s">&#39;config/plugins.cfg&#39;</span><span
+                class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_config</span> <span class="o">=</span>
+        <span class="n">Config</span><span class="p">(</span><span class="n">cfgfile</span><span class="p">)</span>
+        <span class="n">cfgfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    </div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span
+            class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span
+            class="n">__apiclass__</span><span class="p">()</span>
+
+    <span class="k">global</span> <span class="n">API</span>
+    <span class="n">API</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">__class__</span><span class="o">.</span><span class="n">__apiclass__</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">loadConfigs</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span
+            class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">config</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span
+            class="n">ex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span
+            class="n">getMethod</span>
+    <span class="kn">from</span> <span class="nn">core</span> <span class="kn">import</span> <span class="n">Core</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">=</span> <span
+            class="n">Core</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span
+            class="n">app</span> <span class="o">=</span> <span class="bp">self</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span
+            class="n">_afterInit</span><span class="p">()</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span
+            class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plugins</span><span
+            class="p">:</span>
+    <span class="n">WinterPlugin</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pm</span> <span class="o">=</span> <span
+            class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span
+            class="n">__pmclass__</span><span class="p">(</span><span class="bp">self</span><span
+            class="o">.</span><span class="n">p_config</span><span class="p">)</span>
+</div>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">class WinterGUI(QMainWindow):</span>
+<span class="sd">    def __init__(self, uiPath):</span>
+<span class="sd">    #        pass</span>
+<span class="sd">        QMainWindow.__init__(self)</span>
+<span class="sd">        uiFile = QtCore.QFile(uiPath)</span>
+<span class="sd">        uiFile.open(QtCore.QFile.ReadOnly)</span>
+<span class="sd">        self.loader = QtUiTools.QUiLoader()</span>
+<span class="sd">        self.win = self.loader.load(uiFile, self)</span>
+<span class="sd">        uiFile.close()</span>
+
+<span class="sd">class WinterMainApp(WinterGUI, WinterApp):</span>
+<span class="sd">    def __init__(self):</span>
+<span class="sd">        WinterApp.__init__(self)</span>
+<span class="sd">        WinterGUI.__init__(self, &#39;main.ui&#39;)</span>
+
+
+<span class="sd">class WinterSM(WinterGUI):</span>
+<span class="sd">    def __init__(self):</span>
+<span class="sd">        WinterGUI.__init__(self, &#39;main.ui&#39;)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18"/>
+                <input type="submit" value="Go"/>
+                <input type="hidden" name="check_keywords" value="yes"/>
+                <input type="hidden" name="area" value="default"/>
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+        <li class="right" style="margin-right: 10px">
+            <a href="../genindex.html" title="General Index"
+                    >index</a></li>
+        <li class="right">
+            <a href="../py-modindex.html" title="Python Module Index"
+                    >modules</a> |
+        </li>
+        <li><a href="../index.html">Winterstone v0.8.6.6 documentation</a> &raquo;</li>
+        <li><a href="index.html">Module code</a> &raquo;</li>
+    </ul>
+</div>
+<div class="footer">
+    &copy; Copyright 2011, Averrin.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.3.
+</div>
+</body>
+</html>

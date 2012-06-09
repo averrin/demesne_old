@@ -5,14 +5,15 @@ import sys
 sys.path.append('Garden')
 sys.path.append('../../Garden')
 
-from winterstone.base import WinterObject, Borg, WinterAPI
+from winterstone.base import WinterObject, WinterAPI
 from winterstone.snowflake import CWD
 from config import Config
 import weakref
 
 fAPI = WinterAPI
 
-rules = Config(file(CWD + 'rpg/rules.cfg'))
+rules = Config(open(CWD + 'rpg/rules.cfg'))
+
 
 class Eventer(object):
     def onSlotWear(self, slot, item):
@@ -53,20 +54,25 @@ class Eventer(object):
 
 eventer = Eventer()
 
-#Exceptions
-class CantWearException(Exception): pass
+
+class CantWearException(Exception):
+    pass
 
 
-class CantEquipException(Exception): pass
+class CantEquipException(Exception):
+    pass
 
 
-class CantUnEquipException(Exception): pass
+class CantUnEquipException(Exception):
+    pass
 
 
-class AlreadyDeactivatedException(Exception): pass
+class AlreadyDeactivatedException(Exception):
+    pass
 
 
-class CantActivateException(Exception): pass
+class CantActivateException(Exception):
+    pass
 
 
 class Slot(WinterObject):
@@ -157,14 +163,12 @@ class Wearable(Item):
         if self.from_set is not None:
             self.from_set.activateEnchant(slot.doll.owner)
 
-
     def onUnWear(self, slot):
         self.equipped = False
         if self.enchant is not None:
             self.enchant.deactivate()
         if self.from_set is not None:
             self.from_set.deactivateEnchant()
-
 
     def equip(self):
         if self.inv is not None:
@@ -182,44 +186,88 @@ class Wearable(Item):
             raise CantUnEquipException('Item isn\'t equipped')
 
 
-class ItemGen(dict):
+class EntityGen(dict):
+    def random(self):
+        proto = list(self.keys())[random.randint(0, len(self) - 1)]
+        return self[proto]
+
+
+class EnchantGen(EntityGen):
+    def __getitem__(self, key):
+        prototype = dict.__getitem__(self, key).copy()
+        enchant = Enchant(**prototype)
+        return enchant
+
+
+class EffectGen(EntityGen):
+    def __getitem__(self, key):
+        prototype = dict.__getitem__(self, key).copy()
+        itemclass = prototype['type']
+        del prototype['type']
+        effect = itemclass(**prototype)
+        omin = int(effect.value / 4 - (effect.value / 4) * 1.5)
+        omax = int(effect.value / 4 + (effect.value / 4) * 1.5)
+        offset = random.randint(0 - int(omin), int(omax))
+
+        effect.value += int(offset)
+
+        return effect
+
+
+class ItemGen(EntityGen):
     def __getitem__(self, key):
         prototype = dict.__getitem__(self, key).copy()
         itemclass = prototype['type']
         del prototype['type']
         item = itemclass(**prototype)
         if isinstance(item, Armor):
-            omin = item.defense / 4 - (item.defense / 4) * item.quality / 10
-            omax = item.defense / 4 + (item.defense / 4) * item.quality / 10
-            offset = random.randint(0 - omin, omax)
+            omin = int(item.defense / 4 - (item.defense / 4) * item.quality / 10)
+            omax = int(item.defense / 4 + (item.defense / 4) * item.quality / 10)
+            offset = random.randint(0 - int(omin), int(omax))
             if offset > 0 and hasattr(self, 'owner'):
                 offset *= (1 + self.owner.Luck / 100)
-            item.defense += offset
+            item.defense += int(offset)
         elif isinstance(item, Weapon):
             omin = item.damage / 4 - (item.damage / 4) * item.quality / 10
             omax = item.damage / 4 + (item.damage / 4) * item.quality / 10
-            offset = random.randint(0 - omin, omax)
+            offset = random.randint(0 - int(omin), int(omax))
             if offset > 0 and hasattr(self, 'owner'):
                 offset *= (1 + self.owner.Luck / 100)
-            item.damage += offset
+            item.damage += int(offset)
         return item
+
+    def randomEnchant(self, item):
+        enchant = list(Enchants.values())[random.randint(0, len(Enchants) - 1)]
+        if hasattr(enchant, 'except_classes') and item.__class__ in enchant.except_classes or\
+            hasattr(enchant, 'only_classes') and item.__class__ not in enchant.only_classes or\
+            hasattr(enchant, 'for_set') and enchant.for_set:
+            return self.randomEnchant(item)
+        item.setEnchant(enchant)
 
     def setOwner(self, owner):
         self.owner = owner
 
-    def random(self):
-        proto = self.keys()[random.randint(0, len(self) - 1)]
+    def random(self, enchant=1):
+        proto = list(self.keys())[random.randint(0, len(self) - 1)]
         while 'rarity' in dict.__getitem__(self, proto) and dict.__getitem__(self, proto)['rarity'] > 9:
-            proto = self.keys()[random.randint(0, len(self) - 1)]
+            proto = list(self.keys())[random.randint(0, len(self) - 1)]
         item = self[proto]
+        if enchant:
+            if enchant == 1:
+                pass
+            else:
+                self.randomEnchant(item)
         return item
 
 
 ItemPrototypes = ItemGen()
 Items = {}
 Effects = {}
+EffectPrototypes = EffectGen()
 Enchants = {}
+EnchantPrototypes = EnchantGen()
 Sets = {}
+
 
 class Set(WinterObject):
     def __init__(self, name, items, enchant):
@@ -259,7 +307,6 @@ class Set(WinterObject):
             self.enchant.activate(target)
             eventer.onSetActivate(self)
 
-
     def deactivateEnchant(self):
         try:
             self.enchant.deactivate()
@@ -282,7 +329,6 @@ class Inventory(object):
         for item in self.items:
             all_weight += item.weight
         return all_weight
-
 
     def canGet(self, item):
         all_weight = self.calcWeight()
@@ -399,14 +445,14 @@ class Effect(WinterObject):
 
 
 class Enchant(WinterObject):
-    def __init__(self, name, effects=None, icon=rules.DefaultIcon, namepostfix=''):
-        WinterObject.__init__(self)
+    def __init__(self, name, effects=None, icon=rules.DefaultIcon, namepostfix='', **kwargs):
+        WinterObject.__init__(self, **kwargs)
         self.name = name
         self.effects = []
         self.icon = icon
         self.namepostfix = namepostfix
         if effects is not None:
-            if type(effects).__name__ == 'list':
+            if isinstance(effects, list):
                 for effect in effects:
                     if isinstance(effect, Effect):
                         self.effects.append(effect)
@@ -431,6 +477,6 @@ class Enchant(WinterObject):
         eventer.onEnchantDeActivate(self)
 
 
-from itemtypes import *
-from effecttypes import *
-from creatures import *
+from .itemtypes import *
+from .effecttypes import *
+from .creatures import *

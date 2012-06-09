@@ -1,29 +1,31 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from datetime import datetime, time
+from datetime import datetime
 
 starttime = datetime.now()
 
-import sys, os
+import sys
 
 
 sys.path.append('Garden')
+sys.path.append('../Garden')
 sys.path.append('../../Garden')
-from winterstone.extraQt import WinterLine
 
 from winterstone.snowflake import *
-from winterstone.extraQt import WinterEditor, WinterDirTree
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from winterstone.extraQt import WinterSideBar
 
-from winterstone.baseQt import WinterQtApp, API, WinterAction, SBAction, WinterAPI
+from winterstone.baseQt import WinterQtApp, API
 
 from rpg.base import *
 from ui import *
 
 __author__ = 'averrin'
+
+print(CWD)
+
 
 class UI(WinterQtApp):
     """
@@ -36,7 +38,6 @@ class UI(WinterQtApp):
         """
         WinterQtApp.__init__(self, app)
 
-
     def _afterMWInit(self):
         """
             Fired after MainWindow initialisation
@@ -48,7 +49,17 @@ class UI(WinterQtApp):
         """
             Fired after WinterApp initialisation
         """
+        widget = QWidget()
+        widget.setLayout(QFormLayout())
+        self.name = QLineEdit()
+        widget.layout().addRow(self.tr('Name'), self.name)
+        widget.layout().addRow('', QPushButton('Create'))
+        widget.layout().setAlignment(Qt.AlignTop)
+#        widget.layout()
+        self.setMainWidget(widget)
+        self.startGame()
 
+    def startGame(self):
         widget = QTabWidget(self)
         widget.setLayout(QVBoxLayout())
         self.inv = InventoryPanel(self, self.core.hero)
@@ -74,7 +85,7 @@ class UI(WinterQtApp):
         #        widget.layout().addWidget(self.status)
         self.log.setTitleBarWidget(self.status)
 
-        panel = QStackedWidget()
+        # panel = QStackedWidget()
         # tables.layout().addWidget(panel,1,1)
 
         self.setMainWidget(widget)
@@ -95,19 +106,16 @@ class UI(WinterQtApp):
         vt.layout().addWidget(reroll)
 
 #        widget.addTab(vt, icon, 'Vault')
-
-
         self.core.start()
 
-        self.createSBAction('dummy', 'Vault', vt, toolbar=True, keyseq='F5')
-        self.api.setBadge('Vault','black','0')
+        self.createSBAction('Icons/inv_misc_bag_10', 'Vault', vt, toolbar=True, keyseq='F5')
+#        self.api.setBadge('Vault','white','new','black')
+        # self.api.setProgress('Vault', 60, '#6666ff')
+
 #        self.api.setEmblem('Vault','red')
 #        self.api.delBadge('Vault')
 #        SBAction.objects.get(title='Vault').setAlpha(100)
-
-
-
-
+#        self.api.flashAction('Vault',3)
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
@@ -126,19 +134,23 @@ def main():
     qtTranslator = QTranslator()
     if qtTranslator.load(CWD + "lang/%s.qm" % QLocale.system().name()):
         qtapp.installTranslator(qtTranslator)
-        print QLocale.system().name(), qtapp.tr('Translate loaded')
+        print(QLocale.system().name(), qtapp.tr('Translate loaded'))
     ui = UI(qtapp)
 
-    ui.show()
-    api = API()
+    if ui.config.options.ui.maximized:
+        ui.showMaximized()
+    else:
+        ui.show()
+    # api = ui.api
 
-    if api.config.options.app.showRavenor:
-        showRavenor(ui)
+    # if api.config.options.app.showRavenor:
+    #     showRavenor(ui)
 
     endtime = datetime.now()
     delta = endtime - starttime
     ui.api.info('Initialization time: %s' % delta)
 
+    print('Started')
     qtapp.exec_()
 
 
@@ -177,5 +189,3 @@ def showRavenor(ui):
 
 if __name__ == '__main__':
     main()
-
-

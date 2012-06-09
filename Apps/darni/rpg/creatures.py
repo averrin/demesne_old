@@ -1,4 +1,5 @@
-from base import *
+from .base import *
+
 
 class Creature(WinterObject):
     def __init__(self, name):
@@ -42,7 +43,6 @@ class Creature(WinterObject):
         item = Sets[setname].getItem(self)
         if item:
             self.addItem(item)
-
 
     @property
     def Defense(self):
@@ -115,5 +115,3 @@ class Hero(Humanoid):
         # self.Dmg_Str = 1
         # self.Dmg_Agl = 1
         # self.Dmg_Spd = 1
-
-        
