@@ -1,3 +1,0 @@
-$=jQuery
-
-humanMsg.displayMsg('ololo');
