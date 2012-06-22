@@ -24,8 +24,6 @@ from ui import *
 
 __author__ = 'averrin'
 
-print(CWD)
-
 
 class UI(WinterQtApp):
     """

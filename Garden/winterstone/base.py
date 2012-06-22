@@ -95,14 +95,12 @@ class WinterMeta(type):
         Custom metaclass
     """
     def __call__(cls, **kwargs):
-        print("meta call")
         obj = super(WinterMeta, cls).__call__()
         for name, value in kwargs.items():
             setattr(obj, name, value)
         return obj
 
     def __new__(cls, **kwargs):
-        print("meta new")
         obj = super(WinterMeta, cls).__call__()
         for name, value in kwargs.items():
             setattr(obj, name, value)
@@ -128,7 +126,6 @@ class WinterObject(object):
         WinterObject.objects = WinterObject.__manager__(WinterObject)
 
         for name, value in kwargs.items():
-            print(name, value)
             setattr(self, name, value)
 
     @classmethod
@@ -193,6 +190,7 @@ class WinterAPI(Borg):
     """
         IO API for plugins
     """
+    _shared_state = {}
 
     def __init__(self):
         Borg.__init__(self)

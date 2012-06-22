@@ -6,6 +6,7 @@ sys.path.append('Garden')
 sys.path.append('../../Garden')
 
 from winterstone.base import WinterObject, WinterAPI
+from winterstone.baseQt import WinterPool, WinterRunnable, WINTERPOOL
 from winterstone.snowflake import CWD
 from config import Config
 import weakref
@@ -23,6 +24,9 @@ class Eventer(object):
         pass
 
     def onEffectActivate(self, effect):
+        pass
+
+    def onEffectShot(self, effect):
         pass
 
     def onEffectDeActivate(self, effect):
@@ -419,6 +423,7 @@ class Effect(WinterObject):
         self.icon = icon
         self.short_info = self.info
         self.info_postfix = ''
+        self.activated = False
 
     @property
     def info(self):
@@ -429,16 +434,21 @@ class Effect(WinterObject):
             self.target = target
             try:
                 self._activate()
+                self.activated = True
                 eventer.onEffectActivate(self)
             except Exception as e:
                 self.target = None
                 raise CantActivateException(str(e))
+            self.target.onChange()
 
     def deactivate(self):
         if self.deactivate is not None:
             if self.target is not None:
                 self._deactivate()
+                self.activated = False
+                target = self.target
                 self.target = None
+                target.onChange()
                 eventer.onEffectDeActivate(self)
             else:
                 raise AlreadyDeactivatedException('Effect already deactivated')

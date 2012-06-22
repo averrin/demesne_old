@@ -29,18 +29,24 @@ class Mapping(dict):
         if isinstance(attr, str) and attr.upper() in tf:
             return tf[str(attr).upper()]
         elif isinstance(attr, dict):
-                m = Mapping()
-                m.update(attr)
-                attr = m
+            m = Mapping()
+            m.update(attr)
+            m._total_convert()
+            attr = m
         elif attr in [b'True', b'False']:
             attr = eval(attr)
+        elif isinstance(attr, bytes):
+            attr = str(attr, 'utf8')
 
-        # if type(attr) == unicode:
-        #     attr = str(attr)
         return attr
 
+    def _total_convert(self):
+        for attr in self:
+            r = self[attr]
+            self[attr] = Mapping._convert(r)
+
     def __setattr__(self, key, value):
-        # print(key, value)
+        print(key, value)
         dict.__setitem__(self, key, value)
         # print('---', dict.__getitem__(self, key))
 
@@ -66,6 +72,7 @@ class Config(object):
         if isinstance(attr, dict):
                 m = Mapping()
                 m.update(attr)
+                m._total_convert()
                 attr = m
                 self._dict[key] = attr
         return attr
@@ -73,20 +80,22 @@ class Config(object):
     def __getitem__(self, key):
         attr = self._dict[key]
         if isinstance(attr, dict):
-                m = Mapping()
-                m.update(attr)
-                attr = m
+            m = Mapping()
+            m.update(attr)
+            m._total_convert()
+            attr = m
         return attr
 
     def save(self, cfg_file):
-        # for attr in self._dict:
-        #     r = self._dict[attr]
-        #     if isinstance(r, Mapping) and hasattr(r, 'parent'):
-        #         try:
-        #             del r['parent']
-        #         except:
-        #             pass
-        # print(self._dict)
+        for attr in self._dict:
+            r = self._dict[attr]
+            if isinstance(r, dict):
+                m = Mapping()
+                m.update(r)
+                r = m
+            if isinstance(r, Mapping):
+                r._total_convert()
+            self._dict[attr] = r
         dump = json.dumps(self._dict, sort_keys=True, indent=4)
         cfg_file.write(dump[1:][:-1])
 

@@ -727,3 +727,443 @@
 [09.06 12:02:52] INFO:		Plugins initialised
 [09.06 12:02:53] INFO:		Application initialised
 [09.06 12:02:53] INFO:		Initialization time: 0:00:05.343862
+[21.06 15:55:10] INFO:		======
+[21.06 15:55:24] INFO:		======
+[21.06 15:55:55] INFO:		======
+[21.06 15:55:58] INFO:		Plugins initialised
+[21.06 15:55:59] INFO:		Application initialised
+[21.06 15:56:00] INFO:		Initialization time: 0:00:05.174952
+[21.06 15:57:37] INFO:		======
+[21.06 15:57:38] INFO:		Plugins initialised
+[21.06 15:57:38] INFO:		Application initialised
+[21.06 15:57:38] INFO:		Initialization time: 0:00:01.796169
+[21.06 16:22:37] INFO:		======
+[21.06 16:23:21] INFO:		======
+[21.06 16:24:05] INFO:		======
+[21.06 16:24:17] INFO:		======
+[21.06 16:24:51] INFO:		======
+[21.06 16:24:53] INFO:		Plugins initialised
+[21.06 16:24:54] INFO:		Application initialised
+[21.06 16:24:54] INFO:		Initialization time: 0:00:03.408169
+[21.06 16:25:42] INFO:		======
+[21.06 16:25:43] INFO:		Plugins initialised
+[21.06 16:25:43] INFO:		Application initialised
+[21.06 16:25:43] INFO:		Initialization time: 0:00:00.564074
+[21.06 16:27:55] INFO:		======
+[21.06 16:27:56] INFO:		Plugins initialised
+[21.06 16:27:56] INFO:		Application initialised
+[21.06 16:27:56] INFO:		Initialization time: 0:00:00.457117
+[21.06 16:29:44] INFO:		======
+[21.06 16:29:44] INFO:		Plugins initialised
+[21.06 16:29:44] INFO:		Application initialised
+[21.06 16:29:44] INFO:		Initialization time: 0:00:00.749771
+[21.06 17:11:52] INFO:		======
+[21.06 17:11:55] INFO:		Plugins initialised
+[21.06 17:11:58] INFO:		Application initialised
+[21.06 17:11:58] INFO:		Initialization time: 0:00:07.690660
+[21.06 17:35:16] INFO:		======
+[21.06 17:35:19] INFO:		Plugins initialised
+[21.06 17:35:19] INFO:		Application initialised
+[21.06 17:35:20] INFO:		Initialization time: 0:00:03.766830
+[21.06 17:39:11] INFO:		======
+[22.06 13:34:30] INFO:		======
+[22.06 13:34:42] INFO:		======
+[22.06 13:34:56] INFO:		Plugins initialised
+[22.06 13:34:57] INFO:		Application initialised
+[22.06 13:34:57] INFO:		Initialization time: 0:00:15.758814
+[22.06 13:35:57] INFO:		======
+[22.06 13:39:04] INFO:		======
+[22.06 13:39:04] INFO:		Plugins initialised
+[22.06 13:39:04] INFO:		Application initialised
+[22.06 13:39:04] INFO:		Initialization time: 0:00:00.515609
+[22.06 13:45:01] INFO:		======
+[22.06 13:45:03] INFO:		Plugins initialised
+[22.06 13:45:03] INFO:		Application initialised
+[22.06 13:45:04] INFO:		Initialization time: 0:00:03.380036
+[22.06 13:46:26] INFO:		======
+[22.06 13:47:12] INFO:		======
+[22.06 13:48:32] INFO:		======
+[22.06 13:48:33] INFO:		Plugins initialised
+[22.06 13:48:33] INFO:		Application initialised
+[22.06 13:48:33] INFO:		Initialization time: 0:00:00.682509
+[22.06 13:49:16] INFO:		======
+[22.06 13:49:25] INFO:		======
+[22.06 13:49:26] INFO:		Plugins initialised
+[22.06 13:49:26] INFO:		Application initialised
+[22.06 13:49:26] INFO:		Initialization time: 0:00:00.379400
+[22.06 13:50:31] INFO:		======
+[22.06 13:50:32] INFO:		Plugins initialised
+[22.06 13:50:32] INFO:		Application initialised
+[22.06 13:50:32] INFO:		Initialization time: 0:00:00.320860
+[22.06 13:51:22] INFO:		======
+[22.06 13:51:23] INFO:		Plugins initialised
+[22.06 13:51:23] INFO:		Application initialised
+[22.06 13:51:23] INFO:		Initialization time: 0:00:00.427016
+[22.06 13:54:41] INFO:		======
+[22.06 13:54:42] INFO:		Plugins initialised
+[22.06 13:54:42] INFO:		Application initialised
+[22.06 13:54:42] INFO:		Initialization time: 0:00:00.901778
+[22.06 13:57:17] INFO:		======
+[22.06 13:57:17] INFO:		Plugins initialised
+[22.06 13:57:17] INFO:		Application initialised
+[22.06 13:57:17] INFO:		Initialization time: 0:00:00.446199
+[22.06 13:58:06] INFO:		======
+[22.06 13:58:13] INFO:		======
+[22.06 13:58:14] INFO:		Plugins initialised
+[22.06 13:58:14] INFO:		Application initialised
+[22.06 13:58:14] INFO:		Initialization time: 0:00:00.524317
+[22.06 13:58:21] INFO:		======
+[22.06 13:58:21] INFO:		Plugins initialised
+[22.06 13:58:21] INFO:		Application initialised
+[22.06 13:58:21] INFO:		Initialization time: 0:00:00.510487
+[22.06 13:58:30] INFO:		======
+[22.06 13:58:31] INFO:		Plugins initialised
+[22.06 13:58:31] INFO:		Application initialised
+[22.06 13:58:31] INFO:		Initialization time: 0:00:01.101008
+[22.06 14:01:39] INFO:		======
+[22.06 14:01:41] INFO:		Plugins initialised
+[22.06 14:01:41] INFO:		Application initialised
+[22.06 14:01:41] INFO:		Initialization time: 0:00:01.995548
+[22.06 14:04:09] INFO:		======
+[22.06 14:04:11] INFO:		Plugins initialised
+[22.06 14:04:12] INFO:		Application initialised
+[22.06 14:04:12] INFO:		Initialization time: 0:00:03.576808
+[22.06 14:05:49] INFO:		======
+[22.06 14:05:50] INFO:		Plugins initialised
+[22.06 14:06:14] INFO:		======
+[22.06 14:06:14] INFO:		Plugins initialised
+[22.06 14:06:15] INFO:		Application initialised
+[22.06 14:06:15] INFO:		Initialization time: 0:00:01.116454
+[22.06 14:06:44] INFO:		======
+[22.06 14:06:44] INFO:		Plugins initialised
+[22.06 14:06:44] INFO:		Application initialised
+[22.06 14:06:44] INFO:		Initialization time: 0:00:00.501541
+[22.06 14:07:26] INFO:		======
+[22.06 14:07:26] INFO:		Plugins initialised
+[22.06 14:07:26] INFO:		Application initialised
+[22.06 14:07:26] INFO:		Initialization time: 0:00:00.413815
+[22.06 14:07:58] INFO:		======
+[22.06 14:07:58] INFO:		Plugins initialised
+[22.06 14:07:58] INFO:		Application initialised
+[22.06 14:07:58] INFO:		Initialization time: 0:00:00.511094
+[22.06 14:09:16] INFO:		======
+[22.06 14:09:16] INFO:		Plugins initialised
+[22.06 14:09:17] INFO:		Application initialised
+[22.06 14:09:17] INFO:		Initialization time: 0:00:00.376938
+[22.06 14:09:25] INFO:		======
+[22.06 14:09:27] INFO:		Plugins initialised
+[22.06 14:09:27] INFO:		Application initialised
+[22.06 14:09:27] INFO:		Initialization time: 0:00:02.541695
+[22.06 14:10:32] INFO:		======
+[22.06 14:10:33] INFO:		Plugins initialised
+[22.06 14:10:48] INFO:		======
+[22.06 14:10:48] INFO:		Plugins initialised
+[22.06 14:12:28] INFO:		======
+[22.06 14:12:28] INFO:		Plugins initialised
+[22.06 14:12:28] INFO:		Application initialised
+[22.06 14:12:28] INFO:		Initialization time: 0:00:00.538584
+[22.06 14:16:23] INFO:		======
+[22.06 14:16:24] INFO:		Plugins initialised
+[22.06 14:16:24] INFO:		Application initialised
+[22.06 14:16:24] INFO:		Initialization time: 0:00:00.805870
+[22.06 14:18:31] INFO:		======
+[22.06 14:18:31] INFO:		Plugins initialised
+[22.06 14:18:31] INFO:		Application initialised
+[22.06 14:18:31] INFO:		Initialization time: 0:00:00.566504
+[22.06 14:18:49] INFO:		======
+[22.06 14:18:50] INFO:		Plugins initialised
+[22.06 14:18:50] INFO:		Application initialised
+[22.06 14:18:50] INFO:		Initialization time: 0:00:00.940994
+[22.06 14:19:27] INFO:		======
+[22.06 14:19:27] INFO:		Plugins initialised
+[22.06 14:19:27] INFO:		Application initialised
+[22.06 14:19:28] INFO:		Initialization time: 0:00:00.548278
+[22.06 14:26:18] INFO:		======
+[22.06 14:26:26] INFO:		Plugins initialised
+[22.06 14:27:14] INFO:		======
+[22.06 14:27:15] INFO:		Plugins initialised
+[22.06 14:27:54] INFO:		======
+[22.06 14:27:54] INFO:		Plugins initialised
+[22.06 14:28:24] INFO:		======
+[22.06 14:28:24] INFO:		Plugins initialised
+[22.06 14:28:24] INFO:		Application initialised
+[22.06 14:28:25] INFO:		Initialization time: 0:00:00.686881
+[22.06 14:33:44] INFO:		======
+[22.06 14:33:44] INFO:		Plugins initialised
+[22.06 14:33:45] INFO:		Application initialised
+[22.06 14:33:45] INFO:		Initialization time: 0:00:00.895903
+[22.06 14:37:50] INFO:		======
+[22.06 14:38:08] INFO:		======
+[22.06 14:38:08] INFO:		Plugins initialised
+[22.06 14:38:08] INFO:		Application initialised
+[22.06 14:38:08] INFO:		Initialization time: 0:00:00.390293
+[22.06 14:40:11] INFO:		======
+[22.06 14:40:17] INFO:		======
+[22.06 14:40:17] INFO:		Plugins initialised
+[22.06 14:40:17] INFO:		Application initialised
+[22.06 14:40:18] INFO:		Initialization time: 0:00:00.632020
+[22.06 14:40:55] INFO:		======
+[22.06 14:40:56] INFO:		Plugins initialised
+[22.06 14:40:56] INFO:		Application initialised
+[22.06 14:40:56] INFO:		Initialization time: 0:00:01.263106
+[22.06 14:43:54] INFO:		======
+[22.06 14:43:54] INFO:		Plugins initialised
+[22.06 14:43:54] INFO:		Application initialised
+[22.06 14:43:55] INFO:		Initialization time: 0:00:00.495659
+[22.06 14:44:41] INFO:		======
+[22.06 14:44:45] INFO:		======
+[22.06 14:44:46] INFO:		Plugins initialised
+[22.06 14:44:46] INFO:		Application initialised
+[22.06 14:44:46] INFO:		Initialization time: 0:00:00.590907
+[22.06 14:46:23] INFO:		======
+[22.06 14:46:24] INFO:		Plugins initialised
+[22.06 14:47:21] INFO:		======
+[22.06 14:47:21] INFO:		Plugins initialised
+[22.06 14:47:21] INFO:		Application initialised
+[22.06 14:47:22] INFO:		Initialization time: 0:00:00.682741
+[22.06 14:47:45] INFO:		======
+[22.06 14:47:45] INFO:		Plugins initialised
+[22.06 14:47:45] INFO:		Application initialised
+[22.06 14:47:45] INFO:		Initialization time: 0:00:00.541282
+[22.06 14:51:41] INFO:		======
+[22.06 14:51:41] INFO:		Plugins initialised
+[22.06 14:51:42] INFO:		Application initialised
+[22.06 14:51:42] INFO:		Initialization time: 0:00:00.753678
+[22.06 14:52:19] INFO:		======
+[22.06 14:52:19] INFO:		Plugins initialised
+[22.06 14:52:20] INFO:		Application initialised
+[22.06 14:52:20] INFO:		Initialization time: 0:00:00.925109
+[22.06 14:52:25] INFO:		======
+[22.06 14:52:25] INFO:		Plugins initialised
+[22.06 14:52:25] INFO:		Application initialised
+[22.06 14:52:25] INFO:		Initialization time: 0:00:00.693956
+[22.06 14:54:14] INFO:		======
+[22.06 14:54:14] INFO:		Plugins initialised
+[22.06 14:54:14] INFO:		Application initialised
+[22.06 14:54:15] INFO:		Initialization time: 0:00:00.747233
+[22.06 15:02:12] INFO:		======
+[22.06 15:02:13] INFO:		Plugins initialised
+[22.06 15:02:13] INFO:		Application initialised
+[22.06 15:02:13] INFO:		Initialization time: 0:00:01.101979
+[22.06 15:03:21] INFO:		======
+[22.06 15:03:21] INFO:		Plugins initialised
+[22.06 15:03:21] INFO:		Application initialised
+[22.06 15:03:22] INFO:		Initialization time: 0:00:00.744240
+[22.06 15:03:40] INFO:		======
+[22.06 15:03:40] INFO:		Plugins initialised
+[22.06 15:03:40] INFO:		Application initialised
+[22.06 15:03:40] INFO:		Initialization time: 0:00:00.672886
+[22.06 15:03:57] INFO:		======
+[22.06 15:03:58] INFO:		Plugins initialised
+[22.06 15:03:58] INFO:		Application initialised
+[22.06 15:03:58] INFO:		Initialization time: 0:00:00.709177
+[22.06 15:04:05] INFO:		======
+[22.06 15:04:06] INFO:		Plugins initialised
+[22.06 15:04:06] INFO:		Application initialised
+[22.06 15:04:06] INFO:		Initialization time: 0:00:01.185830
+[22.06 15:05:44] INFO:		======
+[22.06 15:05:45] INFO:		Plugins initialised
+[22.06 15:05:45] INFO:		Application initialised
+[22.06 15:05:45] INFO:		Initialization time: 0:00:00.796126
+[22.06 15:10:55] INFO:		======
+[22.06 15:10:56] INFO:		Plugins initialised
+[22.06 15:10:56] INFO:		Application initialised
+[22.06 15:10:56] INFO:		Initialization time: 0:00:01.436522
+[22.06 15:11:26] INFO:		======
+[22.06 15:11:35] INFO:		======
+[22.06 15:11:35] INFO:		Plugins initialised
+[22.06 15:11:35] INFO:		Application initialised
+[22.06 15:11:36] INFO:		Initialization time: 0:00:01.145048
+[22.06 15:12:45] INFO:		======
+[22.06 15:12:46] INFO:		Plugins initialised
+[22.06 15:12:46] INFO:		Application initialised
+[22.06 15:12:46] INFO:		Initialization time: 0:00:00.531330
+[22.06 15:13:04] INFO:		======
+[22.06 15:13:05] INFO:		Plugins initialised
+[22.06 15:13:05] INFO:		Application initialised
+[22.06 15:13:05] INFO:		Initialization time: 0:00:00.793949
+[22.06 15:14:00] INFO:		======
+[22.06 15:14:01] INFO:		Plugins initialised
+[22.06 15:14:01] INFO:		Application initialised
+[22.06 15:14:01] INFO:		Initialization time: 0:00:01.031008
+[22.06 15:14:18] INFO:		======
+[22.06 15:14:18] INFO:		Plugins initialised
+[22.06 15:14:19] INFO:		Application initialised
+[22.06 15:14:19] INFO:		Initialization time: 0:00:00.975498
+[22.06 15:14:46] INFO:		======
+[22.06 15:14:47] INFO:		Plugins initialised
+[22.06 15:14:47] INFO:		Application initialised
+[22.06 15:14:47] INFO:		Initialization time: 0:00:00.615561
+[22.06 15:15:03] INFO:		======
+[22.06 15:15:05] INFO:		Plugins initialised
+[22.06 15:15:06] INFO:		Application initialised
+[22.06 15:15:08] INFO:		Initialization time: 0:00:02.970184
+[22.06 15:15:20] INFO:		======
+[22.06 15:15:21] INFO:		Plugins initialised
+[22.06 15:15:21] INFO:		Application initialised
+[22.06 15:15:21] INFO:		Initialization time: 0:00:00.953093
+[22.06 15:38:04] INFO:		======
+[22.06 15:38:12] INFO:		Plugins initialised
+[22.06 15:38:12] INFO:		Application initialised
+[22.06 15:38:13] INFO:		Initialization time: 0:00:10.150278
+[22.06 15:40:17] INFO:		======
+[22.06 15:40:20] INFO:		Plugins initialised
+[22.06 15:40:20] INFO:		Application initialised
+[22.06 15:40:20] INFO:		Initialization time: 0:00:04.279460
+[22.06 16:00:19] INFO:		======
+[22.06 16:00:20] INFO:		Plugins initialised
+[22.06 16:00:20] INFO:		Application initialised
+[22.06 16:00:21] INFO:		Initialization time: 0:00:02.294816
+[22.06 16:01:12] INFO:		======
+[22.06 16:01:14] INFO:		Plugins initialised
+[22.06 16:01:14] INFO:		Application initialised
+[22.06 16:01:14] INFO:		Initialization time: 0:00:02.525689
+[22.06 16:04:03] INFO:		======
+[22.06 16:04:03] INFO:		Plugins initialised
+[22.06 16:04:03] INFO:		Application initialised
+[22.06 16:04:04] INFO:		Initialization time: 0:00:01.294541
+[22.06 16:05:00] INFO:		======
+[22.06 16:05:00] INFO:		Plugins initialised
+[22.06 16:05:00] INFO:		Application initialised
+[22.06 16:05:01] INFO:		Initialization time: 0:00:01.262122
+[22.06 16:19:49] INFO:		======
+[22.06 16:20:01] INFO:		Plugins initialised
+[22.06 16:20:02] INFO:		Application initialised
+[22.06 16:20:03] INFO:		Initialization time: 0:00:15.548942
+[22.06 16:20:59] INFO:		======
+[22.06 16:21:02] INFO:		Plugins initialised
+[22.06 16:21:02] INFO:		Application initialised
+[22.06 16:21:02] INFO:		Initialization time: 0:00:03.904039
+[22.06 16:21:18] INFO:		======
+[22.06 16:21:19] INFO:		Plugins initialised
+[22.06 16:21:20] INFO:		Application initialised
+[22.06 16:21:20] INFO:		Initialization time: 0:00:01.692501
+[22.06 16:24:28] INFO:		======
+[22.06 16:24:30] INFO:		Plugins initialised
+[22.06 16:24:30] INFO:		Application initialised
+[22.06 16:24:30] INFO:		Initialization time: 0:00:02.453830
+[22.06 16:24:36] INFO:		======
+[22.06 16:24:37] INFO:		Plugins initialised
+[22.06 16:24:38] INFO:		Application initialised
+[22.06 16:24:38] INFO:		Initialization time: 0:00:01.682187
+[22.06 16:25:00] INFO:		======
+[22.06 16:25:00] INFO:		Plugins initialised
+[22.06 16:25:00] INFO:		Application initialised
+[22.06 16:25:00] INFO:		Initialization time: 0:00:00.965897
+[22.06 16:25:12] ERROR:		boom
+[22.06 16:25:23] INFO:		boom
+[22.06 16:25:28] ERROR:		'API' object is not callable
+[22.06 16:25:36] DEBUG:		boom
+[22.06 16:25:45] ERROR:		'QTextEdit' object has no attribute 'text'
+[22.06 16:27:10] INFO:		======
+[22.06 16:27:11] INFO:		Plugins initialised
+[22.06 16:27:11] INFO:		Application initialised
+[22.06 16:27:12] INFO:		Initialization time: 0:00:02.348242
+[22.06 16:28:19] INFO:		======
+[22.06 16:28:19] INFO:		Plugins initialised
+[22.06 16:28:19] INFO:		Application initialised
+[22.06 16:28:19] INFO:		Initialization time: 0:00:00.825947
+[22.06 16:28:48] INFO:		======
+[22.06 16:28:49] INFO:		Plugins initialised
+[22.06 16:28:49] INFO:		Application initialised
+[22.06 16:28:49] INFO:		Initialization time: 0:00:00.897545
+[22.06 16:30:01] INFO:		======
+[22.06 16:30:02] INFO:		Plugins initialised
+[22.06 16:30:02] INFO:		Application initialised
+[22.06 16:30:03] INFO:		Initialization time: 0:00:01.786851
+[22.06 16:31:04] INFO:		======
+[22.06 16:31:04] INFO:		Plugins initialised
+[22.06 16:31:04] INFO:		Application initialised
+[22.06 16:31:05] INFO:		Initialization time: 0:00:01.577383
+[22.06 16:31:42] INFO:		======
+[22.06 16:31:43] INFO:		Plugins initialised
+[22.06 16:31:43] INFO:		Application initialised
+[22.06 16:31:43] INFO:		Initialization time: 0:00:00.805571
+[22.06 16:32:45] INFO:		======
+[22.06 16:32:45] INFO:		Plugins initialised
+[22.06 16:32:45] INFO:		Application initialised
+[22.06 16:32:46] INFO:		Initialization time: 0:00:00.993337
+[22.06 16:33:48] INFO:		======
+[22.06 16:33:48] INFO:		Plugins initialised
+[22.06 16:33:48] INFO:		Application initialised
+[22.06 16:33:48] INFO:		Initialization time: 0:00:01.232599
+[22.06 16:34:34] INFO:		======
+[22.06 16:34:35] INFO:		Plugins initialised
+[22.06 16:34:35] INFO:		Application initialised
+[22.06 16:34:35] INFO:		Initialization time: 0:00:01.727715
+[22.06 16:35:09] INFO:		======
+[22.06 16:35:10] INFO:		Plugins initialised
+[22.06 16:35:10] INFO:		Application initialised
+[22.06 16:35:11] INFO:		Initialization time: 0:00:01.513740
+[22.06 16:37:20] INFO:		======
+[22.06 16:37:20] INFO:		Plugins initialised
+[22.06 16:37:20] INFO:		Application initialised
+[22.06 16:37:20] INFO:		Initialization time: 0:00:00.686907
+[22.06 16:39:31] INFO:		======
+[22.06 16:39:32] INFO:		Plugins initialised
+[22.06 16:39:32] INFO:		Application initialised
+[22.06 16:39:33] INFO:		Initialization time: 0:00:01.346621
+[22.06 16:52:52] INFO:		======
+[22.06 16:52:53] INFO:		Plugins initialised
+[22.06 16:52:53] INFO:		Application initialised
+[22.06 16:52:53] INFO:		Initialization time: 0:00:02.265182
+[22.06 16:54:30] INFO:		======
+[22.06 16:54:30] INFO:		Plugins initialised
+[22.06 16:54:31] INFO:		Application initialised
+[22.06 16:54:31] INFO:		Initialization time: 0:00:01.383814
+[22.06 16:55:11] INFO:		======
+[22.06 16:55:12] INFO:		Plugins initialised
+[22.06 16:55:12] INFO:		Application initialised
+[22.06 16:55:12] INFO:		Initialization time: 0:00:01.055499
+[22.06 16:56:02] INFO:		======
+[22.06 16:56:03] INFO:		Plugins initialised
+[22.06 16:56:03] INFO:		Application initialised
+[22.06 16:56:03] INFO:		Initialization time: 0:00:01.274296
+[22.06 16:56:52] INFO:		======
+[22.06 16:56:53] INFO:		Plugins initialised
+[22.06 16:56:53] INFO:		Application initialised
+[22.06 16:56:53] INFO:		Initialization time: 0:00:01.200186
+[22.06 16:59:18] INFO:		======
+[22.06 16:59:18] INFO:		Plugins initialised
+[22.06 16:59:19] INFO:		Application initialised
+[22.06 16:59:19] INFO:		Initialization time: 0:00:01.280633
+[22.06 17:00:06] INFO:		======
+[22.06 17:00:07] INFO:		Plugins initialised
+[22.06 17:00:07] INFO:		Application initialised
+[22.06 17:00:08] INFO:		Initialization time: 0:00:01.261413
+[22.06 17:00:37] INFO:		======
+[22.06 17:00:38] INFO:		Plugins initialised
+[22.06 17:00:38] INFO:		Application initialised
+[22.06 17:00:38] INFO:		Initialization time: 0:00:01.053173
+[22.06 17:00:59] INFO:		======
+[22.06 17:01:00] INFO:		Plugins initialised
+[22.06 17:01:00] INFO:		Application initialised
+[22.06 17:01:00] INFO:		Initialization time: 0:00:01.205218
+[22.06 17:02:51] INFO:		======
+[22.06 17:02:51] INFO:		Plugins initialised
+[22.06 17:02:51] INFO:		Application initialised
+[22.06 17:02:51] INFO:		Initialization time: 0:00:00.905587
+[22.06 17:05:15] INFO:		======
+[22.06 17:05:16] INFO:		Plugins initialised
+[22.06 17:05:16] INFO:		Application initialised
+[22.06 17:05:16] INFO:		Initialization time: 0:00:00.996285
+[22.06 17:08:59] INFO:		======
+[22.06 17:09:00] INFO:		Plugins initialised
+[22.06 17:09:00] INFO:		Application initialised
+[22.06 17:09:01] INFO:		Initialization time: 0:00:02.036813
+[22.06 17:10:40] INFO:		======
+[22.06 17:10:42] INFO:		Plugins initialised
+[22.06 17:10:42] INFO:		Application initialised
+[22.06 17:10:42] INFO:		Initialization time: 0:00:03.227983
+[22.06 17:11:23] INFO:		======
+[22.06 17:11:24] INFO:		Plugins initialised
+[22.06 17:11:24] INFO:		Application initialised
+[22.06 17:11:25] INFO:		Initialization time: 0:00:01.236355
+[22.06 17:12:38] INFO:		======
+[22.06 17:12:39] INFO:		Plugins initialised
+[22.06 17:12:39] INFO:		Application initialised
+[22.06 17:12:39] INFO:		Initialization time: 0:00:00.799443
+[22.06 17:13:41] INFO:		======
+[22.06 17:13:41] INFO:		Plugins initialised
+[22.06 17:13:42] INFO:		Application initialised
+[22.06 17:13:42] INFO:		Initialization time: 0:00:01.453912

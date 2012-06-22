@@ -36,7 +36,9 @@ class Core(QObject):
         eventer.onSlotWear = self.updateSlot
         eventer.onSlotUnWear = self.clearSlot
         eventer.onEnchantActivate = self.onEffectActivate
+        eventer.onEffectShot = self.onEffectShot
         eventer.onEnchantDeActivate = self.onEffectDeActivate
+        eventer.onEffectDeActivate = self.onEffectDeActivate
         eventer.onSetActivate = self.onSetActivate
         eventer.onSetDeActivate = self.onSetDeActivate
         eventer.onUse = self.onUse
@@ -122,6 +124,9 @@ class Core(QObject):
         self.app.status.update()
 
     def onEffectActivate(self, effect):
+        self.api.effect(self.tr('%s activated' % effect.name))
+
+    def onEffectShot(self, effect):
         self.api.effect(self.tr('%s activated' % effect.name))
 
     def onEffectDeActivate(self, effect):

@@ -39,11 +39,12 @@ EffectPrototypes['ModSt5p'] = {'type': ModifierPercent, 'prop': 'Strength', 'nam
 Effects['ModSt5'] = EffectPrototypes['ModSt5']
 Effects['ModSt5p'] = EffectPrototypes['ModSt5p']
 
+Effects['DModAg5'] = DurableModifier('Agility', 'Agility', 5, icon='Icons/ability_rogue_sprint', every=1000, total=3000)
 
 Effects['ModAg5'] = Modifier('Agility', 'Agility', 5, icon='Icons/ability_rogue_sprint')
 Effects['ModSt15'] = Modifier('Strength', 'Strength', 15, icon='Icons/spell_nature_strength')
 Effects['ModAg15'] = Modifier('Agility', 'Agility', 15, icon='Icons/ability_rogue_sprint')
-EnchantPrototypes['Swift'] = {'name': 'Swift', 'effects': [Effects['ModSt5'], Effects['ModAg5']], 'icon': 'Icons/ability_rogue_sprint'}
+EnchantPrototypes['Swift'] = {'name': 'Swift', 'effects': [Effects['ModSt5'], Effects['DModAg5']], 'icon': 'Icons/ability_rogue_sprint'}
 EnchantPrototypes['SSwift'] = {'name': 'Cryptonian Set', 'effects': [Effects['ModSt15'], Effects['ModAg15'], Effects['Superman']], 'for_set': True}
 Enchants['Defense'] = Enchant('Armor class', [Effects['ModDef15']], 'Icons/inv_chest_plate05', except_classes=[Weapon])
 Effects['ModInt15'] = Modifier('Brain boost', 'Intelligence', 15, icon='Icons/spell_shadow_brainwash')

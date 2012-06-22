@@ -9,7 +9,7 @@ try:
     DBUS_SUPPORT = True
 except:
     DBUS_SUPPORT = False
-from winterstone.base import WinterApp, WinterAPI, WinterObject
+from winterstone.base import WinterApp, WinterAPI, WinterObject, Borg
 from winterstone.winterBug import *
 from winterstone.extraQt import *
 from winterstone.extraQt import WinterSideBar
@@ -359,22 +359,34 @@ class SettingsManager(QMainWindow):
 
         def setEditorData(self, editor, index):
             wtype = type(editor).__name__
+            value = index.model().data(index, Qt.EditRole)
             exec('editor.%s' % self.methods[wtype]['set'])
 
         def setModelData(self, editor, model, index):
+            self.model = model
             wtype = type(editor).__name__
-            exec('value = editor.%s' % self.methods[wtype]['get'])
+            line = 'editor.%s' % self.methods[wtype]['get']
+            value = eval(line)
             model.setData(index, value, Qt.EditRole)
 
         def updateEditorGeometry(self, editor, option, index):
             editor.setGeometry(option.rect)
 
-    class settingsTable(QTableWidget):
-        def fill(self, conf, conf_file, parent):
+    class settingsTable(QTableWidget, WinterObject):
+
+        def __init__(self, parent=None):
+            QTableWidget.__init__(self, parent)
+            WinterObject.__init__(self)
+
+        def fill(self, main_conf, key, conf_file, parent):
             self.parent = parent
             self.parent.configs.append(self)
-            self.conf = conf
-            self.conf_dict = conf
+            self.main_conf = main_conf
+            self.key = key
+            self.conf_dict = main_conf
+            for k in key.split('.'):
+                if k:
+                    self.conf_dict = self.conf_dict[k]
             self.conf_file = conf_file
             sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             sizePolicy.setHorizontalStretch(0)
@@ -451,14 +463,17 @@ class SettingsManager(QMainWindow):
                 self.parent.statusBar.showMessage('%s change to %s' % (item.name, item.text()))
 
         def save(self):
+            """
+                Okey, its horrible. And executed much more times than needed.
+            """
+            kk = ''
+            for k in self.key.split('.'):
+                if k:
+                    kk += '["%s"]' % k
+            line = "self.main_conf._dict%s = self.conf_dict" % kk
+            exec(line)
             f = open(self.conf_file, 'w')
-            # while True:
-            #     try:
-            #         self.conf = self.conf.parent
-            #     except AttributeError:
-            #         print(self.conf)
-            #         break
-            self.main_conf.save(f)  # bugged
+            self.main_conf.save(f)
 
     def addPage(self, widget, label, parent='', icon=''):
         self.stack.addWidget(widget)
@@ -522,10 +537,10 @@ class SettingsManager(QMainWindow):
         self.cancelButton = QPushButton('Cancel', self.centralwidget)
         self.horizontalLayout.addWidget(self.cancelButton)
         self.restartButton = QPushButton('Apply and Restart', self.centralwidget)
-        self.restartButton.setEnabled(False)
+        # self.restartButton.setEnabled(False)
         self.horizontalLayout.addWidget(self.restartButton)
         self.applyButton = QPushButton('Apply', self.centralwidget)
-        self.applyButton.setEnabled(False)
+        # self.applyButton.setEnabled(False)
         self.horizontalLayout.addWidget(self.applyButton)
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -541,8 +556,7 @@ class SettingsManager(QMainWindow):
         self.setWindowIcon(QIcon.fromTheme('configure', QIcon(self.app.api.icons['configure'])))
 
         self.tableWidget = self.settingsTable()
-        self.tableWidget.main_conf = self.app.config
-        self.tableWidget.fill(self.app.config.options, CWD + 'config/main.cfg', self)
+        self.tableWidget.fill(self.app.config, 'options', CWD + 'config/main.cfg', self)
         self.sttab = self.addPage(self.tableWidget, 'General', icon='configure')
         self.tables = [self.tableWidget]
         for var in self.app.config.options:
@@ -550,18 +564,16 @@ class SettingsManager(QMainWindow):
             if type(val).__name__ == 'Mapping':
                 if not self.app.schema[var].hide:
                     st = self.settingsTable(self.tableWidget)
-                    st.main_conf = self.app.config
                     self.tables.append(st)
-                    st.fill(val, CWD + 'config/main.cfg', self)
+                    st.fill(self.app.config, 'options.%s' % var, CWD + 'config/main.cfg', self)
                     self.ui = self.addPage(st, self.app.schema[var].title, icon=QIcon(self.app.schema[var].icon),
                         parent=self.sttab.item)
         self.stack.setCurrentWidget(self.sttab)
 
         if self.app.config.options.debug:
             self.dbgTable = self.settingsTable(self.stack)
-            self.dbgTable.main_conf = self.app.config
             self.tables.append(self.dbgTable)
-            self.dbgTable.fill(self.app.debugger.config.options, CWD + 'config/debug.cfg', self)
+            self.dbgTable.fill(self.app.debugger.config, 'options', CWD + 'config/debug.cfg', self)
             self.dbgtab = self.addPage(self.dbgTable, 'Debug', icon='warning')
 
         if self.app.config.options.plugins:
@@ -579,9 +591,8 @@ class SettingsManager(QMainWindow):
             for plugin in self.app.pm.plugins:
                 if plugin.active:
                     st = self.settingsTable(self.tabPlugins)
-                    st.main_conf = self.app.config
                     self.tables.append(st)
-                    st.fill(plugin.config.options, '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
+                    st.fill(plugin.config, 'options', '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
                     plugin.icon = QIcon(os.path.abspath(plugin.config.info.icon))
                     plugin.st = st
                     self.addPage(st, plugin.name, self.tabPlugins.item, icon=plugin.icon)
@@ -614,10 +625,9 @@ class SettingsManager(QMainWindow):
                 item = plugin.st.item
                 self.stack.removeWidget(plugin.st)
                 st = self.settingsTable(self.stack)
-                st.main_conf = self.app.config
                 plugin.st = st
                 item.page = st
-                st.fill(plugin.config, '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
+                st.fill(plugin.config, '', '%splugins/%s/plugin.cfg' % (CWD, plugin.name), self)
                 self.stack.addWidget(st)
             else:
                 self.tree.removeItemWidget(plugin.st.item, 0)
@@ -634,10 +644,8 @@ class SettingsManager(QMainWindow):
             self.listWidget.addItem(item)
 
     def applyOptions(self):
-        for cfg in self.configs:
-            cfg.save()
-        if self.app.config.options.plugins:
-            self.savePlugins()
+        for table in self.settingsTable.objects.all():
+            table.save()
         self.close()
 
     def restart(self):
@@ -918,7 +926,7 @@ class WinterQtApp(QMainWindow, WinterApp, QObject):
         print(widget)
 
     def createAction(self, icon, name, method, module='main', keyseq='', toolbar=False):
-        if type(icon).__name__ != 'QIcon' and icon:
+        if not isinstance(icon, QIcon) and icon:
             icon = QIcon.fromTheme(icon, QIcon(self.api.icons[icon]))
         elif not icon:
             icon = QIcon()
@@ -1019,3 +1027,64 @@ def save(obj):
         return snowflake.save(obj, filename)
     else:
         return False
+
+
+class WinterPool(Borg, list):
+    _shared_state = {}
+
+    def __init__(self):
+        Borg.__init__(self)
+
+    def append(self, worker):
+        QThreadPool.globalInstance().start(worker)
+        list.append(self, worker)
+
+    def remove(self, worker):
+        list.remove(self, worker)
+        worker._stop()
+
+WINTERPOOL = WinterPool()
+
+
+class WinterRunnable(WinterObject, QRunnable):
+    def __init__(self, every, total=0, **kwargs):
+        WinterObject.__init__(self, **kwargs)
+        QRunnable.__init__(self)
+        self.setAutoDelete(False)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self._shot)
+        self.every = every
+        self.total = total
+        self.sum = 0
+
+        self.first = True
+
+    def firstShot(self):
+        pass
+
+    def lastShot(self):
+        pass
+
+    def run(self):
+        if self.first:
+            self.first = False
+            self.firstShot()
+        self.timer.start(self.every)
+
+    def _shot(self):
+        self.shot()
+        self.sum += self.every
+        print(self.sum, self.every, self.total)
+        if self.total and self.sum > (self.total - self.every):
+            self.lastShot()
+            self.timer.stop()
+
+    def shot(self):
+        pass
+
+    def _stop(self):
+        self.timer.stop()
+        self.stop()
+
+    def stop(self):
+        pass
